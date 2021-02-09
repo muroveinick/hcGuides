@@ -89,6 +89,9 @@ footer a {
 }
 .mat-drawer {
   padding: 6px;
+  min-width: 160px;
+  display: flex;
+  justify-content: center;
 }
 
 button {

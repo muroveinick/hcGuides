@@ -1,6 +1,4 @@
 <div class="toolbar" role="banner">
-
-
   <ng-container class="d-flex p-2">
     <button mat-icon-button (click)="drawer.toggle()">
       <mat-icon>menu</mat-icon>
@@ -16,32 +14,23 @@
       <use xlink:href="assets/img/icons.svg#twitter-logo" />
     </svg>
   </a>
-
 </div>
 
-<mat-drawer-container autosize>
+<mat-drawer-container autosize class="col-12">
   <mat-drawer #drawer mode="side">
     <nav>
-      <div routerLink="/calc">dsadsadas</div>
-      <div routerLink="/test">wqeqwewq</div>
+      <ng-container *ngFor="let i of nav">
+        <div [routerLink]="i.route">{{ i.name }}</div>
+      </ng-container>
     </nav>
   </mat-drawer>
-  <mat-drawer-content>
-    <nav>
-      <div routerLink="/calc">dsadsadas</div>
-      <div routerLink="/test">wqeqwewq</div>
-    </nav>
+
+
+  <mat-drawer-content class="col-12">
+    <router-outlet></router-outlet>
+
 
   </mat-drawer-content>
-
-
 </mat-drawer-container>
 
-
-<div class="content" role="main"></div>
-
-
-
-
-
-<router-outlet></router-outlet>
+<div></div>
