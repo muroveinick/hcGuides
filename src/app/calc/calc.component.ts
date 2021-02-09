@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 import { data } from './data';
 
@@ -11,23 +11,44 @@ import { data } from './data';
 export class CalcComponent implements OnInit {
   constructor() {}
   data: any;
-  default = "qq"
+  default = {
+    level: 80,
+    startedSoul: 0,
+    goalSouls: 70000,
+    banner: 0,
+    hunters: 0,
+    multiply: 1,
+    isStartedSouls: false,
+  };
 
   ngOnInit(): void {
-    
     this.data = data;
 
     console.log(this.data.hunters || 'asda');
-
   }
-  emailFormControl = new FormControl('', [
+  portalLevel = new FormControl('', [
     Validators.min(1),
     Validators.max(125),
-    Validators.pattern(/\d{1,3}/)
+    Validators.pattern(/\d{1,3}/),
+  ]);
+  goalSouls = new FormControl('', [
+    Validators.min(100),
+    Validators.max(1250000000),
+    Validators.pattern(/\d{1,}/),
   ]);
 
+  startedSoul = new FormControl('', [
+    Validators.min(100),
+    Validators.max(1250000000),
+    Validators.pattern(/\d{1,}/),
+  ]);
+  
   checkkValid(level: any) {
-    console.log(`${!!level} +" wqw"+ ${typeof +level === 'number'} +" "+  ${(level <= 125) }+"   "+  ${(level > 0)}`)
-    return !!level && typeof +level === 'number' && (level <= 125) && (level > 0);
+    // console.log(
+    //   `${!!level} +" wqw"+ ${typeof +level === 'number'} +" "+  ${
+    //     level <= 125
+    //   }+"   "+  ${level > 0}`
+    // );
+    return !!level && typeof +level === 'number' && level <= 125 && level > 0;
   }
 }

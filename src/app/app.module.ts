@@ -14,11 +14,19 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 const appRoutes: Routes = [
   { path: 'calc', component: CalcComponent },
   { path: '', redirectTo: '/calc', pathMatch: 'full' },
   { path: 'test', component: TestComponent },
+];
+const MAT_UI_MODULES = [
+  MatIconModule,
+  MatInputModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatCheckboxModule,
 ];
 
 @NgModule({
@@ -31,13 +39,10 @@ const appRoutes: Routes = [
       // { enableTracing: true } // <-- debugging purposes only
     ),
     BrowserAnimationsModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSelectModule,
     NgbModule,
+    MAT_UI_MODULES,
   ],
   providers: [],
   bootstrap: [AppComponent],
