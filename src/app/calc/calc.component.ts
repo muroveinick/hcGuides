@@ -69,7 +69,7 @@ export class CalcComponent implements OnInit {
           (this.data.souls[`${this.default.level}`] *
           this.default.multiply *
           this.default.banner
-            ? this.default.banner + 1
+            ? this.default.banner
             : 1)) *
         this.data.apples[`${this.default.level}`];
     }
