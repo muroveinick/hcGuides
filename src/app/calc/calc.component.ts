@@ -13,7 +13,7 @@ export class CalcComponent implements OnInit {
   default = {
     level: 80,
     startedSouls: 100,
-    startedDarkerSouls: 100,
+    // startedDarkerSouls: 100,
     goalSouls: 70000,
     banner: 0,
     hunters: 0,
@@ -38,16 +38,16 @@ export class CalcComponent implements OnInit {
       Validators.max(1250000000),
       Validators.pattern(/\d{1,}/),
     ]),
-    startedSoul: new FormControl('', [
+    startedSouls: new FormControl('', [
       Validators.min(100),
       Validators.max(1250000000),
       Validators.pattern(/\d{1,}/),
     ]),
-    startedDarkerSouls: new FormControl('', [
-      Validators.min(100),
-      Validators.max(1250000000),
-      Validators.pattern(/\d{1,}/),
-    ]),
+    // startedDarkerSouls: new FormControl('', [
+    //   Validators.min(100),
+    //   Validators.max(1250000000),
+    //   Validators.pattern(/\d{1,}/),
+    // ]),
   });
 
   checkkValid(level: any) {
@@ -65,27 +65,44 @@ export class CalcComponent implements OnInit {
 
     if (this.form.valid) {
       requiredApples =
-        (this.default.goalSouls /
-          (this.data.souls[`${this.default.level}`] *
-          this.default.multiply *
-          this.default.banner
-            ? this.default.banner
-            : 1)) *
-        this.data.apples[`${this.default.level}`];
+        Math.ceil(
+          (this.default.goalSouls -
+            (this.default.startedSouls ? this.default.startedSouls : 0)) /
+            (this.data.souls[`${this.default.level}`] *
+              this.default.multiply *
+              (this.default.banner ? this.default.banner : 1) *
+              (this.default.hunters ? this.default.hunters : 1))
+        ) * this.data.apples[`${this.default.level}`];
+
+      if (this.default.startedSouls > this.default.goalSouls) {
+        return "Уже хватает😀"
+      }
     }
 
     return this.form.valid && this.default.level
       ? this.default.level < 81
-        ? `Яблок на нижний портал ${Math.trunc(
+        ? `Яблок на нижний портал ${this.formatToSepString(
             requiredApples
           )}, потребуется ${Math.trunc(
             requiredApples / this.data.apples[`${this.default.level}`]
           )} заходов`
-        : `Яблок на верхний портал ${Math.trunc(
+        : `Яблок на верхний портал ${this.formatToSepString(
             requiredApples
           )}, потребуется ${Math.trunc(
             requiredApples / this.data.apples[`${this.default.level}`]
           )} заходов`
       : '¯\\_(ツ)_/¯';
+  }
+
+  formatToSepString(number: number) {
+    return number
+      .toString()
+      .split('')
+      .reverse()
+      .join('')
+      .match(/\d{1,3}/g)
+      .reverse()
+      .map((i) => i.split('').reverse().join(''))
+      .join('.');
   }
 }

@@ -39,16 +39,16 @@
 
 			<mat-form-field *ngIf="this.default.isStartedSouls">
 				<mat-label>Имеющиеся Души</mat-label>
-				<input matInput [(ngModel)]="this.default.startedSouls" type="number" value="2" formControlName="startedSoul"
+				<input matInput [(ngModel)]="this.default.startedSouls" type="number" value="2" formControlName="startedSouls"
 					pattern="\d{1,}" />
-				<mat-error *ngIf="form.get('startedSoul').hasError('max')">
-					Вы же не собираетесь скупить вообще весь портал?
+				<mat-error *ngIf="form.get('startedSouls').hasError('max')">
+					Сохранили души с прошлых порталов?
 				</mat-error>
-				<mat-error *ngIf="form.get('startedSoul').hasError('min') || form.get('startedSoul').hasError('pattern')">
+				<mat-error *ngIf="form.get('startedSouls').hasError('min') || form.get('startedSouls').hasError('pattern')">
 					Хотя бы 100 душ
 				</mat-error>
 			</mat-form-field>
-
+<!-- 
 			<mat-form-field *ngIf="this.default.isStartedSouls">
 				<mat-label>Имеющиеся Очень Темные Души</mat-label>
 				<input matInput [(ngModel)]="this.default.startedDarkerSouls" type="number" value="2"
@@ -60,7 +60,7 @@
 					*ngIf="form.get('startedDarkerSouls').hasError('min') || form.get('startedDarkerSouls').hasError('pattern')">
 					Хотя бы 100 душ
 				</mat-error>
-			</mat-form-field>
+			</mat-form-field> -->
 		</div>
 
 
