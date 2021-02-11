@@ -1,6 +1,6 @@
 <div class="toolbar" role="banner">
   <ng-container class="d-flex p-2">
-    <button mat-icon-button (click)="drawer.toggle()" class="d-flex">
+    <button mat-icon-button (click)="this.toggle()" class="d-flex px-2">
       <mat-icon color="white">menu</mat-icon>
     </button>
   </ng-container>
@@ -16,20 +16,19 @@
   </a>
 </div>
 
-<mat-drawer-container autosize class="col-12">
-  <mat-drawer #drawer mode="side">
+<mat-drawer-container autosize class="col-12 p-0">
+  <mat-drawer mode="side">
     <nav>
       <ng-container *ngFor="let i of nav">
-        <div [routerLink]="i.route">{{ i.name }}</div>
+        <button mat-stroked-button [routerLink]="i.route" class="w-100">{{ i.name }}</button>
+        <!-- <div [routerLink]="i.route">{{ i.name }}</div> -->
       </ng-container>
     </nav>
   </mat-drawer>
 
 
-  <mat-drawer-content class="col-12">
+  <mat-drawer-content>
     <router-outlet></router-outlet>
-
-
   </mat-drawer-content>
 </mat-drawer-container>
 

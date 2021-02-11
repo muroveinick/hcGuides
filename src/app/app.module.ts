@@ -15,11 +15,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
+import { StatsComponent } from './stats/stats.component';
+
 
 const appRoutes: Routes = [
   { path: 'calc', component: CalcComponent },
   { path: '', redirectTo: '/calc', pathMatch: 'full' },
   { path: 'test', component: TestComponent },
+  { path: 'stats', component: StatsComponent },
 ];
 const MAT_UI_MODULES = [
   MatIconModule,
@@ -27,10 +31,11 @@ const MAT_UI_MODULES = [
   MatSelectModule,
   MatSidenavModule,
   MatCheckboxModule,
+  MatButtonModule,
 ];
 
 @NgModule({
-  declarations: [AppComponent, CalcComponent, TestComponent],
+  declarations: [AppComponent, CalcComponent, TestComponent, StatsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -47,4 +52,4 @@ const MAT_UI_MODULES = [
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

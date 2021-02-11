@@ -1,0 +1,11 @@
+:host {
+  justify-content: center;
+  display: flex;
+}
+
+.wrapper {
+  justify-content: center;
+  > div {
+    width: 100%;
+  }
+}
