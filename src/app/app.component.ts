@@ -11,7 +11,7 @@ export class AppComponent {
 
 
   nav = [
-    { route: '/calc', name: 'Калькулятор' },
+    { route: '/calc', name: 'Калькулятор Портала' },
     { route: '/stats', name: 'Калькулятор статов' },
     { route: '/test', name: 'lists' },
   ];

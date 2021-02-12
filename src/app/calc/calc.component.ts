@@ -8,13 +8,10 @@ import { data } from './data';
   styleUrls: ['./calc.component.scss'],
 })
 export class CalcComponent implements OnInit {
-  constructor() {}
+  constructor() { }
   data: any;
+  
   default = {
-    level: 80,
-    startedSouls: 100,
-    // startedDarkerSouls: 100,
-    goalSouls: 70000,
     banner: 0,
     hunters: 0,
     multiply: 1,
@@ -24,7 +21,12 @@ export class CalcComponent implements OnInit {
   ngOnInit(): void {
     this.data = data;
 
-    console.log(this.data.hunters || 'asda');
+    // console.log(this.data.hunters || 'asda');
+    this.form.setValue({
+      portalLevel: 80,
+      goalSouls: 70000,
+      startedSouls: 0
+    });
   }
 
   form = new FormGroup({
@@ -39,7 +41,7 @@ export class CalcComponent implements OnInit {
       Validators.pattern(/\d{1,}/),
     ]),
     startedSouls: new FormControl('', [
-      Validators.min(100),
+      Validators.min(0),
       Validators.max(1250000000),
       Validators.pattern(/\d{1,}/),
     ]),
@@ -55,37 +57,40 @@ export class CalcComponent implements OnInit {
   }
 
   showResult() {
-    console.log(this.form.getRawValue(), this.form.valid);
+    // console.log(this.form.getRawValue(), this.form.valid);
     let requiredApples: number;
+    let finalData: any = this.form.getRawValue();
+    console.log(finalData)
+    // console.log(finalData.level)
 
     if (this.form.valid) {
       requiredApples =
         Math.ceil(
-          (this.default.goalSouls -
-            (this.default.startedSouls ? this.default.startedSouls : 0)) /
-            (this.data.souls[`${this.default.level}`] *
-              this.default.multiply *
-              (this.default.banner ? this.default.banner : 1) *
-              (this.default.hunters ? this.default.hunters : 1))
-        ) * this.data.apples[`${this.default.level}`];
+          (finalData.goalSouls -
+            (finalData.startedSouls ? finalData.startedSouls : 0)) /
+          (this.data.souls[`${finalData.portalLevel}`] *
+            this.default.multiply *
+            (this.default.banner ? this.default.banner : 1) *
+            (this.default.hunters ? this.default.hunters : 1))
+        ) * this.data.apples[`${finalData.portalLevel}`];
 
-      if (this.default.startedSouls > this.default.goalSouls) {
+      if (finalData.startedSouls >finalData.goalSouls) {
         return "Уже хватает😀"
       }
     }
 
-    return this.form.valid && this.default.level
-      ? this.default.level < 81
+    return this.form.valid && finalData.portalLevel
+      ? finalData.portalLevel < 81
         ? `Яблок на нижний портал ${this.formatToSepString(
-            requiredApples
-          )}, потребуется ${Math.trunc(
-            requiredApples / this.data.apples[`${this.default.level}`]
-          )} заходов`
+          requiredApples
+        )}, потребуется ${Math.trunc(
+          requiredApples / this.data.apples[`${finalData.portalLevel}`]
+        )} заходов`
         : `Яблок на верхний портал ${this.formatToSepString(
-            requiredApples
-          )}, потребуется ${Math.trunc(
-            requiredApples / this.data.apples[`${this.default.level}`]
-          )} заходов`
+          requiredApples
+        )}, потребуется ${Math.trunc(
+          requiredApples / this.data.apples[`${finalData.portalLevel}`]
+        )} заходов`
       : '¯\\_(ツ)_/¯';
   }
 

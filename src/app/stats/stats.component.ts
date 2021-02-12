@@ -9,47 +9,63 @@ import { data } from './data';
 })
 export class StatsComponent implements OnInit {
   data: object;
+
+
   default: {
-    aLevel: 100,
     aPhysArmor: 0,
     aMageArmor: 0,
     aCrit: 0,
     aDodge: 0,
-    dLevel: 100,
+    /////
     dPhysArmor: 0,
     dMageArmor: 0,
     dCrit: 0,
     dDodge: 0,
   }
 
-  options: string[] = ['One', 'Two', 'Three'];
-  levels: string[] = Object.keys(data.hidden_dodge)
+  // options: string[] = ['One', 'Two', 'Three'];
+  // levels: string[] = Object.keys(data.hidden_dodge)
 
   constructor() { }
+
+
+
+
+  form = new FormGroup({
+    aLevel: new FormControl('', [Validators.min(1), Validators.max(100),]),
+    dLevel: new FormControl('', [Validators.min(1), Validators.max(100),]),
+    dMageArmor: new FormControl('', [Validators.min(0),]),
+    dPhysArmor: new FormControl('', [Validators.min(0),]),
+    dCrit: new FormControl('', [Validators.min(0),]),
+    dDodge: new FormControl('', [Validators.min(0),]),
+  });
+
+
 
   ngOnInit(): void {
     this.data = data;
     console.log(this.data)
     // console.log(Object.keys(data.hidden_dodge))
+    this.form.setValue({
+      aLevel: 100,
+      dLevel: 100,
+      dPhysArmor: 0,
+      dMageArmor: 0,
+      dCrit: 0,
+      dDodge: 0
+    })
   }
 
-
-  form = new FormGroup({
-    aLevel: new FormControl('', []),
-    goalSouls: new FormControl('', [
-      Validators.min(100),
-      Validators.max(1250000000),
-      Validators.pattern(/\d{1,}/),
-    ]),
-    startedSouls: new FormControl('', [
-      Validators.min(100),
-      Validators.max(1250000000),
-      Validators.pattern(/\d{1,}/),
-    ]),
-  });
-
-
-
-
+  showResult() {
+    let data = this.form.getRawValue()
+    let res: object[] =[];
+    // console.log(this.form.getRawValue())
+    // if (data.dPhysArmor)
+    // res.push({})
+    for (let controlValue in data) {
+      if (data[controlValue]) res.push({ controlValue : data[controlValue] })
+    }
+    console.log(res)
+  }
 
 }
