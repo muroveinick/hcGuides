@@ -7,7 +7,6 @@ import { CalcComponent } from './calc/calc.component';
 import { RouterModule, Routes } from '@angular/router';
 import { TestComponent } from './test/test.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -17,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { StatsComponent } from './stats/stats.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 const appRoutes: Routes = [
@@ -32,6 +32,7 @@ const MAT_UI_MODULES = [
   MatSidenavModule,
   MatCheckboxModule,
   MatButtonModule,
+  MatAutocompleteModule,
 ];
 
 @NgModule({

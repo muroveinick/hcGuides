@@ -43,11 +43,6 @@ export class CalcComponent implements OnInit {
       Validators.max(1250000000),
       Validators.pattern(/\d{1,}/),
     ]),
-    // startedDarkerSouls: new FormControl('', [
-    //   Validators.min(100),
-    //   Validators.max(1250000000),
-    //   Validators.pattern(/\d{1,}/),
-    // ]),
   });
 
   checkkValid(level: any) {
