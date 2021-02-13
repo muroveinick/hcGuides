@@ -57,11 +57,8 @@ export class CalcComponent implements OnInit {
   }
 
   showResult() {
-    // console.log(this.form.getRawValue(), this.form.valid);
     let requiredApples: number;
     let finalData: any = this.form.getRawValue();
-    console.log(finalData)
-    // console.log(finalData.level)
 
     if (this.form.valid) {
       requiredApples =
