@@ -59,7 +59,7 @@
 
 
 			<mat-form-field appearance="fill">
-				<mat-label>Уровень Знамя</mat-label>
+				<mat-label>Уровень Знамени</mat-label>
 				<mat-select [(ngModel)]="this.default.banner" [ngModelOptions]="{standalone: true}" name="food">
 					<mat-option *ngFor="let banner of this.data.banner" [value]="banner.value">
 						{{banner.viewValue}}
@@ -72,7 +72,7 @@
 				<mat-label>Множитель душ</mat-label>
 				<mat-select [(ngModel)]="this.default.multiply" [ngModelOptions]="{standalone: true}" name="food">
 					<mat-option *ngFor="let multiply of this.data.x_buff" [value]="multiply.value">
-						{{multiply.value}}
+						{{multiply.viewValue}}
 					</mat-option>
 				</mat-select>
 			</mat-form-field>

@@ -97,8 +97,13 @@ footer a {
   max-width: 220px;
   display: flex;
   justify-content: center;
+  // transform: translate3d(-80%, 0, 0);
+  // visibility: visible !important;
   > div {
     overflow-x: hidden;
+  }
+  mat-icon {
+    font-size: 26px;
   }
 }
 

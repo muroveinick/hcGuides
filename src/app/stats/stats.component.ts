@@ -71,24 +71,25 @@ export class StatsComponent implements OnInit {
   showResult(keyString: string) {
     if (this.form.valid)
       for (let [key, value] of Object.entries(this.form.getRawValue())) {
-        // console.log(key)
-        // {
-        typeof this.output[`${key}`] === "object"
-          ? this.output[`${key}`]['input'] = value
-          : this.output[`${key}`] = value
+        console.log(value)
+        if (value !== null) {
+          typeof this.output[`${key}`] === "object"
+            ? this.output[`${key}`]['input'] = value
+            : this.output[`${key}`] = value
 
 
-        if (key === "PhysArmor" || key === "MageArmor") {
-          this.output[`${key}`]['value'] = this.calculateArmor(key)
+          if (key === "PhysArmor" || key === "MageArmor") {
+            this.output[`${key}`]['value'] = this.calculateArmor(key)
+          }
+          if (key === "Dodge") {
+            this.output[`${key}`]['value'] = this.cacalculateDodge("Dodge")
+          }
+          if (key === "Crit") {
+            this.output[`${key}`]['value'] = this.calculateCrit("Crit")
+          }
         }
-        if (key === "Dodge") {
-          this.output[`${key}`]['value'] = this.cacalculateDodge("Dodge")
-        }
-        if (key === "Crit") {
-          this.output[`${key}`]['value'] = this.calculateCrit("Crit")
-        }
-        // }
       }
+    console.log(this.output)
     return this.getValue(keyString)
 
 

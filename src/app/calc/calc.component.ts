@@ -64,7 +64,7 @@ export class CalcComponent implements OnInit {
       requiredApples =
         Math.ceil(
           (finalData.goalSouls -
-            (finalData.startedSouls ? finalData.startedSouls : 0)) /
+            (finalData.startedSouls&&this.default.isStartedSouls ? finalData.startedSouls : 0)) /
           (this.data.souls[`${finalData.portalLevel}`] *
             this.default.multiply *
             (this.default.banner ? this.default.banner : 1) *
@@ -78,12 +78,12 @@ export class CalcComponent implements OnInit {
 
     return this.form.valid && finalData.portalLevel
       ? finalData.portalLevel < 81
-        ? `Яблок на нижний портал ${this.formatToSepString(
+        ? `Яблок на Тёмные души ${this.formatToSepString(
           requiredApples
         )}, потребуется ${Math.trunc(
           requiredApples / this.data.apples[`${finalData.portalLevel}`]
         )} заходов`
-        : `Яблок на верхний портал ${this.formatToSepString(
+        : `Яблок на Очень тёмные души ${this.formatToSepString(
           requiredApples
         )}, потребуется ${Math.trunc(
           requiredApples / this.data.apples[`${finalData.portalLevel}`]

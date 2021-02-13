@@ -10,7 +10,7 @@
   <span>Какой-то текст в шапке, три-четрые. Подписывайтесь на гайды</span>
   <div class="spacer"></div>
   <a aria-label="hc com" target="_blank" rel="noopener" href="https://vk.com/hc_guides" title="HCGuides">
-    <img width="40" src="../../assets/img/logo.png">
+    <img height="40" src="../../assets/img/logo.png">
   </a>
 </div>
 
@@ -18,8 +18,12 @@
   <mat-drawer mode="side">
     <nav>
       <ng-container *ngFor="let i of nav">
-        <button mat-stroked-button [routerLink]="i.route" class="w-100">{{ i.name }}</button>
-        <!-- <div [routerLink]="i.route">{{ i.name }}</div> -->
+        <!-- <div class="d-flex justify-content-left"> -->
+        <button mat-stroked-button [routerLink]="i.route" class="w-100 d-flex justify-content-between align-items-center">
+          <mat-icon>{{i.icon}}</mat-icon>
+          {{ i.name }}
+        </button>
+        <!-- </div> -->
       </ng-container>
     </nav>
   </mat-drawer>

@@ -276,5 +276,5 @@ export const data = {
     { value: 1.37, viewValue: 'Уровень 10, повышение на 37%' },
     { value: 1.44, viewValue: 'Уровень 11, повышение на 44%' },
   ],
-  x_buff: [{ value: 1 }, { value: 2 }, { value: 3 }],
+  x_buff: [{ value: 1, viewValue: "Без множителя" }, { value: 2, viewValue: "x2" }, { value: 3, viewValue: "x3" }],
 };
