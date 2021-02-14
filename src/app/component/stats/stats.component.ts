@@ -71,7 +71,7 @@ export class StatsComponent implements OnInit {
   showResult(keyString: string) {
     if (this.form.valid)
       for (let [key, value] of Object.entries(this.form.getRawValue())) {
-        console.log(value)
+        // console.log(value)
         if (value !== null) {
           typeof this.output[`${key}`] === "object"
             ? this.output[`${key}`]['input'] = value
@@ -89,7 +89,7 @@ export class StatsComponent implements OnInit {
           }
         }
       }
-    console.log(this.output)
+    // console.log(this.output)
     return this.getValue(keyString)
 
 

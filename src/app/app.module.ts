@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CalcComponent } from './calc/calc.component';
+import { CalcComponent } from './component/calc/calc.component';
 import { RouterModule, Routes } from '@angular/router';
-import { TestComponent } from './test/test.component';
+import { TestComponent } from './component/test/test.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -15,8 +15,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
-import { StatsComponent } from './stats/stats.component';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { StatsComponent } from './component/stats/stats.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 const appRoutes: Routes = [

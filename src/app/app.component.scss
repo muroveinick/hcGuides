@@ -132,7 +132,7 @@ button {
   outline: none;
   color: none;
   border: none;
-  min-width: 40px
+  min-width: 30px;
 }
 [color="white"] {
   color: white;
@@ -145,5 +145,8 @@ button {
   align-items: center;
   button {
     width: 100%;
+  }
+  &.active {
+    background-color: aqua;
   }
 }

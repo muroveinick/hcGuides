@@ -1,13 +1,15 @@
-import { Component, ViewChild } from '@angular/core';
-import { MatDrawer, MatDrawerContent } from '@angular/material/sidenav';
+import { Component } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  constructor(private router: Router) {
+    router.events.subscribe((val) => val instanceof NavigationEnd ? this.setActiveNav(val.url) : null)
 
-  @ViewChild(MatDrawer) drawer;
+  }
 
   sidevarOpened: boolean = false;
 
@@ -16,6 +18,15 @@ export class AppComponent {
     { route: '/stats', name: 'Калькулятор статов', icon: "equalizer" },
     { route: '/test', name: 'lists', icon: "list", },
   ];
+
+  setActiveNav(url: string) {
+    let active: number;
+    console.log(this.nav.forEach((el, index) => el.route === url ? active = index : ""));
+    document.querySelectorAll('.navitem').forEach((el, index) => {
+      el.classList.remove('active');
+      if (index === active + 1) el.classList.add('active');
+    })
+  }
 
 
   toggle() {
