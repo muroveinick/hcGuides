@@ -9,19 +9,21 @@ export class AppComponent {
 
   @ViewChild(MatDrawer) drawer;
 
+  sidevarOpened: boolean = false;
 
   nav = [
     { route: '/calc', name: 'Калькулятор Портала', icon: "calculate" },
     { route: '/stats', name: 'Калькулятор статов', icon: "equalizer" },
     { route: '/test', name: 'lists', icon: "list", },
   ];
-  title = 'testapp';
 
 
   toggle() {
-    this.drawer.toggle();
-    document.querySelector('.mat-drawer-content')
-      // .setAttribute("class", (this.drawer.opened) ? `mat-drawer-content col-11` : `mat-drawer-content col-12`)
-      .setAttribute("style", (this.drawer.opened) ? `width: calc(100% - 220px)` : `width: calc(100%)`)
+    this.sidevarOpened = !this.sidevarOpened;
+    document.querySelector('.navitem').querySelector('mat-icon').innerHTML = this.sidevarOpened ? 'keyboard_arrow_left' : 'keyboard_arrow_right'
+    document.querySelector('.mat-drawer').classList.toggle('sidebar-close')
+    // document.querySelector('.mat-drawer-content')
+    //   // .setAttribute("class", (this.drawer.opened) ? `mat-drawer-content col-11` : `mat-drawer-content col-12`)
+    //   .setAttribute("style", (this.drawer.opened) ? `width: calc(100% - 220px)` : `width: calc(100%)`)
   }
 }

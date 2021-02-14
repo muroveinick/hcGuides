@@ -1,31 +1,32 @@
 <div class="toolbar" role="banner">
   <ng-container class="d-flex p-2">
-    <button mat-icon-button (click)="this.toggle()" class="d-flex px-2">
+    <button mat-icon-button (click)="drawer.toggle()" class="d-flex px-2">
       <mat-icon color="white">menu</mat-icon>
     </button>
   </ng-container>
 
   <img width="40" alt="Logo"
     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" />
-  <span>Какой-то текст в шапке, три-четрые. Подписывайтесь на гайды</span>
+  <span>HC App</span>
   <div class="spacer"></div>
   <a aria-label="hc com" target="_blank" rel="noopener" href="https://vk.com/hc_guides" title="HCGuides">
-    <img height="40" src="../../assets/img/logo.png">
+    <img height="40" src="../../assets/img/logo.png" style="border-radius: 50%;">
   </a>
 </div>
 
-<mat-drawer-container autosize class="col-12 p-0">
-  <mat-drawer mode="side">
-    <nav>
-      <ng-container *ngFor="let i of nav">
-        <!-- <div class="d-flex justify-content-left"> -->
-        <button mat-stroked-button [routerLink]="i.route" class="w-100 d-flex justify-content-between align-items-center">
-          <mat-icon>{{i.icon}}</mat-icon>
-          {{ i.name }}
-        </button>
-        <!-- </div> -->
-      </ng-container>
-    </nav>
+<mat-drawer-container autosize class="col-12 p-0 mat-drawer-transition">
+  <mat-drawer mode="side" opened="true" #drawer class="sidebar-close">
+    <button mat-stroked-button (click)="this.toggle()" class="pl-1 pr-0 navitem">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+
+    <ng-container *ngFor="let i of nav">
+      <button mat-stroked-button [routerLink]="i.route" class="navitem pl-1 pr-0">
+        <mat-icon mat-list-icon class="mr-2">{{i.icon}}</mat-icon>
+        {{ sidevarOpened?i.name:"" }}
+      </button>
+    </ng-container>
+
   </mat-drawer>
 
 

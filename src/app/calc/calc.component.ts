@@ -10,7 +10,7 @@ import { data } from './data';
 export class CalcComponent implements OnInit {
   constructor() { }
   data: any;
-  
+
   default = {
     banner: 0,
     hunters: 0,
@@ -64,14 +64,14 @@ export class CalcComponent implements OnInit {
       requiredApples =
         Math.ceil(
           (finalData.goalSouls -
-            (finalData.startedSouls&&this.default.isStartedSouls ? finalData.startedSouls : 0)) /
+            (finalData.startedSouls && this.default.isStartedSouls ? finalData.startedSouls : 0)) /
           (this.data.souls[`${finalData.portalLevel}`] *
             this.default.multiply *
             (this.default.banner ? this.default.banner : 1) *
             (this.default.hunters ? this.default.hunters : 1))
         ) * this.data.apples[`${finalData.portalLevel}`];
 
-      if (finalData.startedSouls >finalData.goalSouls) {
+      if (finalData.startedSouls > finalData.goalSouls) {
         return "Уже хватает😀"
       }
     }
