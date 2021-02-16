@@ -17,6 +17,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { StatsComponent } from './component/stats/stats.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { HeroTalentComponent } from './component/comlex-comps/hero-talent/hero-talent.component';
 
 
 const appRoutes: Routes = [
@@ -36,7 +37,7 @@ const MAT_UI_MODULES = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, CalcComponent, TestComponent, StatsComponent],
+  declarations: [AppComponent, CalcComponent, TestComponent, StatsComponent, HeroTalentComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

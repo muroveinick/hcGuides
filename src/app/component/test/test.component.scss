@@ -1,11 +1,13 @@
-:host {
-  justify-content: center;
-  display: flex;
+#svg circle {
+  transition: stroke-dashoffset 0.5s linear;
+  stroke: #666;
+  stroke-width: 1em;
+}
+#svg #bar {
+  stroke: #ff9f1e;
+  transform: translate(0%, 100%) rotate(-90deg);
 }
 
-.wrapper {
-  justify-content: center;
-  > div {
-    width: 100%;
-  }
+input {
+  color: #000;
 }
