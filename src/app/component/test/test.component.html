@@ -1,28 +1,46 @@
-<mat-icon>
+<!-- <mat-icon>
   <svg width="50">
     <use xlink:href="assets/img/icons.svg#chevron-right" />
   </svg>
-</mat-icon>
+</mat-icon> -->
 
-<mat-icon>
-  <img src="../../assets/img/def.png" width="30">
-</mat-icon>
 
-<div>
-  <svg id="svg" width="200" height="200" viewPort="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <circle r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="0"></circle>
-    <circle id="bar" r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="565.48">
+<div class="aaa" (click)="onChange($event)">
+  <svg attr.width="{{r*3}}px" attr.height="{{r*3}}px" viewPort="0 0 50 50" version="1.1"
+    xmlns="http://www.w3.org/2000/svg">
+    <circle attr.cx="{{r*3/2}}px" attr.cy="{{r*3/2}}px" fill="transparent"></circle>
+    <circle class="bar" attr.cx="{{r*3/2}}px" attr.cy="{{r*3/2}}px" fill="transparent">
     </circle>
   </svg>
+
+  <mat-icon class="hero-icon">
+    <img src="../../assets/img/def.png" attr.width="{{r*3/2}}px">
+  </mat-icon>
 </div>
 
 
-<button mat-mini-fab color="accent" (click)="this.onChangeLevel(true)">
-  <mat-icon>add</mat-icon>
+<div class="aaa selected" (click)="onChange(this.$event)" name="qwqw">
+  <svg attr.width="{{r*3}}px" attr.height="{{r*3}}px" viewPort="0 0 50 50" version="1.1"
+    xmlns="http://www.w3.org/2000/svg">
+    <circle attr.cx="{{r*3/2}}px" attr.cy="{{r*3/2}}px" fill="transparent"></circle>
+    <circle class="bar" attr.cx="{{r*3/2}}px" attr.cy="{{r*3/2}}px" fill="transparent">
+    </circle>
+  </svg>
+
+  <mat-icon class="hero-icon">
+    <img src="../../assets/img/logo.png" attr.width="{{r*3/2}}px">
+  </mat-icon>
+</div>
+
+
+
+
+<button mat-mini-fab color="accent" (click)="this.onChangeLevel(false)">
+  <mat-icon>remove</mat-icon>
 </button>
 
 <mat-label class="mx-2">{{this.level}}</mat-label>
 
-<button mat-mini-fab color="accent" (click)="this.onChangeLevel(false)">
-  <mat-icon>remove</mat-icon>
+<button mat-mini-fab color="accent" (click)="this.onChangeLevel(true)">
+  <mat-icon>add</mat-icon>
 </button>
