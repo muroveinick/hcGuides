@@ -18,6 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { StatsComponent } from './component/stats/stats.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { HeroTalentComponent } from './component/comlex-comps/hero-talent/hero-talent.component';
+import { TestModule } from './component/test/test.module';
 
 
 const appRoutes: Routes = [
@@ -37,8 +38,9 @@ const MAT_UI_MODULES = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, CalcComponent, TestComponent, StatsComponent, HeroTalentComponent],
+  declarations: [AppComponent, CalcComponent, StatsComponent, HeroTalentComponent],
   imports: [
+    TestModule,
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(

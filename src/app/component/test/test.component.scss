@@ -8,8 +8,11 @@ svg .bar {
   transform: translate(0%, 100%) rotate(-90deg);
 }
 
-.aaa {
-  mat-icon {
+:host {
+  > div > mat-icon {
     position: relative;
+  }
+  &.selected  circle {
+    outline: 1px solid #666;
   }
 }

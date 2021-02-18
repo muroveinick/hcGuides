@@ -21,7 +21,7 @@ export class AppComponent {
 
   setActiveNav(url: string) {
     let active: number;
-    console.log(this.nav.forEach((el, index) => el.route === url ? active = index : ""));
+    // console.log(this.nav.forEach((el, index) => el.route === url ? active = index : ""));
     document.querySelectorAll('.navitem').forEach((el, index) => {
       el.classList.remove('active');
       if (index === active + 1) el.classList.add('active');

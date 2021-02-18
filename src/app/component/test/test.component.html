@@ -1,46 +1,24 @@
-<!-- <mat-icon>
-  <svg width="50">
-    <use xlink:href="assets/img/icons.svg#chevron-right" />
-  </svg>
-</mat-icon> -->
-
-
-<div class="aaa" (click)="onChange($event)">
-  <svg attr.width="{{r*3}}px" attr.height="{{r*3}}px" viewPort="0 0 50 50" version="1.1"
-    xmlns="http://www.w3.org/2000/svg">
-    <circle attr.cx="{{r*3/2}}px" attr.cy="{{r*3/2}}px" fill="transparent"></circle>
-    <circle class="bar" attr.cx="{{r*3/2}}px" attr.cy="{{r*3/2}}px" fill="transparent">
-    </circle>
-  </svg>
-
-  <mat-icon class="hero-icon">
-    <img src="../../assets/img/def.png" attr.width="{{r*3/2}}px">
-  </mat-icon>
-</div>
-
-
-<div class="aaa selected" (click)="onChange(this.$event)" name="qwqw">
-  <svg attr.width="{{r*3}}px" attr.height="{{r*3}}px" viewPort="0 0 50 50" version="1.1"
-    xmlns="http://www.w3.org/2000/svg">
-    <circle attr.cx="{{r*3/2}}px" attr.cy="{{r*3/2}}px" fill="transparent"></circle>
-    <circle class="bar" attr.cx="{{r*3/2}}px" attr.cy="{{r*3/2}}px" fill="transparent">
-    </circle>
-  </svg>
-
-  <mat-icon class="hero-icon">
-    <img src="../../assets/img/logo.png" attr.width="{{r*3/2}}px">
-  </mat-icon>
-</div>
-
-
-
-
-<button mat-mini-fab color="accent" (click)="this.onChangeLevel(false)">
+<button mat-mini-fab color="accent" (click)="this.onChangeLevel(null ,false)">
   <mat-icon>remove</mat-icon>
 </button>
 
 <mat-label class="mx-2">{{this.level}}</mat-label>
 
-<button mat-mini-fab color="accent" (click)="this.onChangeLevel(true)">
+<button mat-mini-fab color="accent" (click)="this.onChangeLevel(null, true)">
   <mat-icon>add</mat-icon>
 </button>
+
+
+<div>
+  <ng-container>
+    <hero-relic *ngFor="let item of relics" id="{{item.id}}" [(level)]="item.level" [logo]="item.logo" [r]="item.r"
+      (selected)="onChangeLevel($event, null)">
+    </hero-relic>
+
+  </ng-container>
+</div>
+<!-- <hero-relic id="qqqqqq" [level]="3" [logo]="'def.png'" [r]="40" (selected)="onChangeLevel($event)"></hero-relic>
+
+<hero-relic id="qqqqweq" [level]="3" [logo]="'logo.png'" [r]="60" (selected)="onChangeLevel($event)"></hero-relic>-->
+
+<!-- <hero-relic id="{{relics[1].id}}" [level]="relics[1].level" [logo]="relics[1].logo" [r]="relics[1].r" (selected)="onChangeLevel($event)"></hero-relic> -->
