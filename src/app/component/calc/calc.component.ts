@@ -77,17 +77,11 @@ export class CalcComponent implements OnInit {
     }
 
     return this.form.valid && finalData.portalLevel
-      ? finalData.portalLevel < 81
-        ? `Яблок на Тёмные души ${this.formatToSepString(
-          requiredApples
-        )}, потребуется ${Math.trunc(
-          requiredApples / this.data.apples[`${finalData.portalLevel}`]
-        )} заходов`
-        : `Яблок на Очень тёмные души ${this.formatToSepString(
-          requiredApples
-        )}, потребуется ${Math.trunc(
-          requiredApples / this.data.apples[`${finalData.portalLevel}`]
-        )} заходов`
+      ? [`Яблок на ${finalData.portalLevel < 81 ? "Тёмные души" : "Очень тёмные души"}`,
+      this.formatToSepString(requiredApples),
+        "потребуется",
+      Math.trunc(requiredApples / this.data.apples[`${finalData.portalLevel}`]),
+        "заходов"]
       : '¯\\_(ツ)_/¯';
   }
 
