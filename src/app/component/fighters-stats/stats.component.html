@@ -41,7 +41,7 @@
 		<div class="px-2 col-12 col-md-3 second-block">
 
 			<mat-form-field>
-				<mat-label>Уровень противника</mat-label>
+				<mat-label>Уровень защищаюшегося</mat-label>
 				<input matInput type="number" formControlName="dLevel" autocomplete="off" min="0" max="100" />
 				<mat-error *ngIf="form.get('dLevel').hasError('max') || form.get('dLevel').hasError('min')">
 					Введите уровень от 1 до 100

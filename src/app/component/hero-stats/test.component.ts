@@ -43,34 +43,37 @@ export class TestComponent implements OnInit {
   ]
 
 
-  @Input() r: number = 40;
-  level: number = 0;
-  elem
+  //selected relic + its level
+  level: number = null;
+  elem = null;
 
-  setProgressBar(relicLevel: number) {
+  setProgressBar() {
     let bar = this.elem.elRef.nativeElement.querySelector(".bar")
-    console.log(">>>>>   " + bar)
+    // console.log(">>>>>   " + bar)
     bar.setAttribute('style', `stroke-dashoffset: ${bar.getAttribute('r') * 2 * Math.PI * (11 - this.level) / 11}px`)
   }
 
 
   onChangeLevel(elem, change: boolean) {
-    console.log(elem)
-    console.log(change)
+    // console.log(elem)
+    // console.log(change)
     if (elem) {
       this.elem = elem
       this.level = elem.level;
     }
 
+    if (this.elem) {
+      if (change === true && this.level < 11) {
+        this.level++
+        this.relics[+this.elem.id].level++
+      } else if (change === false && this.level > 0) {
+        this.level--
+        this.relics[+this.elem.id].level--
+      }
 
-    if (change === true && this.level < 11) {
-      this.level++
-      this.relics[+this.elem.id].level++
-    } else if (change === false && this.level > 0) {
-      this.level--
-      this.relics[+this.elem.id].level--
+      this.setProgressBar()
     }
-    return this.setProgressBar(this.level)
+
   }
 
 }

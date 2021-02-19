@@ -1,0 +1,20 @@
+<button mat-mini-fab color="accent" (click)="this.onChangeLevel(null ,false)" [disabled]="!this.level">
+  <mat-icon>remove</mat-icon>
+</button>
+
+<mat-label class="mx-2">{{this.level}}</mat-label>
+
+<button mat-mini-fab color="accent" (click)="this.onChangeLevel(null, true)"
+  [disabled]="this.level === null || this.level>10">
+  <mat-icon>add</mat-icon>
+</button>
+
+
+<div class="d-flex align-items-center">
+  <ng-container>
+    <hero-relic *ngFor="let item of relics" id="{{item.id}}" [(level)]="item.level" [logo]="item.logo" [r]="item.r"
+      (selected)="onChangeLevel($event, null)">
+    </hero-relic>
+
+  </ng-container>
+</div>

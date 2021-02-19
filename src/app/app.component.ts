@@ -14,14 +14,14 @@ export class AppComponent {
   sidevarOpened: boolean = false;
 
   nav = [
-    { route: '/calc', name: 'Калькулятор Портала', icon: "calculate" },
+    { route: '/portal', name: 'Калькулятор Портала', icon: "calculate" },
     { route: '/stats', name: 'Калькулятор статов', icon: "equalizer" },
-    { route: '/test', name: 'lists', icon: "list", },
+    { route: '/hero', name: 'lists', icon: "list", },
   ];
 
   setActiveNav(url: string) {
     let active: number;
-    // console.log(this.nav.forEach((el, index) => el.route === url ? active = index : ""));
+    this.nav.forEach((el, index) => el.route === url ? active = index : "");
     document.querySelectorAll('.navitem').forEach((el, index) => {
       el.classList.remove('active');
       if (index === active + 1) el.classList.add('active');

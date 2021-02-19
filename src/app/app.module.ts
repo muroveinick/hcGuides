@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CalcComponent } from './component/calc/calc.component';
 import { RouterModule, Routes } from '@angular/router';
-import { TestComponent } from './component/test/test.component';
+import { TestComponent } from './component/hero-stats/test.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -15,16 +15,16 @@ import { MatSelectModule } from '@angular/material/select';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
-import { StatsComponent } from './component/stats/stats.component';
+import { StatsComponent } from './component/fighters-stats/stats.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { HeroTalentComponent } from './component/comlex-comps/hero-talent/hero-talent.component';
-import { TestModule } from './component/test/test.module';
+import { TestModule } from './component/hero-stats/test.module';
 
 
 const appRoutes: Routes = [
-  { path: 'calc', component: CalcComponent },
-  { path: '', redirectTo: '/calc', pathMatch: 'full' },
-  { path: 'test', component: TestComponent },
+  { path: 'portal', component: CalcComponent },
+  { path: '', redirectTo: '/portal', pathMatch: 'full' },
+  { path: 'hero', component: TestComponent },
   { path: 'stats', component: StatsComponent },
 ];
 const MAT_UI_MODULES = [
