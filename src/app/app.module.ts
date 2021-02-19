@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CalcComponent } from './component/calc/calc.component';
 import { RouterModule, Routes } from '@angular/router';
-import { TestComponent } from './component/hero-stats/test.component';
+import { TestComponent } from './component/hero-stats/hero-stats.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -18,7 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { StatsComponent } from './component/fighters-stats/stats.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { HeroTalentComponent } from './component/comlex-comps/hero-talent/hero-talent.component';
-import { TestModule } from './component/hero-stats/test.module';
+import { TestModule } from './component/hero-stats/hero-stats.module';
 
 
 const appRoutes: Routes = [

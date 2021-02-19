@@ -9,9 +9,9 @@ interface relicView {
 }
 
 @Component({
-  selector: 'app-test',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.scss']
+  selector: 'hero-stats',
+  templateUrl: './hero-stats.component.html',
+  styleUrls: ['./hero-stats.component.scss']
 })
 export class TestComponent implements OnInit {
 
@@ -26,7 +26,7 @@ export class TestComponent implements OnInit {
     {
       id: 0,
       r: 50,
-      logo: "def.png",
+      logo: "hero/warrior/crit.png",
       level: 5,
     }, {
       id: 1,
@@ -81,7 +81,12 @@ export class TestComponent implements OnInit {
 @Component({
   selector: 'hero-relic',
   template: `
-            <div>
+            <div attr.width="{{r*3}}px" attr.height="{{r*3}}px" >
+
+              <mat-icon [ngStyle] = "{'left.px': this.r * 3 / 4, 'top.px': this.r * 3 / 4}">
+                <img src="../../assets/img/{{this.logo}}" attr.width="{{r*3/2}}px">
+              </mat-icon>
+
               <svg attr.width="{{r*3}}px" attr.height="{{r*3}}px" viewPort="0 0 50 50" version="1.1"
                 xmlns="http://www.w3.org/2000/svg">
                 <circle attr.cx="{{r*3/2}}px" attr.cy="{{r*3/2}}px" fill="transparent" attr.r="{{r}}" 
@@ -93,12 +98,10 @@ export class TestComponent implements OnInit {
                 </circle>
               </svg>
 
-              <mat-icon class="hero-icon" [ngStyle] = "{'right.px': this.r * 9 / 4}">
-                <img src="../../assets/img/{{this.logo}}" attr.width="{{r*3/2}}px">
-              </mat-icon>
+             
             </div>
 `,
-  styleUrls: ['./test.component.scss']
+  styleUrls: ['./hero-stats.component.scss']
 })
 export class HeroRelic implements OnInit {
   constructor(private elRef: ElementRef) {

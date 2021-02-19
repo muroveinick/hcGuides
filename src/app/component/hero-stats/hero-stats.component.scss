@@ -9,10 +9,18 @@ svg .bar {
 }
 
 :host {
-  > div > mat-icon {
-    position: relative;
+  > div {
+    display: flex;
+    > mat-icon {
+      position: relative;
+      width: 0;
+      height: 0;
+      > img {
+        border-radius: 50%;
+      }
+    }
   }
-  &.selected  circle {
+  &.selected circle {
     outline: 1px solid #666;
   }
 }
