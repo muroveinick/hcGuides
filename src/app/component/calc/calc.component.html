@@ -49,7 +49,7 @@
 			<mat-form-field appearance="fill">
 				<mat-label>Уровень квартала</mat-label>
 				<mat-select formControlName="hunters" name="hunters">
-					<mat-option *ngFor="let levels of this.data.hunters" [value]="levels.value">
+					<mat-option *ngFor="let levels of getData().hunters" [value]="levels.value">
 						{{levels.viewValue}}
 					</mat-option>
 				</mat-select>
@@ -60,7 +60,7 @@
 			<mat-form-field appearance="fill">
 				<mat-label>Уровень Знамени</mat-label>
 				<mat-select formControlName="banner" name="banner">
-					<mat-option *ngFor="let banner of this.data.banner" [value]="banner.value">
+					<mat-option *ngFor="let banner of getData().banner" [value]="banner.value">
 						{{banner.viewValue}}
 					</mat-option>
 				</mat-select>
@@ -70,7 +70,7 @@
 			<mat-form-field appearance="fill">
 				<mat-label>Множитель душ</mat-label>
 				<mat-select formControlName="multiply" name="multiply">
-					<mat-option *ngFor="let multiply of this.data.x_buff" [value]="multiply.value">
+					<mat-option *ngFor="let multiply of getData().x_buff" [value]="multiply.value">
 						{{multiply.viewValue}}
 					</mat-option>
 				</mat-select>
