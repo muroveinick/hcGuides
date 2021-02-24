@@ -9,10 +9,21 @@
   <mat-icon>add</mat-icon>
 </button>
 
-<div class="d-flex align-items-center">
-  <ng-container>
-    <hero-relic *ngFor="let item of getData()" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
-      (selected)="onChangeLevel($event, null)" [curr_level]="item.curr_level">
-    </hero-relic>
-  </ng-container>
+<div class="hero-container">
+
+  <div class="cont1">
+    <ng-container *ngFor="let item of getData(); index as index">
+      <hero-relic *ngIf="index <3" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
+        (selected)="onChangeLevel($event, null)" [curr_level]="item.curr_level">
+      </hero-relic>
+    </ng-container>
+  </div>
+
+  <div class="cont2">
+    <ng-container *ngFor="let item of getData(); index as index">
+      <hero-relic *ngIf="index < 6 && index > 2" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
+        (selected)="onChangeLevel($event, null)" [curr_level]="item.curr_level">
+      </hero-relic>
+    </ng-container>
+  </div>
 </div>

@@ -24,3 +24,27 @@ svg .bar {
     outline: 1px solid #666;
   }
 }
+
+.hero-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.cont1 {
+  width: 110%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  > hero-relic:nth-child(2) {
+    align-self: start;
+  }
+}
+.cont2 {
+  // width: 110%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  // > hero-relic:nth-child(2) {
+  //   align-self: start;
+  // }
+}

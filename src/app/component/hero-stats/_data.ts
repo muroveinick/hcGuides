@@ -7,7 +7,7 @@ export const relics: relicView[] = [
     logo: 'hero/warrior/crit.png',
     type: {
       r: 30,
-      levels: 14,
+      levels: 10,
     },
   },
   {
@@ -25,7 +25,26 @@ export const relics: relicView[] = [
     logo: 'logo.png',
     type: {
       r: 30,
+      levels: 10,
+    },
+  },
+
+  {
+    curr_level: 4,
+    id: 3,
+    logo: 'hero/warrior/health.png',
+    type: {
+      r: 30,
       levels: 14,
+    },
+  },
+  {
+    curr_level: 11,
+    id: 4,
+    logo: 'hero/warrior/health.png',
+    type: {
+      r: 35,
+      levels: 11,
     },
   },
   
