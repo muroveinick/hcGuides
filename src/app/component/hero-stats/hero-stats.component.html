@@ -21,7 +21,41 @@
 
   <div class="cont2">
     <ng-container *ngFor="let item of getData(); index as index">
-      <hero-relic *ngIf="index < 6 && index > 2" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
+      <hero-relic *ngIf="index > 2 && index < 5" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
+        (selected)="onChangeLevel($event, null)" [curr_level]="item.curr_level">
+      </hero-relic>
+    </ng-container>
+  </div>
+
+  <div class="cont3">
+    <ng-container *ngFor="let item of getData(); index as index">
+      <hero-relic *ngIf="index > 4 && index < 8" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
+        (selected)="onChangeLevel($event, null)" [curr_level]="item.curr_level">
+      </hero-relic>
+    </ng-container>
+  </div>
+
+
+  <div class="cont4">
+    <ng-container *ngFor="let item of getData(); index as index">
+      <hero-relic *ngIf="index > 7 && index < 12" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
+        (selected)="onChangeLevel($event, null)" [curr_level]="item.curr_level">
+      </hero-relic>
+    </ng-container>
+  </div>
+
+  <div class="cont3">
+    <ng-container *ngFor="let item of getData(); index as index">
+      <hero-relic *ngIf="index > 11 && index <15" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
+        (selected)="onChangeLevel($event, null)" [curr_level]="item.curr_level">
+      </hero-relic>
+    </ng-container>
+  </div>
+
+
+  <div class="cont4">
+    <ng-container *ngFor="let item of getData(); index as index">
+      <hero-relic *ngIf="index > 14 && index < 19" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
         (selected)="onChangeLevel($event, null)" [curr_level]="item.curr_level">
       </hero-relic>
     </ng-container>

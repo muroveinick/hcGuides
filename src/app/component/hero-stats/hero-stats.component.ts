@@ -60,7 +60,7 @@ export class TestComponent implements OnInit {
             <div attr.width="{{type.r*3}}px" attr.height="{{type.r*3}}px" >
 
               <mat-icon [ngStyle] = "{'left.px': this.type.r * 3 / 4, 'top.px': this.type.r * 3 / 4}">
-                <img src="../../assets/img/{{this.logo}}" attr.width="{{type.r*3/2}}px">
+                <img src="../../assets/img/{{this.logo}}" attr.width="{{type.r*3/2}}px" alt="sfsc">
               </mat-icon>
 
               <svg attr.width="{{type.r*3}}px" attr.height="{{type.r*3}}px" viewPort="0 0 50 50" version="1.1"
@@ -77,7 +77,7 @@ export class TestComponent implements OnInit {
              
             </div>
 `,
-  styleUrls: ['./hero-stats.component.scss']
+  styleUrls: ['./hero-relic.component.scss']
 })
 export class HeroRelic implements OnInit {
   constructor(private elRef: ElementRef) {
