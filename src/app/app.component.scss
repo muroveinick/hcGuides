@@ -106,21 +106,14 @@ footer a {
     font-size: 26px;
   }
   &.sidebar-close {
-    // font-size: 32px;
-    // width: 40px;
     * {
       overflow-x: hidden;
-      // width: 40px;
     }
   }
 }
 mat-sidenav {
   width: 200px;
 }
-
-// .mat-drawer-opened + .mat-drawer-content {
-//   width: calc(100% - 220px);
-// }
 
 :host .mat-drawer-inner-container {
   overflow-x: hidden;

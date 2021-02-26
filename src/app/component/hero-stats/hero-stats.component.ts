@@ -1,5 +1,4 @@
-import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
-import * as interfaces from "./_var"
+import { Component, OnInit } from '@angular/core';
 import { relics } from "./_data"
 
 @Component({
@@ -7,7 +6,7 @@ import { relics } from "./_data"
   templateUrl: './hero-stats.component.html',
   styleUrls: ['./hero-stats.component.scss']
 })
-export class TestComponent implements OnInit {
+export class HeroComponent implements OnInit {
 
   constructor() {
   }
@@ -54,60 +53,3 @@ export class TestComponent implements OnInit {
 
 }
 
-@Component({
-  selector: 'hero-relic',
-  template: `
-            <div attr.width="{{type.r*3}}px" attr.height="{{type.r*3}}px" >
-
-              <mat-icon [ngStyle] = "{'left.px': this.type.r * 3 / 4, 'top.px': this.type.r * 3 / 4}">
-                <img src="../../assets/img/{{this.logo}}" attr.width="{{type.r*3/2}}px" alt="sfsc">
-              </mat-icon>
-
-              <svg attr.width="{{type.r*3}}px" attr.height="{{type.r*3}}px" viewPort="0 0 50 50" version="1.1"
-                xmlns="http://www.w3.org/2000/svg">
-                <circle attr.cx="{{type.r*3/2}}px" attr.cy="{{type.r*3/2}}px" fill="transparent" attr.r="{{type.r}}" 
-                        attr.stroke-dasharray = "{{(type.r * 2 * 3.14).toFixed(2)}}"></circle>
-
-                <circle class="bar" attr.cx="{{type.r*3/2}}px" attr.cy="{{type.r*3/2}}px" 
-                        attr.r="{{type.r}}"attr.stroke-dasharray = "{{(type.r * 2 * 3.14).toFixed(2)}}" 
-                        attr.stroke-dashoffset="{{(type.r * 2 * 3.14 * (type.levels - curr_level) / type.levels).toFixed(2)}}" fill="transparent">
-                </circle>
-              </svg>
-
-             
-            </div>
-`,
-  styleUrls: ['./hero-relic.component.scss']
-})
-export class HeroRelic implements OnInit {
-  constructor(private elRef: ElementRef) {
-    elRef.nativeElement.classList.add('relic')
-  }
-
-  @Input() id: string;
-  @Input() curr_level: number = 0;
-  @Input() logo: string;
-  @Input() type: interfaces.A | interfaces.P | interfaces.T10 | interfaces.T14;
-
-  @Output() selected = new EventEmitter<any>();
-
-  ngOnInit() {
-  }
-
-  @HostListener('click', ['$event']) onMouseClick(e: MouseEvent) {
-    this.detectClickedRelic(e);
-  }
-
-
-  detectClickedRelic(event: MouseEvent) {
-    // console.log(this.elRef.nativeElement)
-
-    document.querySelectorAll('hero-relic').forEach(el => {
-      el.classList.remove('selected')
-    })
-    this.selected.emit(this)
-
-    this.elRef.nativeElement.classList.add('selected')
-
-  }
-}

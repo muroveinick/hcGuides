@@ -1,4 +1,15 @@
+:host {
+  display: flex;
+  align-items: center;
+}
 
+.utility-contaiter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // height: 100%
+}
 
 .hero-container {
   width: 1000px;
@@ -9,20 +20,67 @@
     flex: 0 1 130px;
   }
 }
+[class*="cont"] {
+  > hero-relic {
+    &::ng-deep mat-icon::after {
+      content: "n";
+      width: 44px;
+      height: 0px;
+      display: block;
+      position: relative;
+      right: -70px;
+      bottom: 30px;
+      border-bottom: 1px dashed;
+      z-index: -2;
+    }
+  }
+}
 
 .cont1 {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+
+  > hero-relic:nth-child(1) {
+    &::ng-deep mat-icon::after {
+      width: 37px;
+      right: 4px;
+      top: 24px;
+      transform: rotate(105deg);
+    }
+  }
   > hero-relic:nth-child(2) {
     align-self: start;
+    &::ng-deep mat-icon::after {
+    }
+  }
+  > hero-relic:nth-child(3) {
+    &::ng-deep mat-icon::after {
+      width: 37px;
+      right: 4px;
+      bottom: 72px;
+      transform: rotate(75deg);
+    }
   }
 }
 .cont2 {
-  flex-basis: 150px;
+  flex-basis: 210px !important;
+  justify-content: space-between;
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  > hero-relic:nth-child(1) {
+    &::ng-deep mat-icon::after {
+      left: 54px;
+      top: -22.5px;
+    }
+  }
+  > hero-relic:nth-child(2) {
+    &::ng-deep mat-icon::after {
+      content: none;
+    }
+  }
 }
 
 .cont3 {
@@ -32,6 +90,30 @@
   > hero-relic:nth-child(2) {
     align-self: flex-end;
   }
+
+  > hero-relic:nth-child(1) {
+    &::ng-deep mat-icon::after {
+      width: 34px;
+      right: -17px;
+      top: 25px;
+      transform: rotate(75deg);
+    }
+  }
+
+  > hero-relic:nth-child(2) {
+    &::ng-deep mat-icon::after {
+      content: none;
+    }
+  }
+
+  > hero-relic:nth-child(3) {
+    &::ng-deep mat-icon::after {
+      width: 37px;
+      right: -23px;
+      top: -68px;
+      transform: rotate(110deg);
+    }
+  }
 }
 
 .cont4 {
@@ -40,5 +122,39 @@
   align-items: flex-start;
   > hero-relic:nth-child(n + 2):nth-child(-n + 3) {
     align-self: flex-end;
+  }
+  > hero-relic:nth-child(1) {
+    &::ng-deep mat-icon::after {
+      left: 21px;
+      top: 24px;
+      width: 34px;
+      transform: rotate(70deg);
+    }
+  }
+  > hero-relic:nth-child(2) {
+    &::ng-deep mat-icon::after {
+      left: -107px;
+      top: -52px;
+      width: 100px;
+      transform: rotate(19deg);
+    }
+  }
+
+  > hero-relic:nth-child(3) {
+    &::ng-deep mat-icon::after {
+      left: -107px;
+      top: 1px;
+      width: 100px;
+      transform: rotate(-19deg);
+    }
+  }
+
+  > hero-relic:nth-child(4) {
+    &::ng-deep mat-icon::after {
+      width: 37px;
+      right: -23px;
+      top: -68px;
+      transform: rotate(110deg);
+    }
   }
 }

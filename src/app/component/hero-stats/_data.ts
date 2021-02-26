@@ -1,4 +1,4 @@
-import { relicView } from './_var';
+import { relicView } from '../../data/_var_hero';
 
 export const relics: relicView[] = [
   {

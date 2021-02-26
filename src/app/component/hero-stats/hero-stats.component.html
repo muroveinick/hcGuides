@@ -1,13 +1,16 @@
-<button mat-mini-fab color="accent" (click)="this.onChangeLevel(null, false)" [disabled]="!this.level">
-  <mat-icon>remove</mat-icon>
-</button>
+<div class="utility-contaiter">
+  <div class="mb-2">
+    <button mat-mini-fab color="accent" (click)="this.onChangeLevel(null, false)" [disabled]="!this.level">
+      <mat-icon>remove</mat-icon>
+    </button>
+    <button mat-mini-fab color="accent" (click)="this.onChangeLevel(null, true)"
+      [disabled]="this.level === null || this.level > this.elem.type.levels - 1">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
 
-<mat-label class="mx-2">{{ this.level }}</mat-label>
-
-<button mat-mini-fab color="accent" (click)="this.onChangeLevel(null, true)"
-  [disabled]="this.level === null || this.level > this.elem.type.levels - 1">
-  <mat-icon>add</mat-icon>
-</button>
+  <mat-label class="mx-2">{{ this.level }}</mat-label>
+</div>
 
 <div class="hero-container">
 
