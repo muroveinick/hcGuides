@@ -1,15 +1,23 @@
 <div class="utility-contaiter">
   <div class="mb-2">
-    <button mat-mini-fab color="accent" (click)="this.onChangeLevel(null, false)" [disabled]="!this.level">
+    <button mat-mini-fab color="accent" (click)="onChangeLevel(false)" [disabled]="!this.level">
       <mat-icon>remove</mat-icon>
     </button>
-    <button mat-mini-fab color="accent" (click)="this.onChangeLevel(null, true)"
+    <button mat-mini-fab color="accent" (click)="onChangeLevel(true)"
       [disabled]="this.level === null || this.level > this.elem.type.levels - 1">
       <mat-icon>add</mat-icon>
     </button>
   </div>
 
+  <mat-form-field style="width: 120px;" class="my-2" *ngIf="this.elem">
+    <mat-label>Уровень релика</mat-label>
+    <input matInput type="number" autocomplete="off" min="0" max="14" [(value)]="this.level"
+      (keyup)="onChangeLevel(+$event.target.value)" />
+  </mat-form-field>
+
   <mat-label class="mx-2">{{ this.level }}</mat-label>
+  <mat-label class="mx-2">{{ showHeroPower()}}</mat-label>
+
 </div>
 
 <div class="hero-container">
@@ -17,7 +25,7 @@
   <div class="cont1">
     <ng-container *ngFor="let item of getData(); index as index">
       <hero-relic *ngIf="index <3" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
-        (selected)="onChangeLevel($event, null)" [curr_level]="item.curr_level">
+        (selected)="setSelectedElem($event)" [curr_level]="item.curr_level">
       </hero-relic>
     </ng-container>
   </div>
@@ -25,7 +33,7 @@
   <div class="cont2">
     <ng-container *ngFor="let item of getData(); index as index">
       <hero-relic *ngIf="index > 2 && index < 5" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
-        (selected)="onChangeLevel($event, null)" [curr_level]="item.curr_level">
+        (selected)="setSelectedElem($event)" [curr_level]="item.curr_level">
       </hero-relic>
     </ng-container>
   </div>
@@ -33,7 +41,7 @@
   <div class="cont3">
     <ng-container *ngFor="let item of getData(); index as index">
       <hero-relic *ngIf="index > 4 && index < 8" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
-        (selected)="onChangeLevel($event, null)" [curr_level]="item.curr_level">
+        (selected)="setSelectedElem($event)" [curr_level]="item.curr_level">
       </hero-relic>
     </ng-container>
   </div>
@@ -42,7 +50,7 @@
   <div class="cont4">
     <ng-container *ngFor="let item of getData(); index as index">
       <hero-relic *ngIf="index > 7 && index < 12" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
-        (selected)="onChangeLevel($event, null)" [curr_level]="item.curr_level">
+        (selected)="setSelectedElem($event)" [curr_level]="item.curr_level">
       </hero-relic>
     </ng-container>
   </div>
@@ -50,7 +58,7 @@
   <div class="cont3">
     <ng-container *ngFor="let item of getData(); index as index">
       <hero-relic *ngIf="index > 11 && index <15" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
-        (selected)="onChangeLevel($event, null)" [curr_level]="item.curr_level">
+        (selected)="setSelectedElem($event)" [curr_level]="item.curr_level">
       </hero-relic>
     </ng-container>
   </div>
@@ -59,8 +67,52 @@
   <div class="cont4">
     <ng-container *ngFor="let item of getData(); index as index">
       <hero-relic *ngIf="index > 14 && index < 19" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
-        (selected)="onChangeLevel($event, null)" [curr_level]="item.curr_level">
+        (selected)="setSelectedElem($event)" [curr_level]="item.curr_level">
       </hero-relic>
     </ng-container>
   </div>
+
+
+  <div class="cont5">
+    <ng-container *ngFor="let item of getData(); index as index">
+
+      <hero-relic *ngIf="index ===19" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
+        (selected)="setSelectedElem($event)" [curr_level]="item.curr_level">
+      </hero-relic>
+
+      <hero-relic *ngIf="index ===20" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
+        (selected)="setSelectedElem($event)" [curr_level]="item.curr_level">
+      </hero-relic>
+      <hero-relic *ngIf="index ===21" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
+        (selected)="setSelectedElem($event)" [curr_level]="item.curr_level">
+      </hero-relic>
+      <hero-relic *ngIf="index ===22" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
+        (selected)="setSelectedElem($event)" [curr_level]="item.curr_level">
+      </hero-relic>
+    </ng-container>
+  </div>
+
+
+  <div class="cont5">
+    <ng-container *ngFor="let item of getData(); index as index">
+
+      <hero-relic *ngIf="index ===23" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
+        (selected)="setSelectedElem($event)" [curr_level]="item.curr_level">
+      </hero-relic>
+
+      <hero-relic *ngIf="index ===24" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
+        (selected)="setSelectedElem($event)" [curr_level]="item.curr_level">
+      </hero-relic>
+      <hero-relic *ngIf="index ===25" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
+        (selected)="setSelectedElem($event)" [curr_level]="item.curr_level">
+      </hero-relic>
+      <hero-relic *ngIf="index ===26" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
+        (selected)="setSelectedElem($event)" [curr_level]="item.curr_level">
+      </hero-relic>
+    </ng-container>
+  </div>
+
+
+
+
 </div>

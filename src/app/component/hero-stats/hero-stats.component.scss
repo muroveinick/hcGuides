@@ -12,7 +12,7 @@
 }
 
 .hero-container {
-  width: 1000px;
+  width: 1500px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -21,6 +21,8 @@
   }
 }
 [class*="cont"] {
+  justify-content: center;
+  align-self: stretch;
   > hero-relic {
     &::ng-deep mat-icon::after {
       content: "n";
@@ -28,7 +30,7 @@
       height: 0px;
       display: block;
       position: relative;
-      right: -70px;
+      right: -76px;
       bottom: 30px;
       border-bottom: 1px dashed;
       z-index: -2;
@@ -51,8 +53,9 @@
   }
   > hero-relic:nth-child(2) {
     align-self: start;
-    &::ng-deep mat-icon::after {
-    }
+    // &::ng-deep mat-icon::after {
+
+    // }
   }
   > hero-relic:nth-child(3) {
     &::ng-deep mat-icon::after {
@@ -155,6 +158,47 @@
       right: -23px;
       top: -68px;
       transform: rotate(110deg);
+    }
+  }
+}
+
+.cont5 {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 220px !important;
+  justify-content: space-between;
+
+  > hero-relic:nth-child(1) {
+    order: 2;
+    position: absolute;
+    top: 148px;
+    &::ng-deep mat-icon::after {
+      width: 44px;
+    }
+  }
+
+  > hero-relic:nth-child(2) {
+    align-self: center;
+    &::ng-deep mat-icon::after {
+      left: 19px;
+      top: 43px;
+      width: 87px;
+      transform: rotate(65deg);
+    }
+  }
+  > hero-relic:nth-child(3) {
+    align-self: flex-end;
+    &::ng-deep mat-icon::after {
+      content: none;
+    }
+  }
+  > hero-relic:nth-child(4) {
+    align-self: center;
+    &::ng-deep mat-icon::after {
+      width: 87px;
+      right: -23px;
+      top: -102px;
+      transform: rotate(115deg);
     }
   }
 }
