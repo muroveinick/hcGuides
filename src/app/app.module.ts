@@ -3,9 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CalcComponent } from './component/calc/calc.component';
 import { RouterModule, Routes } from '@angular/router';
-import { HeroComponent } from './component/hero-stats/hero-stats.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -15,10 +13,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
-import { StatsComponent } from './component/fighters-stats/stats.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { HeroModule } from './component/hero-stats/hero-stats.module';
-import { HeroRelic } from './component/comlex-comps/hero-relic/hero-relic.component';
+import { HeroBranchModule } from './component/hero-branch/hero-branch.module';
+import { HeroComponent } from './component/hero/hero.component';
+import { HeroModule } from './component/hero/hero.module';
+
+import { CalcComponent } from './component/calc/calc.component';
+import { StatsComponent } from './component/fighters-stats/stats.component';
 
 
 const appRoutes: Routes = [
@@ -35,11 +36,13 @@ const MAT_UI_MODULES = [
   MatCheckboxModule,
   MatButtonModule,
   MatAutocompleteModule,
+  ReactiveFormsModule,
 ];
 
 @NgModule({
   declarations: [AppComponent, CalcComponent, StatsComponent],
   imports: [
+    HeroBranchModule,
     HeroModule,
 
     BrowserModule,
@@ -50,7 +53,6 @@ const MAT_UI_MODULES = [
     ),
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule,
     NgbModule,
     MAT_UI_MODULES,
   ],

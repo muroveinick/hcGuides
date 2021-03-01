@@ -1,0 +1,22 @@
+:host {
+  display: flex;
+  // align-items: center;
+  // justify-content: center;
+  height: 100%;
+}
+
+.utility-contaiter {
+  height: 100%;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // position: sticky;
+  // left: 0;
+  // z-index: 22;
+  background: white;
+  padding: 5px;
+  border-radius: 2px;
+  min-width: 100px;
+}

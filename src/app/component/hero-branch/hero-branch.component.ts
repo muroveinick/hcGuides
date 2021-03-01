@@ -1,17 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { relics } from "./_data"
 import { T14, T10, A, P } from "../../data/_var_power"
 import { HeroRelic } from '../comlex-comps/hero-relic/hero-relic.component';
 
 @Component({
-  selector: 'hero-stats',
-  templateUrl: './hero-stats.component.html',
-  styleUrls: ['./hero-stats.component.scss']
+  selector: 'hero-branch',
+  templateUrl: './hero-branch.component.html',
+  styleUrls: ['./hero-branch.component.scss']
 })
-export class HeroComponent implements OnInit {
+export class HeroBranchComponent implements OnInit {
 
   constructor() {
   }
+
+
+  @Output() selectedElem = new EventEmitter<HeroRelic>();
+  @Output() selectedLevel = new EventEmitter<number>();
+
+
 
   ngOnInit(): void {
   }
@@ -35,6 +41,7 @@ export class HeroComponent implements OnInit {
     console.log(typeof change)
 
     if (this.elem) {
+
       if (change === true && this.level < this.elem.type.levels) {
         this.level++
         relics[+this.elem.id].curr_level++
@@ -48,6 +55,7 @@ export class HeroComponent implements OnInit {
         this.level = change;
         relics[+this.elem.id].curr_level = change
       }
+      this.selectedLevel.emit(this.level)
 
       this.setProgressBar()
     }
@@ -73,6 +81,7 @@ export class HeroComponent implements OnInit {
     if (elem) {
       this.elem = elem
       this.level = elem.curr_level;
+      this.selectedElem.emit(elem)
     }
   }
 
