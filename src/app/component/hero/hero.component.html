@@ -5,12 +5,12 @@
         <mat-icon>remove</mat-icon>
       </button>
       <button mat-mini-fab color="accent" (click)="onChangeLevel(true)"
-        [disabled]="this.level === null || this.level > this.selected.type.levels - 1">
+        [disabled]="this.level === null || this.level > this.selectedELem.type.levels - 1">
         <mat-icon>add</mat-icon>
       </button>
     </div>
 
-    <mat-form-field style="width: 120px;" class="my-2" *ngIf="this.selected">
+    <mat-form-field style="width: 120px;" class="my-2" *ngIf="this.selectedELem">
       <mat-label>Уровень релика</mat-label>
       <input matInput type="number" autocomplete="off" min="0" max="14" [(value)]="this.level"
         (keyup)="onChangeLevel(+$event.target.value)" />
@@ -24,11 +24,11 @@
 
 
   <mat-tab-group mat-align-tabs="start">
-    <mat-tab label="First">
-      <hero-branch (selectedElem)="setSelected($event)" (selectedLevel)="setSelected($event)"></hero-branch>
+    <mat-tab label="Воины">
+      <hero-branch (selectedElem)="setSelected($event)" [newLevel]="1"></hero-branch>
     </mat-tab>
-    <mat-tab label="Second">Content 2</mat-tab>
-    <mat-tab label="Third">Content 3</mat-tab>
+    <mat-tab label="Маги">Content 2</mat-tab>
+    <mat-tab label="Лучники">Content 3</mat-tab>
   </mat-tab-group>
 
 <!-- </div> -->

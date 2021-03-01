@@ -15,7 +15,7 @@ export class HeroBranchComponent implements OnInit {
 
 
   @Output() selectedElem = new EventEmitter<HeroRelic>();
-  @Output() selectedLevel = new EventEmitter<number>();
+  @Input() newLevel: number;
 
 
 
@@ -30,37 +30,39 @@ export class HeroBranchComponent implements OnInit {
     return relics;
   }
 
-  setProgressBar() {
-    let bar = this.elem.elRef.nativeElement.querySelector(".bar")
-    // console.log(">>>>>   " + bar)
-    bar.setAttribute('style', `stroke-dashoffset: ${bar.getAttribute('r') * 2 * Math.PI * (this.elem.type.levels - this.level) / this.elem.type.levels}px`)
+  // setProgressBar() {
+  //   let bar = this.elem.elRef.nativeElement.querySelector(".bar")
+  //   console.log(">>>>>   " + bar)
+  //   bar.setAttribute('style', `stroke-dashoffset: ${bar.getAttribute('r') * 2 * Math.PI * (this.elem.type.levels - this.level) / this.elem.type.levels}px`)
+  // }
+
+  qwe(a) {
+    console.log(a)
   }
 
 
-  onChangeLevel(change: boolean | number) {
-    console.log(typeof change)
+  // onChangeLevel(change: boolean | number) {
+  //   console.log(typeof change)
 
-    if (this.elem) {
+  //   if (this.elem) {
 
-      if (change === true && this.level < this.elem.type.levels) {
-        this.level++
-        relics[+this.elem.id].curr_level++
-      } else if (change === false && this.level > 0) {
-        this.level--
-        relics[+this.elem.id].curr_level--
-      }
+  //     if (change === true && this.level < this.elem.type.levels) {
+  //       this.level++
+  //       relics[+this.elem.id].curr_level++
+  //     } else if (change === false && this.level > 0) {
+  //       this.level--
+  //       relics[+this.elem.id].curr_level--
+  //     }
 
-      if (typeof change === "number") {
-        change < 0 ? change = 0 : change > relics[+this.elem.id].type.levels ? change = relics[+this.elem.id].type.levels : null
-        this.level = change;
-        relics[+this.elem.id].curr_level = change
-      }
-      this.selectedLevel.emit(this.level)
+  //     if (typeof change === "number") {
+  //       change < 0 ? change = 0 : change > relics[+this.elem.id].type.levels ? change = relics[+this.elem.id].type.levels : null
+  //       this.level = change;
+  //       relics[+this.elem.id].curr_level = change
+  //     }
+  //     this.setProgressBar()
+  //   }
 
-      this.setProgressBar()
-    }
-
-  }
+  // }
 
   showHeroPower() {
     //TODO переделать вызов
