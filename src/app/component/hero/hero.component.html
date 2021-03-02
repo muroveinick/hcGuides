@@ -1,34 +1,41 @@
-<!-- <div class=""> -->
-  <div class="utility-contaiter">
-    <div class="mb-2">
-      <button mat-mini-fab color="accent" (click)="onChangeLevel(false)" [disabled]="!this.level">
-        <mat-icon>remove</mat-icon>
-      </button>
-      <button mat-mini-fab color="accent" (click)="onChangeLevel(true)"
-        [disabled]="this.level === null || this.level > this.selectedELem.type.levels - 1">
-        <mat-icon>add</mat-icon>
-      </button>
-    </div>
-
-    <mat-form-field style="width: 120px;" class="my-2" *ngIf="this.selectedELem">
-      <mat-label>Уровень релика</mat-label>
-      <input matInput type="number" autocomplete="off" min="0" max="14" [(value)]="this.level"
-        (keyup)="onChangeLevel(+$event.target.value)" />
-    </mat-form-field>
-
-    <mat-label class="mx-2">{{ this.level }}</mat-label>
-    <!-- <mat-label class="mx-2">{{ showHeroPower()}}</mat-label> -->
-
+<div class="utility-contaiter">
+  <div class="mb-2">
+    <button mat-mini-fab color="accent" (click)="onChangeLevel(false)" [disabled]="!this.selectedELem">
+      <mat-icon>remove</mat-icon>
+    </button>
+    <button mat-mini-fab color="accent" (click)="onChangeLevel(true)"
+      [disabled]="this.selectedELem === null || this.selectedELem.curr_level > this.selectedELem.type.levels - 1">
+      <mat-icon>add</mat-icon>
+    </button>
   </div>
 
+  <mat-form-field style="width: 120px;" class="my-2" *ngIf="this.selectedELem">
+    <mat-label>Уровень релика</mat-label>
+    <input matInput type="number" autocomplete="off" min="0" max="14" [(value)]="this.selectedELem.curr_level"
+      (keyup)="onChangeLevel(+$event.target.value)" />
+  </mat-form-field>
+
+  <!-- <mat-label class="mx-2">{{ this.level }}</mat-label> -->
+  <mat-label class="mx-2">{{ showHeroPower()}}</mat-label>
+
+</div>
 
 
-  <mat-tab-group mat-align-tabs="start">
-    <mat-tab label="Воины">
-      <hero-branch (selectedElem)="setSelected($event)" [newLevel]="1"></hero-branch>
+
+<mat-tab-group mat-align-tabs="start">
+  <mat-tab label="Выбранные релики">
+    <div class="view">
+      <ng-container *ngFor="let relic of getRelicsToView()">
+        <div>
+          <img [src]="'../../assets/img/'+relic.logo" attr.width="{{relic.type.r*2}}px">
+        </div>
+      </ng-container>
+    </div>
+  </mat-tab>
+  <ng-container *ngFor="let branch of getData()">
+    <mat-tab label="{{branch.name}}">
+      <hero-branch (selectedElem)="setSelected($event)" [relics]="branch.data"></hero-branch>
     </mat-tab>
-    <mat-tab label="Маги">Content 2</mat-tab>
-    <mat-tab label="Лучники">Content 3</mat-tab>
-  </mat-tab-group>
+  </ng-container>
 
-<!-- </div> -->
+</mat-tab-group>

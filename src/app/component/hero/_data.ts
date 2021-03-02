@@ -1,6 +1,6 @@
 import { relicView } from '../../data/_var_hero';
 
-export const relics: relicView[] = [
+let relics_warrior: relicView[] = [
   {
     curr_level: 3,
     id: 0,
@@ -276,4 +276,14 @@ export const relics: relicView[] = [
 
 let mock_levels = new Array<number>(27)
 mock_levels = [0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0]
-relics.forEach((elem, index) => elem.curr_level = mock_levels[index])
+relics_warrior.forEach((elem, index) => elem.curr_level = mock_levels[index])
+
+let relics_archer = [];
+let relics_mage = [];
+
+
+export const relics = [
+  { data: relics_warrior, name: "Воины" },
+  { data: relics_archer, name: "Луки" },
+  { data: relics_mage, name: "Маги" }
+]
