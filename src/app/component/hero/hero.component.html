@@ -24,9 +24,9 @@
 
 <mat-tab-group mat-align-tabs="start">
   <mat-tab label="Выбранные релики">
-    <div class="view">
+    <div class="view mt-4">
       <ng-container *ngFor="let relic of getRelicsToView()">
-        <div>
+        <div [ngClass]="{'active': relic.type.r === 40}" class="m-1">
           <img [src]="'../../assets/img/'+relic.logo" attr.width="{{relic.type.r*2}}px">
         </div>
       </ng-container>

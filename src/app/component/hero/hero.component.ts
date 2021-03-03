@@ -23,17 +23,17 @@ export class HeroComponent implements OnInit {
 
       if (value === true && this.selectedELem.curr_level < this.selectedELem.type.levels) {
         this.selectedELem.curr_level++;
-        relics[this.selectedELem.logo.match(/warrior/) ? 0 : 1].data[this.selectedELem.id].curr_level++;
+        relics[this.selectedELem.logo.match(/warrior/) ? 0 : this.selectedELem.logo.match(/archer/) ? 1 : 2].data[this.selectedELem.id].curr_level++;
 
       } else if (value === false && this.selectedELem.curr_level > 0) {
         this.selectedELem.curr_level--;
-        relics[this.selectedELem.logo.match(/warrior/) ? 0 : 1].data[this.selectedELem.id].curr_level--;
+        relics[this.selectedELem.logo.match(/warrior/) ? 0 : this.selectedELem.logo.match(/archer/) ? 1 : 2].data[this.selectedELem.id].curr_level--;
       }
 
       if (typeof value === "number") {
         value < 0 ? value = 0 : value > this.selectedELem.type.levels ? value = this.selectedELem.type.levels : null
         this.selectedELem.curr_level = value;
-        relics[this.selectedELem.logo.match(/warrior/) ? 0 : 1].data[this.selectedELem.id].curr_level = value
+        relics[this.selectedELem.logo.match(/warrior/) ? 0 : this.selectedELem.logo.match(/archer/) ? 1 : 2].data[this.selectedELem.id].curr_level = +value
       }
 
     }
@@ -54,14 +54,14 @@ export class HeroComponent implements OnInit {
     // console.log(relics[0].data)
     let res = 0, pass_res = 0;
 
-    relics[0].data.forEach(i => {
+    relics.forEach(branch => branch.data.forEach(i => {
       let curr = i.type.r === 40 ? A : i.type.r === 35 ? P : i.type.r === 30 && i.type.levels === 10 ? T10 : T14;
       if (curr === T10 || curr === T14) {
         pass_res += curr[i.curr_level].power;
       }
       res += curr[i.curr_level].power;
       // console.log(res)
-    })
+    }))
     return [res, pass_res]
   }
 
@@ -71,6 +71,8 @@ export class HeroComponent implements OnInit {
   }
 
   getRelicsToView() {
-    return relics[0].data.filter(i => i.type.r > 30).sort((a, b) => a.type.r < b.type.r ? 1 : -1);
+    return relics.reduce((sum, curr) => sum.concat(curr.data), []).filter(i => i.type.r > 30).sort((a, b) => a.type.r < b.type.r ? 1 : -1);
+    // console.log(a)
+    // return relics[0].data.filter(i => i.type.r > 30).sort((a, b) => a.type.r < b.type.r ? 1 : -1);
   }
 }
