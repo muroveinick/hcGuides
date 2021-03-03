@@ -31,5 +31,14 @@
   }
   .active {
     margin-bottom: 10px;
+    &:nth-child(n + 11):nth-child(-n + 15){
+      margin-bottom: 20px !important;
+    }
+  }
+}
+
+.view__item {
+  &.selected img{
+    border: 4px salmon solid;
   }
 }

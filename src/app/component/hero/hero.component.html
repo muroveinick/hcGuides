@@ -1,37 +1,45 @@
 <div class="utility-contaiter">
   <div class="mb-2">
-    <button mat-mini-fab color="accent" (click)="onChangeLevel(false)" [disabled]="!this.selectedELem">
+    <button mat-mini-fab color="accent" (click)="onChangeLevel(this.selectedELem.curr_level-1)"
+      [disabled]="!this.selectedELem">
       <mat-icon>remove</mat-icon>
     </button>
-    <button mat-mini-fab color="accent" (click)="onChangeLevel(true)"
+    <button mat-mini-fab color="accent" (click)="onChangeLevel(this.selectedELem.curr_level+1)"
       [disabled]="this.selectedELem === null || this.selectedELem.curr_level > this.selectedELem.type.levels - 1">
       <mat-icon>add</mat-icon>
     </button>
   </div>
 
   <mat-form-field style="width: 120px;" class="my-2" *ngIf="this.selectedELem">
-    <mat-label>Уровень релика</mat-label>
+    <mat-label>Уровень реликвии</mat-label>
     <input matInput type="number" autocomplete="off" min="0" max="14" [(value)]="this.selectedELem.curr_level"
       (keyup)="onChangeLevel(+$event.target.value)" />
   </mat-form-field>
 
   <!-- <mat-label class="mx-2">{{ this.level }}</mat-label> -->
-  <mat-label class="mx-2">{{ showHeroPower()}}</mat-label>
+  <mat-label class="mx-2">{{ showHeroPower()[0]}}</mat-label>
+  <mat-label class="mx-2">{{ showHeroPower()[1]}}</mat-label>
 
 </div>
 
 
 
 <mat-tab-group mat-align-tabs="start">
-  <mat-tab label="Выбранные релики">
+
+  <mat-tab label="Выбранные реликвии">
+    <p>Выберите один активный и до четырех пассивных реликвий</p>
     <div class="view mt-4">
-      <ng-container *ngFor="let relic of getRelicsToView()">
-        <div [ngClass]="{'active': relic.type.r === 40}" class="m-1">
-          <img [src]="'../../assets/img/'+relic.logo" attr.width="{{relic.type.r*2}}px">
+      <ng-container *ngFor="let relic of getRelicsToView() index as index">
+        <div [ngClass]="{'active': relic.type.r === 40, 'passive': relic.type.r === 35}" class="m-1 view__item"
+          (click)="setEquipedRelics($event)" id="{{index}}">
+          <img [src]="'../../assets/img/'+relic.logo" attr.width="{{relic.type.r*2}}px"
+            onError="this.src='../../assets/img/hero/blank.png'">
         </div>
       </ng-container>
     </div>
   </mat-tab>
+
+
   <ng-container *ngFor="let branch of getData()">
     <mat-tab label="{{branch.name}}">
       <hero-branch (selectedElem)="setSelected($event)" [relics]="branch.data"></hero-branch>
