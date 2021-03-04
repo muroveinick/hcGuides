@@ -47,18 +47,20 @@ export class HeroComponent implements OnInit {
   showHeroPower() {
     //TODO переделать вызов
     // console.log(relics[0].data)
-    let pass_res = 0;
+    let power = 0,
+      cost = 0
 
     relics.forEach(branch =>
       branch.data.forEach(i => {
         let curr = i.type.r === 40 ? A : i.type.r === 35 ? P : i.type.r === 30 && i.type.levels === 10 ? T10 : T14;
         if (curr === T10 || curr === T14) {
-          pass_res += curr[i.curr_level].power;
+          power += curr[i.curr_level].power;
         }
+        cost += curr[i.curr_level].total_coins
       }))
 
     // return [this.calculateEqupedPOwer() + pass_res, pass_res].map(i => this.formatToSepString(i))
-    return this.formatToSepString((this.calculateEqupedPOwer() + pass_res));
+    return [this.formatToSepString((this.calculateEqupedPOwer() + power)), this.formatToSepString(cost)]
   }
 
 

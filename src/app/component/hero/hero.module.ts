@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
-
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { HeroBranchModule } from "../hero-branch/hero-branch.module"
 
@@ -18,7 +18,8 @@ import { HeroComponent } from "./hero.component"
     MatInputModule,
     MatButtonModule,
     MatTabsModule,
-    HeroBranchModule
+    HeroBranchModule,
+    MatTooltipModule
   ],
   exports: [],
   declarations: [HeroComponent]
