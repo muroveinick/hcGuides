@@ -1,10 +1,10 @@
 <div class="utility-contaiter">
   <div class="mb-2">
-    <button mat-mini-fab color="accent" (click)="onChangeLevel(this.selectedELem.curr_level-1)"
+    <button mat-mini-fab color="accent" (click)="onChangeLevel(0)"
       [disabled]="!this.selectedELem">
       <mat-icon>remove</mat-icon>
     </button>
-    <button mat-mini-fab color="accent" (click)="onChangeLevel(this.selectedELem.curr_level+1)"
+    <button mat-mini-fab color="accent" (click)="onChangeLevel(this.selectedELem.type.levels)"
       [disabled]="this.selectedELem === null || this.selectedELem.curr_level > this.selectedELem.type.levels - 1">
       <mat-icon>add</mat-icon>
     </button>
@@ -17,8 +17,8 @@
   </mat-form-field>
 
   <!-- <mat-label class="mx-2">{{ this.level }}</mat-label> -->
-  <mat-label class="mx-2">{{ showHeroPower()[0]}}</mat-label>
-  <mat-label class="mx-2">{{ showHeroPower()[1]}}</mat-label>
+  <mat-label class="mx-2">{{'Мощь '+ showHeroPower()}}</mat-label>
+  <!-- <mat-label class="mx-2">{{ 'Пасс '+showHeroPower()[1]}}</mat-label> -->
 
 </div>
 
