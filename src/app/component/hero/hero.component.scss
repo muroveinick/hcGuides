@@ -1,23 +1,18 @@
 :host {
   display: flex;
+  flex-direction: column;
   height: 100%;
 }
 
 .utility-contaiter {
-  height: 100%;
+  width: 100%;
   align-self: center;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
 
-  background: white;
   padding: 5px;
   border-radius: 2px;
-  width: 130px;
-  z-index: 22;
-  // position: sticky;
-  // left: 0;
 }
 
 .view {

@@ -4,10 +4,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { HeroBranchModule } from "../hero-branch/hero-branch.module"
-
 import { HeroComponent } from "./hero.component"
 
 
@@ -19,7 +19,8 @@ import { HeroComponent } from "./hero.component"
     MatButtonModule,
     MatTabsModule,
     HeroBranchModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDividerModule
   ],
   exports: [],
   declarations: [HeroComponent]

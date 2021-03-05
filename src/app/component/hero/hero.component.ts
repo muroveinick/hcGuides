@@ -65,7 +65,7 @@ export class HeroComponent implements OnInit {
       }))
 
     // return [this.calculateEqupedPOwer() + pass_res, pass_res].map(i => this.formatToSepString(i))
-    return [this.formatToSepString((this.calculateEqupedPOwer() + power)), cost]
+    return [(this.calculateEqupedPOwer() + power), cost]
   }
 
 
