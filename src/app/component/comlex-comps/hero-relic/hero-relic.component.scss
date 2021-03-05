@@ -20,7 +20,9 @@ svg .bar {
       }
     }
   }
-  &.selected circle {
-    outline: 1px solid #666;
+  &.selected svg {
+    // box-shadow: 0px 0px 0px 2px aquamarine;
+    // filter: drop-shadow(0 0 4px aquamarine);
+    filter: drop-shadow(0 0 2px rgb(186, 218, 85));
   }
 }

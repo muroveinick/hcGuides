@@ -61,4 +61,12 @@ const A = [
   { power: 600000, coins: 80000, total_coins: 245150, },
 ];
 
-export { T14, T10, A, P }
+const Star = function (level: number) {
+  return {
+    power: 800 * level,
+    coins: 23000 + 11000 + 2000 * level,
+    total_coins: 23000 + (2 * 11000 + 2000 * (level - 1)) / 2 * level
+  }
+}
+
+export { T14, T10, A, P, Star }

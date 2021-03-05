@@ -89,4 +89,14 @@
       </hero-relic>
     </ng-container>
   </div>
+
+
+  <div>
+    <ng-container *ngFor="let item of relics; index as index">
+      <hero-relic *ngIf="index ===27" id="{{ item.id }}" [logo]="item.logo" [type]="item.type"
+        (selected)="setSelectedElem($event)" [curr_level]="item.curr_level">
+      </hero-relic>
+    </ng-container>
+
+  </div>
 </div>

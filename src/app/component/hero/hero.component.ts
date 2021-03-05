@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { HeroRelic } from '../comlex-comps/hero-relic/hero-relic.component';
-import { T14, T10, A, P } from "../../data/_var_power"
+import { T14, T10, A, P, Star } from "../../data/_var_power"
 import { relics } from "./_data"
 
 @Component({
@@ -22,17 +22,17 @@ export class HeroComponent implements OnInit {
     passive: new Array<number>()
   }
   selectedELem: HeroRelic = null;
+  readonly FULL_HERO_COINS: number = 50117850;
+
 
 
   onChangeLevel(value: number) {
     if (this.selectedELem) {
-
       value < 0 ? value = 0 : value > this.selectedELem.type.levels ? value = this.selectedELem.type.levels : null
       this.selectedELem.curr_level = value;
       relics[this.selectedELem.logo.match(/warrior/) ? 0 : this.selectedELem.logo.match(/archer/) ? 1 : 2].data[this.selectedELem.id].curr_level = value
-
     }
-    console.log(this.selectedELem)
+    // console.log(this.selectedELem)
   }
 
 
@@ -52,15 +52,20 @@ export class HeroComponent implements OnInit {
 
     relics.forEach(branch =>
       branch.data.forEach(i => {
-        let curr = i.type.r === 40 ? A : i.type.r === 35 ? P : i.type.r === 30 && i.type.levels === 10 ? T10 : T14;
+        let curr = i.type.r === 40 ? A : i.type.r === 35 ? P : i.type.r === 30 && i.type.levels === 10 ? T10 : i.type.levels === 14 ? T14 : Star;
         if (curr === T10 || curr === T14) {
           power += curr[i.curr_level].power;
         }
-        cost += curr[i.curr_level].total_coins
+        if (curr === Star) {
+          cost += curr(i.curr_level).total_coins;
+          power += curr(i.curr_level).power;
+        } else {
+          cost += curr[i.curr_level].total_coins
+        }
       }))
 
     // return [this.calculateEqupedPOwer() + pass_res, pass_res].map(i => this.formatToSepString(i))
-    return [this.formatToSepString((this.calculateEqupedPOwer() + power)), this.formatToSepString(cost)]
+    return [this.formatToSepString((this.calculateEqupedPOwer() + power)), cost]
   }
 
 
@@ -70,7 +75,7 @@ export class HeroComponent implements OnInit {
 
   getRelicsToView() {
     /**выбор из всех веток А и P реликов для вывода на вью */
-    return relics.reduce((sum, curr) => sum.concat(curr.data), []).filter(i => i.type.r > 30).sort((a, b) => a.type.r < b.type.r ? 1 : -1);
+    return relics.reduce((sum, curr) => sum.concat(curr.data), []).filter(i => (i.type.r === 35 || i.type.r === 40)).sort((a, b) => a.type.r < b.type.r ? 1 : -1);
   }
 
   setEquipedRelics(a: any) {

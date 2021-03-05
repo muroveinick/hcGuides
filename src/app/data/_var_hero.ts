@@ -14,12 +14,16 @@ interface T14 {
   r: 30,
   levels: 14,
 }
+interface Star {
+  r: 50,
+  levels: 100,
+}
 
 interface relicView {
   id: number,
   logo: string,
   curr_level: number,
-  type: A | P | T10 | T14
+  type: A | P | T10 | T14 |Star
 }
 
 

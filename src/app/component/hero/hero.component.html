@@ -6,20 +6,22 @@
     </button>
     <button mat-mini-fab color="accent" (click)="onChangeLevel(this.selectedELem.type.levels)"
       [disabled]="this.selectedELem === null || this.selectedELem.curr_level > this.selectedELem.type.levels - 1"
-       matTooltip="Задать макс. лвл">
+      matTooltip="Задать макс. лвл">
       <mat-icon>add</mat-icon>
     </button>
   </div>
 
   <mat-form-field style="width: 120px;" class="my-2" *ngIf="this.selectedELem">
     <mat-label>Уровень реликвии</mat-label>
-    <input matInput type="number" autocomplete="off" min="0" max="14" [(value)]="this.selectedELem.curr_level"
-      (keyup)="onChangeLevel(+$event.target.value)" />
+    <input matInput type="number" autocomplete="off" min="0" [max]="this.selectedELem.type.levels"
+      [(value)]="this.selectedELem.curr_level" (keyup)="onChangeLevel(+$event.target.value)" />
   </mat-form-field>
 
   <!-- <mat-label class="mx-2">{{ this.level }}</mat-label> -->
   <mat-label class="mx-2">{{'Мощь '+ showHeroPower()[0]}}</mat-label>
-  <mat-label class="mx-2">{{'Монеток потрачено '+ showHeroPower()[1]}}</mat-label>
+  <mat-label class="mx-2">{{'Монеток потрачено '+ this.formatToSepString(showHeroPower()[1])}}</mat-label>
+  <mat-label class="mx-2">{{'Монеток до фулл героя '+ this.formatToSepString(FULL_HERO_COINS - showHeroPower()[1])}}
+  </mat-label>
 </div>
 
 
@@ -33,7 +35,7 @@
       <ng-container *ngFor="let relic of getRelicsToView() index as index">
         <div [ngClass]="{'active': relic.type.r === 40, 'passive': relic.type.r === 35}" class="m-1 view__item"
           (click)="setEquipedRelics($event)" id="{{index}}">
-          <img [src]="'../../assets/img1/'+relic.logo" attr.width="{{relic.type.r*2}}px"
+          <img [src]="'../../assets/img/'+relic.logo" attr.width="{{relic.type.r*2}}px"
             onError="this.src='../../assets/img/hero/blank.png'">
         </div>
       </ng-container>

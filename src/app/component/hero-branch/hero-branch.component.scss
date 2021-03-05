@@ -17,7 +17,7 @@
 }
 
 .hero-container {
-  width: 1300px;
+  width: 1450px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -176,7 +176,7 @@
   > hero-relic:nth-child(1) {
     order: 2;
     position: absolute;
-    top: 148px;
+    top: 134px;
     &::ng-deep mat-icon::after {
       width: 44px;
     }
