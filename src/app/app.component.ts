@@ -16,7 +16,7 @@ export class AppComponent {
   nav = [
     { route: '/portal', name: 'Калькулятор Портала', icon: "calculate" },
     { route: '/stats', name: 'Калькулятор статов', icon: "equalizer" },
-    { route: '/hero', name: 'lists', icon: "list", },
+    { route: '/hero', name: 'Калькулятор героя', icon: "person", },
   ];
 
   setActiveNav(url: string) {

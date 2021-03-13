@@ -64,8 +64,8 @@ const A = [
 const Star = function (level: number) {
   return {
     power: 800 * level,
-    coins: 23000 + 11000 + 2000 * level,
-    total_coins: 23000 + (2 * 11000 + 2000 * (level - 1)) / 2 * level
+    coins: (level ? (23000 + 11000) : 0) + 2000 * (level - 1),
+    total_coins: (level ? 23000 : 0) + (2 * 11000 + 2000 * (level - 1)) / 2 * level
   }
 }
 

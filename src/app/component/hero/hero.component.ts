@@ -22,7 +22,7 @@ export class HeroComponent implements OnInit {
     passive: new Array<number>()
   }
   selectedELem: HeroRelic = null;
-  readonly FULL_HERO_COINS: number = 50117850;
+  readonly FULL_HERO_COINS: number = 48929100;
 
 
 
@@ -48,24 +48,36 @@ export class HeroComponent implements OnInit {
     //TODO переделать вызов
     // console.log(relics[0].data)
     let power = 0,
-      cost = 0
+      hero_data = {
+        0: 0, 1: 0, 2: 0,
+        all: 0,
+        power: 0
+      }
 
-    relics.forEach(branch =>
+    relics.forEach((branch, index) => {
+      let branch_cost = 0;
       branch.data.forEach(i => {
+
         let curr = i.type.r === 40 ? A : i.type.r === 35 ? P : i.type.r === 30 && i.type.levels === 10 ? T10 : i.type.levels === 14 ? T14 : Star;
         if (curr === T10 || curr === T14) {
           power += curr[i.curr_level].power;
         }
         if (curr === Star) {
-          cost += curr(i.curr_level).total_coins;
+          hero_data.all += curr(i.curr_level).total_coins;
+          branch_cost += curr(i.curr_level).total_coins;
           power += curr(i.curr_level).power;
         } else {
-          cost += curr[i.curr_level].total_coins
+          hero_data.all += curr[i.curr_level].total_coins
+          branch_cost += curr[i.curr_level].total_coins
         }
-      }))
 
-    // return [this.calculateEqupedPOwer() + pass_res, pass_res].map(i => this.formatToSepString(i))
-    return [(this.calculateEqupedPOwer() + power), cost]
+
+
+        hero_data[index] = branch_cost;
+        hero_data.power = this.calculateEqupedPOwer() + power;
+      })
+    });
+    return hero_data;
   }
 
 

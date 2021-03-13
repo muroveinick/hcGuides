@@ -16,13 +16,13 @@
 
 <mat-drawer-container autosize class="col-12 p-0 mat-drawer-transition">
   <mat-drawer mode="side" opened="true" #drawer class="sidebar-close">
-    <button mat-stroked-button (click)="this.toggle()" class="pl-1 pr-0 navitem">
+    <button mat-stroked-button (click)="this.toggle()" class="px-1 navitem">
       <mat-icon>keyboard_arrow_right</mat-icon>
     </button>
 
     <ng-container *ngFor="let i of nav">
-      <button mat-stroked-button [routerLink]="i.route" class="navitem pl-1 pr-0">
-        <mat-icon mat-list-icon class="mr-2">{{i.icon}}</mat-icon>
+      <button mat-stroked-button [routerLink]="i.route" class="navitem px-1">
+        <mat-icon mat-list-icon class="mr-0">{{i.icon}}</mat-icon>
         {{ sidevarOpened?i.name:"" }}
       </button>
     </ng-container>
@@ -31,7 +31,7 @@
 
 
   <mat-drawer-content>
-    <router-outlet onchange="console.log('2')"></router-outlet>
+    <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>
 

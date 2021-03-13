@@ -1,5 +1,5 @@
-<div class="utility-contaiter">
-  <div class="mb-2">
+<div class="utility-contaiter" *ngIf="showHeroPower() as data">
+  <div>
     <button mat-mini-fab color="accent" (click)="onChangeLevel(0)"
       [disabled]="!this.selectedELem || this.selectedELem.curr_level === 0" matTooltip="Задать 0 лвл">
       <mat-icon>exposure_zero</mat-icon>
@@ -15,28 +15,65 @@
     <mat-label>Уровень реликвии</mat-label>
     <input matInput type="number" autocomplete="off" min="0" [max]="this.selectedELem.type.levels"
       [(value)]="this.selectedELem.curr_level" (keyup)="onChangeLevel(+$event.target.value)" />
+    <mat-hint>Введите число</mat-hint>
   </mat-form-field>
 
-  <!-- <mat-label class="mx-2">{{ this.level }}</mat-label> -->
-  <mat-label class="mx-2">Мощь: <br> <b>{{formatToSepString(showHeroPower()[0])}}</b></mat-label>
-  <mat-divider [vertical]="true"></mat-divider>
-  <mat-label class="mx-2">Монеток потрачено <br> <b>{{formatToSepString(+showHeroPower()[1])}}</b></mat-label>
-  <mat-label class="mx-2">Монеток до фулл героя <br> <b>{{formatToSepString(FULL_HERO_COINS - +showHeroPower()[1])}}</b>
-  </mat-label>
-</div>
 
+  <mat-divider [vertical]="true"></mat-divider>
+
+  <div class="mx-2 items_conteiner">
+    <mat-label class="mx-2">Мощь</mat-label>
+    <mat-label class="icon__label"><img width="25"
+        [src]="'../../assets/img/hero/power.png'"><b>{{formatToSepString(data.power)}}</b></mat-label>
+  </div>
+
+  <mat-divider [vertical]="true"></mat-divider>
+  <mat-label class="mx-2">Монеток потрачено <br> <b>{{formatToSepString(data.all)}}</b></mat-label>
+  <mat-divider [vertical]="true"></mat-divider>
+  <div class="mx-2 items_conteiner">
+    <mat-label>До фулл героя</mat-label>
+    <mat-label class="icon__label"><img width="30"
+        [src]="'../../assets/img/hero/coins.png'"><b>{{formatToSepString(FULL_HERO_COINS - data.all)}}</b></mat-label>
+    <mat-label class="icon__label"> <img width="25"
+        [src]="'../../assets/img/hero/ether.jpg'"><b>{{formatToSepString(5*(FULL_HERO_COINS -
+        data.all))}}</b></mat-label>
+  </div>
+  <mat-icon>east</mat-icon>
+  <div class="items_conteiner">
+    <mat-label class="icon__label"> <img width="20" [src]="'../../assets/img/hero/w_coin.png'">
+      <b>{{formatToSepString(FULL_HERO_COINS/3 - data['0'])}}</b>
+    </mat-label>
+    <mat-label class="icon__label"> <img width="20" [src]="'../../assets/img/hero/a_coin.png'">
+      <b>{{formatToSepString(FULL_HERO_COINS/3 - data['1'])}}</b>
+    </mat-label>
+    <mat-label class="icon__label"> <img width="20" [src]="'../../assets/img/hero/m_coin.png'">
+      <b>{{formatToSepString(FULL_HERO_COINS/3 - data['2'])}}</b>
+    </mat-label>
+  </div>
+  <mat-divider [vertical]="true"></mat-divider>
+  <p>Выберите одну активную и до четырех пассивных реликвий в первой вкладке, <br>а затем укажите уровни требуемых
+    талантов и реликвий в других</p>
+
+</div>
 
 
 <mat-tab-group mat-align-tabs="start">
 
   <mat-tab label="Выбранные реликвии">
-    <p>Выберите один активный и до четырех пассивных реликвий в этой вкладке, <br>а затем укажите уровни требуемых
-      талантов и реликвий в других</p>
     <div class="view mt-4">
       <ng-container *ngFor="let relic of getRelicsToView() index as index">
-        <div [ngClass]="{'active': relic.type.r === 40, 'passive': relic.type.r === 35}" class="m-1 view__item"
-          (click)="setEquipedRelics($event)" id="{{index}}">
-          <img [src]="'../../assets/img1/'+relic.logo" attr.width="{{relic.type.r*2}}px"
+        <div *ngIf="relic.type.r === 40" class="m-1 view__item active" (click)="setEquipedRelics($event)"
+          id="{{index}}">
+          <img [src]="'../../assets/img/'+relic.logo" attr.width="{{relic.type.r*2}}px"
+            onError="this.src='../../assets/img/hero/blank.png'">
+        </div>
+      </ng-container>
+    </div>
+    <div class="view mt-4">
+      <ng-container *ngFor="let relic of getRelicsToView() index as index">
+        <div *ngIf="relic.type.r === 35" class="m-1 view__item passive" (click)="setEquipedRelics($event)"
+          id="{{index}}">
+          <img [src]="'../../assets/img/'+relic.logo" attr.width="{{relic.type.r*2}}px"
             onError="this.src='../../assets/img/hero/blank.png'">
         </div>
       </ng-container>
