@@ -564,7 +564,7 @@ let relics_archer: relicView[] = [{
   },
 },
 ];
- /******************************************************************** */
+/******************************************************************** */
 
 
 
@@ -853,15 +853,23 @@ let relics_mage: relicView[] = [
 
 ];
 
+let mock = {
+  0: [8, 11, 4, 14, 11,/** */  12, 10, 14, 10, 11, 10, 4,/** */  14, 10, 14, 4, 10, 11, 2,/** */  10, 1, 1, 0, /** */ 10, 8, 1, 8, /** */ 75],
+  1: [4, 11, 4, 14, 11,/** */  14, 10, 6, 9, 11, 11, 4,/** */  14, 9, 7, 10, 11, 11, 9, /** */ 11, 10, 9, 0,/** */  10, 7, 1, 10, /** */ 0],
+  2: [10, 10, 2, 12, 11, /** */ 14, 11, 14, 4, 11, 10, 2,/** */  12, 10, 6, 4, 11, 7, 10, /** */ 10, 2, 8, 0,/** */  8, 11, 10, 8,/** */  0],
+  
+}
 
+// relics_warrior.forEach((elem) => elem.curr_level = 0);
+// relics_mage.forEach((elem) => elem.curr_level = 0);
+// relics_archer.forEach((elem) => elem.curr_level = elem.type.levels)
 
-relics_warrior.forEach((elem) => elem.curr_level = 0);
-relics_mage.forEach((elem) => elem.curr_level = 0);
-relics_archer.forEach((elem) => elem.curr_level = elem.type.levels)
-
+relics_warrior.forEach((elem, i) => elem.curr_level = mock['0'][i]);
+relics_mage.forEach((elem, i) => elem.curr_level = mock['1'][i]);
+relics_archer.forEach((elem, i) => elem.curr_level = mock['2'][i])
 
 export const relics = [
   { data: relics_warrior, name: "Воины" },
+  { data: relics_mage, name: "Маги" },
   { data: relics_archer, name: "Луки" },
-  { data: relics_mage, name: "Маги" }
 ]

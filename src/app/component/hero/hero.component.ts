@@ -87,7 +87,7 @@ export class HeroComponent implements OnInit {
 
   getRelicsToView() {
     /**выбор из всех веток А и P реликов для вывода на вью */
-    return relics.reduce((sum, curr) => sum.concat(curr.data), []).filter(i => (i.type.r === 35 || i.type.r === 40)).sort((a, b) => a.type.r < b.type.r ? 1 : -1);
+    return relics.reduce((sum, curr) => sum.concat(curr.data), []).filter(i => (i.type.r === 35 || i.type.r === 40));
   }
 
   setEquipedRelics(a: any) {
