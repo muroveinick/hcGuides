@@ -15,22 +15,22 @@ export class StatsComponent implements OnInit {
     aLevel: 100,
     dLevel: 100,
     PhysArmor: {
-      key: 'Снижение физического урона противника',
+      key: 'PhisAbsorb',
       input: 0,
       value: 0
     },
     MageArmor: {
-      key: 'Снижение магического урона противника',
+      key: 'MageAbsorb',
       input: 0,
       value: 0
     },
     Crit: {
-      key: 'Шанс критического(двойного*) урона по противнику',
+      key: 'CritChance',
       input: 0,
       value: 0
     },
     Dodge: {
-      key: 'Шанс противника увернуться',
+      key: 'DodgeChance',
       input: 0,
       value: 0
     }
@@ -112,13 +112,17 @@ export class StatsComponent implements OnInit {
 
 
   getArrayFromOby() {
+    //return ["PhysArmor", "MageArmor", "Crit", "Dodge"], terrifying
     return Object.keys(this.output).splice(2)
   }
 
   getValue(key: string) {
-    // console.log("111 " + this.output[`${key}`].value)
-
-    return this.output[`${key}`].value ? (this.output[`${key}`].key + " " + [this.output[`${key}`].value > 0 ? this.output[`${key}`].value : 0] + "%") : ""
+    console.log(this.output)
+    return this.output[`${key}`].value
+      ? (this.output[`${key}`].value > 0
+        ? this.output[`${key}`].value
+        : 0)
+      : ""
   }
 
 }

@@ -23,7 +23,7 @@
     <ng-container *ngFor="let i of nav">
       <button mat-stroked-button [routerLink]="i.route" class="navitem px-1">
         <mat-icon mat-list-icon class="mr-0">{{i.icon}}</mat-icon>
-        {{ sidevarOpened?i.name:"" }}
+        {{ sidevarOpened?('Route.'+i.name | translate):"" }}
       </button>
     </ng-container>
 

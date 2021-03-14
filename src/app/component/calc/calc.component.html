@@ -1,43 +1,44 @@
 <div class="col-12 col-md-8 col-lg-8 d-flex justify-content-center flex-column">
 
-	<h2 class="text-center">Калькулятор яблок для портала</h2>
-	<p>Выберите уровень для фарма, желаемое количество Душ и имеющиеся модификаторы</p>
+	<h2 class="text-center">{{ 'Portal.Title' | translate }}</h2>
+	<p>{{ 'Portal.Description' | translate }}</p>
 	<form class="form pt-4 row" [formGroup]="form">
 
 		<div class="px-2 d-flex flex-column col-12 col-md-4">
 
 
 			<mat-form-field>
-				<mat-label>Уровень Портала</mat-label>
+				<mat-label>{{ 'Portal.Level' | translate }}</mat-label>
 				<input matInput type="number" formControlName="portalLevel" autocomplete="off" min="0" max="125" />
 				<mat-error *ngIf="form.get('portalLevel').hasError('max') || form.get('portalLevel').hasError('min')">
-					Введите уровень от 1 до 125 оО
+					{{ 'Portal.LevelError' | translate }}
 				</mat-error>
 			</mat-form-field>
 
 			<mat-form-field>
-				<mat-label>Необходимое количество душ</mat-label>
-				<input matInput type=" number" value="2" formControlName="goalSouls" autocomplete="off" />
+				<mat-label>{{ 'Portal.Goal' | translate }}</mat-label>
+				<input matInput type="number" value="2" formControlName="goalSouls" autocomplete="off" />
 				<mat-error *ngIf="form.get('goalSouls').hasError('max')">
-					Вы же не собираетесь скупить вообще весь портал?
+					{{ 'Portal.MaxError' | translate }}
 				</mat-error>
 				<mat-error *ngIf="form.get('goalSouls').hasError('min') || form.get('goalSouls').hasError('pattern')">
-					Хотя бы 100 душ
+					{{ 'Portal.MinError' | translate }}
 				</mat-error>
 			</mat-form-field>
 
 			<mat-checkbox [(ngModel)]="!!this.default.isStartedSouls" [ngModelOptions]="{standalone: true}" name="checkbox">
-				Уже есть души?</mat-checkbox>
+				{{ 'Portal.isStartedSouls' | translate }}
+			</mat-checkbox>
 
 
 			<mat-form-field *ngIf="this.default.isStartedSouls">
-				<mat-label>Имеющиеся Души</mat-label>
-				<input matInput type="number" value="2" formControlName="startedSouls" pattern="\d{1,}" />
+				<mat-label>{{ 'Portal.StartedSouls' | translate }}</mat-label>
+				<input matInput type="number" value="2" formControlName="startedSouls" pattern="\d{1,}" min="0" />
 				<mat-error *ngIf="form.get('startedSouls').hasError('max')">
-					Сохранили души с прошлых порталов?
+					{{ 'Portal.StartedMaxError' | translate }}
 				</mat-error>
 				<mat-error *ngIf="form.get('startedSouls').hasError('min') || form.get('startedSouls').hasError('pattern')">
-					Введите корректное число
+					{{ 'Portal.StartedMinError' | translate }}
 				</mat-error>
 			</mat-form-field>
 		</div>
@@ -47,10 +48,13 @@
 
 		<div class="d-flex flex-column justify-content-between col-12 col-md-4 px-2">
 			<mat-form-field appearance="fill">
-				<mat-label>Уровень квартала</mat-label>
+				<mat-label>{{ 'Portal.Hunters' | translate }}</mat-label>
 				<mat-select formControlName="hunters" name="hunters">
-					<mat-option *ngFor="let levels of getData().hunters" [value]="levels.value">
-						{{levels.viewValue}}
+					<mat-option *ngFor="let levels of getData().hunters; index as i" [value]="levels.value">
+						{{ i === 0
+						? ("Portal." + levels.viewValue | translate)
+						: (("Portal.Selects.Level" | translate) + " "+ i+", "+ ("Portal.Selects.Increased" | translate) + '
+						'+levels.viewValue ) }}
 					</mat-option>
 				</mat-select>
 			</mat-form-field>
@@ -58,20 +62,23 @@
 
 
 			<mat-form-field appearance="fill">
-				<mat-label>Уровень Знамени</mat-label>
+				<mat-label>{{ 'Portal.Banner' | translate }}</mat-label>
 				<mat-select formControlName="banner" name="banner">
-					<mat-option *ngFor="let banner of getData().banner" [value]="banner.value">
-						{{banner.viewValue}}
+					<mat-option *ngFor="let banner of getData().banner; index as i" [value]="banner.value">
+						{{ i === 0
+						? ("Portal." + banner.viewValue | translate)
+						: (("Portal.Selects.Level" | translate) + " "+ i+", "+ ("Portal.Selects.Increased" | translate) + '
+						'+banner.viewValue ) }}
 					</mat-option>
 				</mat-select>
 			</mat-form-field>
 
 
 			<mat-form-field appearance="fill">
-				<mat-label>Множитель душ</mat-label>
+				<mat-label>{{ 'Portal.Multiply' | translate }}</mat-label>
 				<mat-select formControlName="multiply" name="multiply">
-					<mat-option *ngFor="let multiply of getData().x_buff" [value]="multiply.value">
-						{{multiply.viewValue}}
+					<mat-option *ngFor="let multiply of getData().x_buff; index as i" [value]="multiply.value">
+						{{ i === 0 ? ("Portal." + multiply.viewValue | translate) : multiply.viewValue }}
 					</mat-option>
 				</mat-select>
 			</mat-form-field>
@@ -80,14 +87,14 @@
 		<div class="col-12 col-md-4 px-2 flex-column d-flex align-items-center">
 
 			<mat-label class="my-2">
-				{{this.res[0]}}
+				{{'Portal.'+ this.res[0]| translate}}
 				<ng-container *ngIf="this.res.length > 1">
 					<b>{{this.res[1]}}</b>
 					<img width="30" src="../../assets/img/apples.png">
 					<br>
-					{{this.res[2]}}
-					<b>{{this.res[3]}}</b>
-					{{this.res[4]}}
+					{{ 'Portal.Result3' | translate }}
+					<b>{{this.res[2]}}</b>
+					{{ 'Portal.Result4' | translate }}
 				</ng-container>
 
 			</mat-label>

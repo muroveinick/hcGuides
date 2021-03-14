@@ -1,22 +1,25 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(private router: Router) {
+  param = { value: 'world' };
+  constructor(router: Router, translate: TranslateService) {
     router.events.subscribe((val) => val instanceof NavigationEnd ? this.setActiveNav(val.url) : null)
-
+    translate.setDefaultLang('en');
+    translate.use('ru');
   }
 
   sidevarOpened: boolean = false;
 
   nav = [
-    { route: '/portal', name: 'Калькулятор Портала', icon: "calculate" },
-    { route: '/stats', name: 'Калькулятор статов', icon: "equalizer" },
-    { route: '/hero', name: 'Калькулятор героя', icon: "person", },
+    { route: '/portal', name: 'Portal', icon: "calculate" },
+    { route: '/stats', name: 'Stats', icon: "equalizer" },
+    { route: '/hero', name: "Hero", icon: "person", },
   ];
 
   setActiveNav(url: string) {

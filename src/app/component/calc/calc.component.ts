@@ -17,34 +17,25 @@ export class CalcComponent implements OnInit {
   };
 
   form = new FormGroup({
-    portalLevel: new FormControl('', [Validators.min(1), Validators.max(125),]),
-    goalSouls: new FormControl('', [Validators.min(100), Validators.max(1250000000), Validators.pattern(/\d{1,}/),]),
-    startedSouls: new FormControl('', [Validators.min(0), Validators.max(1250000000), Validators.pattern(/\d{1,}/),]),
-    hunters: new FormControl('', []),
-    banner: new FormControl('', []),
-    multiply: new FormControl('', [])
+    portalLevel: new FormControl(80, [Validators.min(1), Validators.max(125),]),
+    goalSouls: new FormControl(70000, [Validators.min(100), Validators.max(1250000000), Validators.pattern(/^\d+$/),]),
+    startedSouls: new FormControl(0, [Validators.min(0), Validators.max(1250000000), Validators.pattern(/^\d+$/),]),
+    hunters: new FormControl(1, []),
+    banner: new FormControl(1, []),
+    multiply: new FormControl(1, [])
   });
 
   ngOnInit(): void {
-    this.form.setValue({
-      portalLevel: 80,
-      goalSouls: 70000,
-      startedSouls: 0,
-      hunters: 1,
-      banner: 1,
-      multiply: 1
-    });
-
     this.form.valueChanges.subscribe((r) => this.showResult())
-
     this.showResult()
   }
 
   showResult() {
     let requiredApples: number;
     let finalData: any = this.form.getRawValue();
+    console.log(finalData)
 
-    if (this.form.valid) {
+    if (this.form.valid && !!finalData.goalSouls) {
       requiredApples =
         Math.ceil(
           (finalData.goalSouls -
@@ -55,21 +46,21 @@ export class CalcComponent implements OnInit {
             + data.souls[`${finalData.portalLevel}`] * (finalData.multiply - 1))
         ) * data.apples[`${finalData.portalLevel}`];
 
-      if (finalData.startedSouls > finalData.goalSouls) {
-        this.res = ["Уже хватает😀"];
+      if (finalData.startedSouls >= finalData.goalSouls) {
+        this.res = ["Result5"];//i18n
         return
       }
       if (!finalData.portalLevel) {
         return
       }
 
-      this.res = [`Яблок на ${finalData.portalLevel < 81 ? "Тёмные души" : "Очень тёмные души"}`,
-      this.formatToSepString(requiredApples),
-        "потребуется",
-      Math.trunc(requiredApples / data.apples[`${finalData.portalLevel}`]),
-        "заходов"]
+      this.res = [
+        `${finalData.portalLevel < 81 ? "Result1" : "Result2"}`,//i18n
+        this.formatToSepString(requiredApples),
+        Math.trunc(requiredApples / data.apples[`${finalData.portalLevel}`]),
+      ]
     } else {
-      this.res = ['¯\\_(ツ)_/¯'];
+      this.res = ['Result6'];//i18n
     }
   }
 
@@ -88,5 +79,17 @@ export class CalcComponent implements OnInit {
   getData() {
     return data;
   }
+
+  // formNotNull(form) {
+  //   let res = true;
+  //   if (typeof form === "object") {
+  //     for (const [key, value] of Object.entries(form)) {
+  //       if (value === null) res = false
+  //     }
+  //   }
+  //   return res;
+  // }
+
+
 }
 

@@ -1,26 +1,24 @@
 <div class="col-12 col-md-8 col-lg-8 d-flex justify-content-center flex-column">
 
-	<h2 class="text-center">Калькулятор различных статов бойцов</h2>
-	<p>Укажите уровни бойцов и статы противника и, если нужно, атакующего. Обратите внимание, что расчёт процентов
-		напрямую связан с уровнями, поэтому значения будут уже при минимальной разнице уровней</p>
+	<h2 class="text-center">{{ "Stats.Title" | translate }}</h2>
+	<p>{{ "Stats.Description" | translate }}</p>
 	<form class="form pt-4 row align-items-start" [formGroup]="form">
 
 		<div class="px-2 first-block col-12 col-md-3">
-
 			<mat-form-field>
-				<mat-label>Уровень атакующего бойца</mat-label>
+				<mat-label>{{ "Stats.AttackerLevel" | translate }}</mat-label>
 				<input matInput type="number" formControlName="aLevel" autocomplete="off" min="0" max="100" />
 				<mat-error *ngIf="form.get('aLevel').hasError('max') || form.get('aLevel').hasError('min')">
-					Введите уровень от 1 до 100
+					{{ "Stats.LevelError" | translate }}
 				</mat-error>
 			</mat-form-field>
 
 
 			<mat-form-field>
-				<mat-label>Крит</mat-label>
+				<mat-label>{{ "Stats.AttackerCrit" | translate }}</mat-label>
 				<input matInput type="number" formControlName="Crit" autocomplete="off" min="0" />
 				<mat-error *ngIf="form.get('Crit').hasError('min')">
-					Не может быть меньше 0
+					{{ "Stats.StatError" | translate }}
 				</mat-error>
 			</mat-form-field>
 		</div>
@@ -32,7 +30,8 @@
 		<div class="col-12 col-md-6 p-2 flex-column d-flex align-items-center">
 			<img width="150" src="../../assets/img/defence.png">
 			<ng-container *ngFor="let out of getArrayFromOby()">
-				<mat-label class="py-1">{{showResult(out)}}</mat-label>
+				<mat-label *ngIf="!!showResult(out)" class="py-1">{{ ("Stats." + output[out].key | translate) +" "+
+					showResult(out)+"%"}}</mat-label>
 			</ng-container>
 		</div>
 
@@ -40,36 +39,36 @@
 		<div class="px-2 col-12 col-md-3 second-block">
 
 			<mat-form-field>
-				<mat-label>Уровень защищаюшегося</mat-label>
+				<mat-label>{{ "Stats.DefenderLevel" | translate }}</mat-label>
 				<input matInput type="number" formControlName="dLevel" autocomplete="off" min="0" max="100" />
 				<mat-error *ngIf="form.get('dLevel').hasError('max') || form.get('dLevel').hasError('min')">
-					Введите уровень от 1 до 100
+					{{ "Stats.LevelError" | translate }}
 				</mat-error>
 			</mat-form-field>
 
 			<mat-form-field>
-				<mat-label>Броня</mat-label>
+				<mat-label>{{ "Stats.DefenderArmor" | translate }}</mat-label>
 				<input matInput type="number" formControlName="PhysArmor" autocomplete="off" min="0" />
 				<mat-error *ngIf="form.get('PhysArmor').hasError('min')">
-					Не может быть меньше 0
+					{{ "Stats.StatError" | translate }}
 				</mat-error>
 			</mat-form-field>
 
 			<mat-form-field>
-				<mat-label>Магическая броня</mat-label>
-				<input matInput type="number" formControlName="MageArmor" autocomplete="off" min="0" />
+				<mat-label>{{ "Stats.DefenderMageArmor" | translate }}</mat-label>
+				<input matInput type=" number" formControlName="MageArmor" autocomplete="off" min="0" />
 				<mat-error *ngIf="form.get('MageArmor').hasError('min')">
-					Не может быть меньше 0
+					{{ "Stats.StatError" | translate }}
 				</mat-error>
 			</mat-form-field>
 
 
 
 			<mat-form-field>
-				<mat-label>Уворот</mat-label>
+				<mat-label>{{ "Stats.DefenderDodge" | translate }}</mat-label>
 				<input matInput type="number" formControlName="Dodge" autocomplete="off" min="0" />
 				<mat-error *ngIf="form.get('Dodge').hasError('min')">
-					Не может быть меньше 0
+					{{ "Stats.StatError" | translate }}
 				</mat-error>
 			</mat-form-field>
 

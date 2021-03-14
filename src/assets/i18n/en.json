@@ -1,0 +1,37 @@
+{
+  "Route": {
+    "Portal": "Portal calculator",
+    "Stats": "Dweller stats calc.",
+    "Hero": "Hero's calculator"
+  },
+
+  "Portal": {
+    "Title": "Calculate amount of apples You need to",
+    "Description": "Select the Portal level for farming, the desired numer of Souls and modifiers (Hunters' neighborhood, Banner of Souls and Soul Catcher)",
+    "Level": "Portal Level",
+    "LevelError": "Please, enter number from 1 to 125 оО",
+    "Goal": "Number of Souls you want farm to",
+    "MaxError": "Are you about to obtain the entire portal Souls at all? (max souls error)",
+    "MinError": "At least 100 souls",
+    "isStartedSouls": "Have you already got souls?",
+    "StartedSouls": "Available Souls",
+    "StartedMaxError": "You saved souls from last week? (max souls error)",
+    "StartedMinError": "Enter correct value",
+    "Hunters": "Hunters' neighborhood level",
+    "Banner": "Banner of Souls level",
+    "Multiply": "Soul Catcher",
+    "Result1": "Apples, required for Dark souls",
+    "Result2": "Apples, required for Very dark souls",
+    "Result3": "it takes",
+    "Result4": "runs",
+    "Result5": "Already enough Souls😀",
+    "Result6": "¯\\_(ツ)_/¯",
+    "Selects": {
+      "Level": "Level",
+      "Increased": "increased by",
+      "NoHunters": "Out of Hunters' neighborhood",
+      "NoBanner": "Without Banner of Souls",
+      "NoMultiply": "Without Soul Catcher"
+    }
+  }
+}
