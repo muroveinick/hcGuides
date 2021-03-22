@@ -117,7 +117,7 @@ export class StatsComponent implements OnInit {
   }
 
   getValue(key: string) {
-    console.log(this.output)
+    // console.log(this.output)
     return this.output[`${key}`].value
       ? (this.output[`${key}`].value > 0
         ? this.output[`${key}`].value

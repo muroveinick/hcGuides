@@ -20,7 +20,7 @@
     "Hunters": "Hunters' neighborhood level",
     "Banner": "Banner of Souls level",
     "Multiply": "Soul Catcher",
-    "Result1": "Apples, required for Dark souls",
+    "Result1": "Apples, required for Dark souls,",
     "Result2": "Apples, required for Very dark souls",
     "Result3": "it takes",
     "Result4": "runs",
@@ -33,5 +33,21 @@
       "NoBanner": "Without Banner of Souls",
       "NoMultiply": "Without Soul Catcher"
     }
+  },
+  "Stats": {
+    "Title": "Dwellers attributes calculator",
+    "Description": "Here you can calculate, how attributes affect on damage reduction and chances of dealing critical attack or dodging an attack",
+    "AttackerLevel": "Attacker's level",
+    "LevelError": "Enter number in 1..100 range",
+    "AttackerCrit": "Attacker's crit",
+    "StatError": "Can not be less than 0",
+    "DefenderLevel": "Defender's level",
+    "DefenderArmor": "Defender's armor",
+    "DefenderMageArmor": "Defender's magic armor",
+    "DefenderDodge": "Defender's dodge",
+    "PhisAbsorb": "Defender's physical damage reduction",
+    "MageAbsorb": "Defender's magical damage reduction",
+    "CritChance":"Chance of dealing critical (double*) damage",
+    "DodgeChance":"Chance of dodging an attack"
   }
 }

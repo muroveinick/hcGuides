@@ -18,7 +18,7 @@ export class HeroComponent implements OnInit {
 
 
   equipedRelics = {
-    active: null,
+    active: 14,
     passive: new Array<number>()
   }
   selectedELem: HeroRelic = null;
@@ -49,7 +49,9 @@ export class HeroComponent implements OnInit {
     // console.log(relics[0].data)
     let power = 0,
       hero_data = {
-        0: 0, 1: 0, 2: 0,
+        0: 0,
+        1: 0,
+        2: 0,
         all: 0,
         power: 0
       }
@@ -91,6 +93,7 @@ export class HeroComponent implements OnInit {
   }
 
   setEquipedRelics(a: any) {
+    console.log(a)
     let div_elem: HTMLDivElement
     if (a.composedPath()[0] instanceof HTMLImageElement) {
       div_elem = a.path[0].parentNode

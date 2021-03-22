@@ -14,7 +14,7 @@ export class AppComponent {
     translate.use('ru');
   }
 
-  sidevarOpened: boolean = false;
+  sidevarOpened: boolean = true;
 
   nav = [
     { route: '/portal', name: 'Portal', icon: "calculate" },

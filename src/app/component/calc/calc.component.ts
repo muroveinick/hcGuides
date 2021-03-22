@@ -33,7 +33,7 @@ export class CalcComponent implements OnInit {
   showResult() {
     let requiredApples: number;
     let finalData: any = this.form.getRawValue();
-    console.log(finalData)
+    // console.log(finalData)
 
     if (this.form.valid && !!finalData.goalSouls) {
       requiredApples =
@@ -79,17 +79,5 @@ export class CalcComponent implements OnInit {
   getData() {
     return data;
   }
-
-  // formNotNull(form) {
-  //   let res = true;
-  //   if (typeof form === "object") {
-  //     for (const [key, value] of Object.entries(form)) {
-  //       if (value === null) res = false
-  //     }
-  //   }
-  //   return res;
-  // }
-
-
 }
 
