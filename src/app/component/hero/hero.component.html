@@ -1,4 +1,11 @@
-<div class="utility-contaiter" *ngIf="showHeroPower() as data">
+<div>
+  <p class="px-2">Выберите одну активную и до четырех пассивных реликвий в первой вкладке, а затем укажите уровни
+    требуемых
+    талантов и реликвий в других</p>
+</div>
+
+
+<div class="utility-contaiter mb-2" *ngIf="showHeroPower() as data">
   <div>
     <button mat-mini-fab color="accent" (click)="onChangeLevel(0)"
       [disabled]="!this.selectedELem || this.selectedELem.curr_level === 0" matTooltip="Задать 0 лвл">
@@ -39,7 +46,7 @@
         data.all))}}</b></mat-label>
   </div>
   <mat-icon>east</mat-icon>
-  <div class="items_conteiner">
+  <div class="items_conteiner mx-2">
     <mat-label class="icon__label"> <img width="20" [src]="'../../assets/img/hero/w_coin.png'">
       <b>{{formatToSepString(FULL_HERO_COINS/3 - data['0'])}}</b>
     </mat-label>
@@ -50,10 +57,6 @@
       <b>{{formatToSepString(FULL_HERO_COINS/3 - data['2'])}}</b>
     </mat-label>
   </div>
-  <mat-divider [vertical]="true"></mat-divider>
-  <p class="px-2">Выберите одну активную и до четырех пассивных реликвий в первой вкладке, а затем укажите уровни требуемых
-    талантов и реликвий в других</p>
-
 </div>
 
 

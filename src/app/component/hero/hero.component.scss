@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 95%;
 }
 
 .utility-contaiter {
@@ -12,8 +11,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  padding: 5px;
+  padding: 5px 10px;
   mat-label {
     text-align: center;
     &:nth-child(7) {
