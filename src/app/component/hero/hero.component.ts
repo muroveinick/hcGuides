@@ -15,10 +15,15 @@ export class HeroComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  ngAfterViewInit() {
+
+    ///set selected relics as arena build -- mask, hamster, hat, flag & banner
+    [14, 6, 21, 1, 3].forEach(i => this.setEquipedRelics(i))
+  }
 
 
   equipedRelics = {
-    active: 14,
+    active: null,
     passive: new Array<number>()
   }
   selectedELem: HeroRelic = null;
@@ -46,7 +51,6 @@ export class HeroComponent implements OnInit {
 
   showHeroPower() {
     //TODO переделать вызов
-    // console.log(relics[0].data)
     let power = 0,
       hero_data = {
         0: 0,
@@ -92,29 +96,24 @@ export class HeroComponent implements OnInit {
     return relics.reduce((sum, curr) => sum.concat(curr.data), []).filter(i => (i.type.r === 35 || i.type.r === 40));
   }
 
-  setEquipedRelics(a: any) {
-    console.log(a)
-    let div_elem: HTMLDivElement
-    if (a.composedPath()[0] instanceof HTMLImageElement) {
-      div_elem = a.path[0].parentNode
-    } else {
-      div_elem = a.path[0]
-    }
+  setEquipedRelics(relicIndex: number) {
+
+    let div_elem: Element = document.querySelector(`.view__item[id='${relicIndex}']`)
 
     if (div_elem.classList.contains('active')) {
       if (this.equipedRelics.active === null) {
         div_elem.classList.add('selected')
-        this.equipedRelics.active = +div_elem.id
-      } else if (this.equipedRelics.active === +div_elem.id) {
+        this.equipedRelics.active = relicIndex
+      } else if (this.equipedRelics.active === relicIndex) {
         div_elem.classList.remove('selected')
         this.equipedRelics.active = null
       }
     }
 
     if (div_elem.classList.contains('passive')) {
-      if (this.equipedRelics.passive.includes(+div_elem.id)) {
+      if (this.equipedRelics.passive.includes(relicIndex)) {
         div_elem.classList.remove('selected')
-        this.equipedRelics.passive.splice(this.equipedRelics.passive.indexOf(+div_elem.id), 1);
+        this.equipedRelics.passive.splice(this.equipedRelics.passive.indexOf(relicIndex), 1);
         // console.log(this.equipedRelics.passive);
         return
       }
@@ -122,7 +121,7 @@ export class HeroComponent implements OnInit {
 
       if (this.equipedRelics.passive.length < 4) {
         div_elem.classList.add('selected')
-        this.equipedRelics.passive.push(+div_elem.id)
+        this.equipedRelics.passive.push(relicIndex)
       }
       // console.log(this.equipedRelics.passive)
 

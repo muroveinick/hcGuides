@@ -57,13 +57,12 @@
 </div>
 
 
-<mat-tab-group mat-align-tabs="start">
+<mat-tab-group mat-align-tabs="start" style="background-color: burlywood;">
 
   <mat-tab label="Выбранные реликвии">
     <div class="view mt-4">
       <ng-container *ngFor="let relic of getRelicsToView() index as index">
-        <div *ngIf="relic.type.r === 40" class="m-1 view__item active" (click)="setEquipedRelics(id)"
-          id="{{index}}">
+        <div *ngIf="relic.type.r === 40" class="m-1 view__item active" id="{{index}}" (click)="setEquipedRelics(index)">
           <img [src]="'../../assets/img/'+relic.logo" attr.width="{{relic.type.r*2}}px"
             onError="this.src='../../assets/img/hero/blank.png'">
         </div>
@@ -71,7 +70,7 @@
     </div>
     <div class="view mt-4">
       <ng-container *ngFor="let relic of getRelicsToView() index as index">
-        <div *ngIf="relic.type.r === 35" class="m-1 view__item passive" (click)="setEquipedRelics($event)"
+        <div *ngIf="relic.type.r === 35" class="m-1 view__item passive" (click)="setEquipedRelics(index)"
           id="{{index}}">
           <img [src]="'../../assets/img/'+relic.logo" attr.width="{{relic.type.r*2}}px"
             onError="this.src='../../assets/img/hero/blank.png'">
