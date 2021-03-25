@@ -23,6 +23,7 @@ import { HeroComponent } from './component/hero/hero.component';
 import { HeroModule } from './component/hero/hero.module';
 import { CalcComponent } from './component/calc/calc.component';
 import { StatsComponent } from './component/fighters-stats/stats.component';
+import { ListComponent } from './component/list/list.component';
 
 
 const appRoutes: Routes = [
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
   { path: '', redirectTo: '/portal', pathMatch: 'full' },
   { path: 'hero', component: HeroComponent },
   { path: 'stats', component: StatsComponent },
+  { path: 'article', component: ListComponent },
 ];
 const MAT_UI_MODULES = [
   MatIconModule,
@@ -47,7 +49,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent, CalcComponent, StatsComponent],
+  declarations: [AppComponent, CalcComponent, StatsComponent, ListComponent],
   imports: [
     HeroBranchModule,
     HeroModule,

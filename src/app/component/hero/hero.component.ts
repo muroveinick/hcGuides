@@ -26,6 +26,7 @@ export class HeroComponent implements OnInit {
     active: null,
     passive: new Array<number>()
   }
+  
   selectedELem: HeroRelic = null;
   readonly FULL_HERO_COINS: number = 48929100;
 
