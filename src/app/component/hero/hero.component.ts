@@ -35,7 +35,7 @@ export class HeroComponent implements OnInit {
     if (this.selectedELem) {
       value < 0 ? value = 0 : value > this.selectedELem.type.levels ? value = this.selectedELem.type.levels : null
       this.selectedELem.curr_level = value;
-      relics[this.selectedELem.logo.match(/warrior/) ? 0 : this.selectedELem.logo.match(/archer/) ? 1 : 2].data[this.selectedELem.id].curr_level = value
+      relics[this.selectedELem.logo.match(/warrior/) ? 0 : this.selectedELem.logo.match(/mage/) ? 1 : 2].data[this.selectedELem.id].curr_level = value
     }
     // console.log(this.selectedELem)
   }
@@ -51,6 +51,7 @@ export class HeroComponent implements OnInit {
 
   showHeroPower() {
     //TODO переделать вызов
+    // console.log('aaaaaa')
     let power = 0,
       hero_data = {
         0: 0,
@@ -126,7 +127,7 @@ export class HeroComponent implements OnInit {
       // console.log(this.equipedRelics.passive)
 
     }
-    console.log(this.equipedRelics)
+    // console.log(this.equipedRelics)
   }
 
   calculateEqupedPOwer() {
