@@ -2,10 +2,30 @@
   display: flex;
   justify-content: center;
 }
-
+* {
+  color: rgb(34, 34, 34);
+}
+a {
+  text-decoration: underline;
+  color: #1d528f;
+}
 .article {
   font-size: 19px;
   font-family: "PT Serif";
-  color: rgba(0, 0, 0, 0.86);
-  line-height: 1.5em;
+  line-height: 28.5px;
+}
+figure {
+  display: flex;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 36px;
+}
+h3 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 34px;
 }
