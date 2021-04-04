@@ -52,7 +52,7 @@
   },
   "description": {
     "warrior": {
-      "berserk": "Increases the Physical Damage caused by an allied Warrior by {} for every {} of their maximum Health that is lost.",
+      "berserk": "Increases the Physical Damage caused by an allied Warrior by {} for every 10% of their maximum Health that is lost.",
       "acid_jar": "Lowers the Physical and Magical Armor of enemy Warriors to 0. Lasts for {} sec.",
       "fortitude": "Increases the physical armor of an allied warrior by {} for each hit they take.",
       "health": "Increases the Health of all allied Warriors by {}",

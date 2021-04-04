@@ -12,28 +12,60 @@
   </div>
 
   <mat-divider [vertical]="true"></mat-divider>
-  <mat-label class="mx-2">Монеток потрачено <br> <b>{{formatToSepString(data.all)}}</b></mat-label>
+  <!--  -->
+  <div class="items_conteiner">
+    <mat-label>Потрачено</mat-label>
+    <div class="icon__label">
+      <div class="mx-2 items_conteiner">
+        <mat-label class="icon__label"><img width="30" [src]="'../../assets/img/hero/coins.png'"><b>{{formatToSepString(
+            data.all)}}</b></mat-label>
+        <mat-label class="icon__label"> <img width="30"
+            [src]="'../../assets/img/hero/ether.png'"><b>{{formatToSepString(5*data.all)}}</b></mat-label>
+      </div>
+      <mat-icon>east</mat-icon>
+      <div class="items_conteiner mx-2">
+        <mat-label class="icon__label"> <img width="20" [src]="'../../assets/img/hero/w_coin.png'">
+          <b>{{formatToSepString(data['0'])}}</b>
+        </mat-label>
+        <mat-label class="icon__label"> <img width="20" [src]="'../../assets/img/hero/m_coin.png'">
+          <b>{{formatToSepString(data['1'])}}</b>
+        </mat-label>
+        <mat-label class="icon__label"> <img width="20" [src]="'../../assets/img/hero/a_coin.png'">
+          <b>{{formatToSepString(data['2'])}}</b>
+        </mat-label>
+      </div>
+    </div>
+  </div>
+
+  <!--  -->
   <mat-divider [vertical]="true"></mat-divider>
-  <div class="mx-2 items_conteiner">
+  <!--  -->
+  <div class="items_conteiner">
     <mat-label>До фулл героя</mat-label>
-    <mat-label class="icon__label"><img width="30"
-        [src]="'../../assets/img/hero/coins.png'"><b>{{formatToSepString(FULL_HERO_COINS - data.all)}}</b></mat-label>
-    <mat-label class="icon__label"> <img width="30"
-        [src]="'../../assets/img/hero/ether.png'"><b>{{formatToSepString(5*(FULL_HERO_COINS -
-        data.all))}}</b></mat-label>
+    <div class="icon__label">
+      <div class="mx-2 items_conteiner">
+        <mat-label class="icon__label"><img width="30"
+            [src]="'../../assets/img/hero/coins.png'"><b>{{formatToSepString(FULL_HERO_COINS - data.all)}}</b>
+        </mat-label>
+        <mat-label class="icon__label"> <img width="30"
+            [src]="'../../assets/img/hero/ether.png'"><b>{{formatToSepString(5*(FULL_HERO_COINS -
+            data.all))}}</b></mat-label>
+      </div>
+      <mat-icon>east</mat-icon>
+      <div class="items_conteiner mx-2">
+        <mat-label class="icon__label"> <img width="20" [src]="'../../assets/img/hero/w_coin.png'">
+          <b>{{formatToSepString(FULL_HERO_COINS/3 - data['0'])}}</b>
+        </mat-label>
+        <mat-label class="icon__label"> <img width="20" [src]="'../../assets/img/hero/m_coin.png'">
+          <b>{{formatToSepString(FULL_HERO_COINS/3 - data['1'])}}</b>
+        </mat-label>
+        <mat-label class="icon__label"> <img width="20" [src]="'../../assets/img/hero/a_coin.png'">
+          <b>{{formatToSepString(FULL_HERO_COINS/3 - data['2'])}}</b>
+        </mat-label>
+      </div>
+    </div>
   </div>
-  <mat-icon>east</mat-icon>
-  <div class="items_conteiner mx-2">
-    <mat-label class="icon__label"> <img width="20" [src]="'../../assets/img/hero/w_coin.png'">
-      <b>{{formatToSepString(FULL_HERO_COINS/3 - data['0'])}}</b>
-    </mat-label>
-    <mat-label class="icon__label"> <img width="20" [src]="'../../assets/img/hero/m_coin.png'">
-      <b>{{formatToSepString(FULL_HERO_COINS/3 - data['1'])}}</b>
-    </mat-label>
-    <mat-label class="icon__label"> <img width="20" [src]="'../../assets/img/hero/a_coin.png'">
-      <b>{{formatToSepString(FULL_HERO_COINS/3 - data['2'])}}</b>
-    </mat-label>
-  </div>
+
 </div>
 
 

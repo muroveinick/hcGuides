@@ -85,6 +85,7 @@ export class HeroComponent implements OnInit {
         hero_data.power = this.calculateEqupedPOwer() + power;
       })
     });
+    console.log(hero_data)
     return hero_data;
   }
 
