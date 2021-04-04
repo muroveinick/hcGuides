@@ -173,6 +173,7 @@
     order: 2;
     position: relative;
     height: 0;
+    width: fit-content;
     top: calc(-50% - 60px);
     &::ng-deep mat-icon::after {
       width: 44px;

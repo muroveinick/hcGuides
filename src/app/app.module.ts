@@ -13,12 +13,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import {HttpClientModule, HttpClient} from '@angular/common/http';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
-import { HeroBranchModule } from './component/hero-branch/hero-branch.module';
 import { HeroComponent } from './component/hero/hero.component';
 import { HeroModule } from './component/hero/hero.module';
 import { CalcComponent } from './component/calc/calc.component';
@@ -51,7 +50,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [AppComponent, CalcComponent, StatsComponent, ListComponent],
   imports: [
-    HeroBranchModule,
     HeroModule,
     BrowserModule,
     AppRoutingModule,
@@ -66,7 +64,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
-    }
+      }
     }
     ),
     BrowserAnimationsModule,

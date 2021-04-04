@@ -2,13 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatButtonModule } from '@angular/material/button';
 
-import { HeroBranchModule } from "../hero-branch/hero-branch.module"
 import { HeroComponent } from "./hero.component"
+import { HeroRelic } from '../comlex-comps/hero-relic/hero-relic.component';
+import { HeroBranchComponent } from '../hero-branch/hero-branch.component';
+import { RelicDialog } from '../comlex-comps/relic-dialog/relic-dialog.component';
+
 
 
 @NgModule({
@@ -16,13 +21,16 @@ import { HeroComponent } from "./hero.component"
     CommonModule,
     MatIconModule,
     MatInputModule,
-    MatButtonModule,
     MatTabsModule,
-    HeroBranchModule,
+    MatDividerModule,
+    MatButtonModule,
+    CommonModule,
+    MatIconModule,
     MatTooltipModule,
-    MatDividerModule
+    TranslateModule,
+    MatDialogModule
   ],
-  exports: [],
-  declarations: [HeroComponent]
+  exports: [HeroBranchComponent, HeroRelic, RelicDialog],
+  declarations: [HeroComponent, HeroBranchComponent, HeroRelic, RelicDialog]
 })
 export class HeroModule { }

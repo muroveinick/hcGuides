@@ -39,13 +39,9 @@ export class StatsComponent implements OnInit {
 
   constructor() { }
 
-
-
-
   form = new FormGroup({
-    aLevel: new FormControl('', [Validators.min(1), Validators.max(100),]),
-
-    dLevel: new FormControl('', [Validators.min(1), Validators.max(100),]),
+    aLevel: new FormControl(100, [Validators.min(1), Validators.max(100),]),
+    dLevel: new FormControl(100, [Validators.min(1), Validators.max(100),]),
     PhysArmor: new FormControl('', [Validators.min(0),]),
     MageArmor: new FormControl('', [Validators.min(0),]),
     Crit: new FormControl('', [Validators.min(0),]),
@@ -56,16 +52,6 @@ export class StatsComponent implements OnInit {
 
   ngOnInit(): void {
     this.data = data;
-    // console.log(this.data)
-    // console.log(Object.keys(data.hidden_dodge))
-    this.form.setValue({
-      aLevel: 100,
-      dLevel: 100,
-      PhysArmor: 0,
-      MageArmor: 0,
-      Crit: 0,
-      Dodge: 0
-    })
   }
 
   showResult(keyString: string) {

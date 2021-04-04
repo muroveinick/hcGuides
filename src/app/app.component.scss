@@ -1,11 +1,10 @@
 :host {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 14px;
   color: #333;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: Montserrat;
 }
 
 h1,
@@ -40,15 +39,6 @@ p {
 
 .toolbar img {
   margin: 0 16px;
-}
-
-.toolbar #twitter-logo {
-  height: 40px;
-  margin: 0 16px;
-}
-
-.toolbar #twitter-logo:hover {
-  opacity: 0.8;
 }
 
 a,
@@ -143,4 +133,7 @@ button {
   &.active {
     background-color: aqua;
   }
+}
+::ng-deep .relic-desription {
+  white-space: pre-line !important;
 }

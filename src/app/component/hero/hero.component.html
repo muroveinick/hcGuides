@@ -1,36 +1,13 @@
 <div>
   <p class="px-2">Выберите одну активную и до четырех пассивных реликвий в первой вкладке, а затем укажите уровни
-    требуемых
-    талантов и реликвий в других</p>
+    требуемых талантов и реликвий в других</p>
 </div>
 
 
 <div class="utility-contaiter mb-2" *ngIf="showHeroPower() as data">
-  <div>
-    <button mat-mini-fab color="accent" (click)="onChangeLevel(0)"
-      [disabled]="!this.selectedELem || this.selectedELem.curr_level === 0" matTooltip="Задать 0 лвл">
-      <mat-icon>exposure_zero</mat-icon>
-    </button>
-    <button mat-mini-fab color="accent" (click)="onChangeLevel(this.selectedELem.type.levels)"
-      [disabled]="this.selectedELem === null || this.selectedELem.curr_level > this.selectedELem.type.levels - 1"
-      matTooltip="Задать макс. лвл">
-      <mat-icon>add</mat-icon>
-    </button>
-  </div>
-
-  <mat-form-field style="width: 120px;" class="mx-2" *ngIf="this.selectedELem">
-    <mat-label>Уровень реликвии</mat-label>
-    <input matInput type="number" autocomplete="off" min="0" [max]="this.selectedELem.type.levels"
-      [(value)]="this.selectedELem.curr_level" (keyup)="onChangeLevel(+$event.target.value)" />
-    <mat-hint>Введите число</mat-hint>
-  </mat-form-field>
-
-
-  <mat-divider [vertical]="true"></mat-divider>
-
   <div class="mx-2 items_conteiner">
     <mat-label class="mx-2">Мощь</mat-label>
-    <mat-label class="icon__label"><img width="25"
+    <mat-label class="icon__label"><img height="20"
         [src]="'../../assets/img/hero/power.png'"><b>{{formatToSepString(data.power)}}</b></mat-label>
   </div>
 

@@ -1,18 +1,19 @@
-<div attr.width="{{type.r*3}}px" attr.height="{{type.r*3}}px">
+<div attr.width="{{RelicData.type.r*3}}px" attr.height="{{RelicData.type.r*3}}px" (click)="openDialog()">
 
-  <mat-icon [ngStyle]="{'left.px': this.type.r/2 + this.type.r/7, 'top.px': this.type.r/2+ this.type.r/7 }">
-    <img [src]="'../../assets/img/'+this.logo" attr.height="{{type.r*2 - this.type.r*2/7}}px"
+  <mat-icon
+    [ngStyle]="{'left.px': RelicData.type.r/2 + RelicData.type.r/7, 'top.px': RelicData.type.r/2+ RelicData.type.r/7 }">
+    <img [src]="'../../assets/img/'+RelicData.logo" attr.height="{{RelicData.type.r*2 - RelicData.type.r*2/7}}px"
       onError="this.src='../../assets/img/hero/blank.png'">
   </mat-icon>
 
-  <svg attr.width="{{type.r*3}}px" attr.height="{{type.r*3}}px" viewPort="0 0 50 50" version="1.1"
+  <svg attr.width="{{RelicData.type.r*3}}px" attr.height="{{RelicData.type.r*3}}px" viewPort="0 0 50 50" version="1.1"
     xmlns="http://www.w3.org/2000/svg">
-    <circle attr.cx="{{type.r*3/2}}px" attr.cy="{{type.r*3/2}}px" fill="transparent" attr.r="{{type.r}}"
-      attr.stroke-dasharray="{{(type.r * 2 * 3.14).toFixed(2)}}"></circle>
+    <circle attr.cx="{{RelicData.type.r*3/2}}px" attr.cy="{{RelicData.type.r*3/2}}px" fill="transparent"
+      attr.r="{{RelicData.type.r}}" attr.stroke-dasharray="{{(RelicData.type.r * 2 * 3.14).toFixed(2)}}"></circle>
 
-    <circle class="bar" attr.cx="{{type.r*3/2}}px" attr.cy="{{type.r*3/2}}px" attr.r="{{type.r}}"
-      attr.stroke-dasharray="{{(type.r * 2 * 3.14).toFixed(2)}}"
-      attr.stroke-dashoffset="{{(type.r * 2 * 3.14 * (type.levels - curr_level) / type.levels).toFixed(2)}}"
+    <circle class="bar" attr.cx="{{RelicData.type.r*3/2}}px" attr.cy="{{RelicData.type.r*3/2}}px"
+      attr.r="{{RelicData.type.r}}" attr.stroke-dasharray="{{(RelicData.type.r * 2 * 3.14).toFixed(2)}}"
+      attr.stroke-dashoffset="{{(RelicData.type.r * 2 * 3.14 * (RelicData.type.levels - RelicData.curr_level) / RelicData.type.levels).toFixed(2)}}"
       fill="transparent">
     </circle>
   </svg>

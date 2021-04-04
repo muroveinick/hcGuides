@@ -1,0 +1,35 @@
+:host {
+  .imgs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid rebeccapurple;
+    border-radius: 10px;
+    padding: 15px;
+    max-height: 300px;
+    overflow: auto;
+    p {
+      line-height: 17px;
+      margin: 0;
+    }
+    img {
+      margin-right: 50px;
+      align-self: center;
+    }
+  }
+  .btns {
+    padding-top: 20px;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: 600px) {
+    .imgs {
+      flex-direction: column;
+      img {
+        margin: 0;
+      }
+    }
+  }
+}

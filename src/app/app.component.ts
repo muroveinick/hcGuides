@@ -14,7 +14,7 @@ export class AppComponent {
     translate.use('ru');
   }
 
-  sidevarOpened: boolean = true;
+  sidevarOpened: boolean = false;
 
   nav = [
     { route: '/portal', name: 'Portal', icon: "calculate" },
@@ -36,8 +36,5 @@ export class AppComponent {
     this.sidevarOpened = !this.sidevarOpened;
     document.querySelector('.navitem').querySelector('mat-icon').innerHTML = this.sidevarOpened ? 'keyboard_arrow_left' : 'keyboard_arrow_right'
     document.querySelector('.mat-drawer').classList.toggle('sidebar-close')
-    // document.querySelector('.mat-drawer-content')
-    //   // .setAttribute("class", (this.drawer.opened) ? `mat-drawer-content col-11` : `mat-drawer-content col-12`)
-    //   .setAttribute("style", (this.drawer.opened) ? `width: calc(100% - 220px)` : `width: calc(100%)`)
   }
 }
