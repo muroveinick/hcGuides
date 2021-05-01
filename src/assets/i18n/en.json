@@ -2,7 +2,7 @@
   "Route": {
     "Portal": "Portal calculator",
     "Stats": "Dweller stats calc.",
-    "Hero": "Hero's calculator"
+    "Hero": "Hero calculator"
   },
 
   "Portal": {
@@ -142,5 +142,15 @@
       "star": "Enhances the physical damage done by all allied archers by {} (next level: by {})."
     }
   },
-  "Hero": {}
+  "Hero": {
+    "Title": "Hero Calcualtor",
+    "Description": "Choose one active and up to 4 passive relics on first tab and configure their levels on others",
+    "Power": "Power",
+    "Spent": "Already spent",
+    "Left": "Left to full hero",
+    "RelicTab": "Selected relics",
+    "WarriorsTab": "Warriors",
+    "MagesTab": "Mages",
+    "ArchersTab": "Archers"
+  }
 }

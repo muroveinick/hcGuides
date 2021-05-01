@@ -953,7 +953,7 @@ relics_mage.forEach((elem, i) => elem.curr_level = mock['1'][i]);
 relics_archer.forEach((elem, i) => elem.curr_level = mock['2'][i])
 
 export const relics = [
-  { data: relics_warrior, name: "Воины" },
-  { data: relics_mage, name: "Маги" },
-  { data: relics_archer, name: "Луки" },
+  { data: relics_warrior, name: "Hero.WarriorsTab" },
+  { data: relics_mage, name: "Hero.MagesTab" },
+  { data: relics_archer, name: "Hero.ArchersTab" },
 ]

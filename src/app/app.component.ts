@@ -10,7 +10,8 @@ export class AppComponent {
   param = { value: 'world' };
   constructor(router: Router, translate: TranslateService) {
     router.events.subscribe((val) => val instanceof NavigationEnd ? this.setActiveNav(val.url) : null)
-    translate.setDefaultLang('en');
+    translate.addLangs(['ru', 'en'])
+    // translate.setDefaultLang('en');
     translate.use('ru');
   }
 
