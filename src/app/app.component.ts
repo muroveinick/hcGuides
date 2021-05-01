@@ -12,7 +12,7 @@ export class AppComponent {
     router.events.subscribe((val) => val instanceof NavigationEnd ? this.setActiveNav(val.url) : null)
     translate.addLangs(['ru', 'en'])
     // translate.setDefaultLang('en');
-    translate.use('ru');
+    // translate.use('ru');
   }
 
   sidevarOpened: boolean = false;
