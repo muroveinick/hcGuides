@@ -10,17 +10,14 @@ export class AppComponent {
   param = { value: 'world' };
   constructor(router: Router, translate: TranslateService) {
     router.events.subscribe((val) => val instanceof NavigationEnd ? this.setActiveNav(val.url) : null)
-    translate.addLangs(['ru', 'en'])
-    // translate.setDefaultLang('en');
-    // translate.use('ru');
+    translate.addLangs(['ru', 'en']);
+    /ru/.test(navigator.language) ? translate.use('ru') : translate.use('en');
   }
 
   sidevarOpened: boolean = false;
 
   nav = [
-    { route: '/portal', name: 'Portal', icon: "calculate" },
-    { route: '/stats', name: 'Stats', icon: "equalizer" },
-    { route: '/hero', name: "Hero", icon: "person", },
+    { route: '/calculators', name: 'Calculators', icon: "calculate" },
   ];
 
   setActiveNav(url: string) {

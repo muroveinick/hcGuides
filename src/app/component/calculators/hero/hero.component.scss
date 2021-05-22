@@ -7,6 +7,7 @@
 
 .utility-contaiter {
   width: 100%;
+  min-width: 1000px;
   align-self: center;
   display: flex;
   flex-direction: row;
@@ -17,6 +18,11 @@
       text-align: end;
     }
   }
+}
+
+.tab_wrapper {
+  display: flex;
+  flex-direction: row;
 }
 
 .view {

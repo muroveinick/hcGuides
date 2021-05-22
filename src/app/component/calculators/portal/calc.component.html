@@ -26,7 +26,7 @@
 				</mat-error>
 			</mat-form-field>
 
-			<mat-checkbox [(ngModel)]="!!this.default.isStartedSouls" [ngModelOptions]="{standalone: true}" name="checkbox">
+			<mat-checkbox *ngIf="!!this.default.isStartedSouls" name="checkbox">
 				{{ 'Portal.isStartedSouls' | translate }}
 			</mat-checkbox>
 
@@ -90,7 +90,7 @@
 				{{'Portal.'+ this.res[0]| translate}}
 				<ng-container *ngIf="this.res.length > 1">
 					<b>{{this.res[1]}}</b>
-					<img width="30" src="../../assets/img/apples.png">
+					<img width="30" src="../../../../assets/img/portal/apples.png">
 					<br>
 					{{ 'Portal.Result3' | translate }}
 					<b>{{this.res[2]}}</b>
@@ -99,7 +99,7 @@
 
 			</mat-label>
 
-			<img width="150" src="../../assets/img/portal.png">
+			<img width="150" src="../../../../assets/img/portal/portal.png">
 		</div>
 
 	</form>

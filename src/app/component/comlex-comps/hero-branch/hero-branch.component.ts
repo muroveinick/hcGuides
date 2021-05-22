@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { HeroRelic } from '../comlex-comps/hero-relic/hero-relic.component';
+import { Component, OnInit, Input, Output, EventEmitter, Type } from '@angular/core';
+import { HeroRelic } from '../hero-relic/hero-relic.component';
 import { relicView } from 'src/app/data/_var_hero';
 
 @Component({
@@ -8,6 +8,7 @@ import { relicView } from 'src/app/data/_var_hero';
   styleUrls: ['./hero-branch.component.scss']
 })
 export class HeroBranchComponent implements OnInit {
+  static RelicDialog: any[] | Type<any>;
 
   constructor() { }
 

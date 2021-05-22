@@ -1,8 +1,6 @@
 {
   "Route": {
-    "Portal": "Portal calculator",
-    "Stats": "Dweller stats calc.",
-    "Hero": "Hero calculator"
+    "Calculators": "Calculators"
   },
 
   "Portal": {

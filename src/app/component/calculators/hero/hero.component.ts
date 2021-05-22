@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { HeroRelic } from '../comlex-comps/hero-relic/hero-relic.component';
-import { T14, T10, A, P, Star } from "../../data/_var_power"
-import { relics } from "./_data"
+import { HeroRelic } from '../../comlex-comps/hero-relic/hero-relic.component';
+import { T14, T10, A, P, Star } from "../../../data/_var_power"
+import { relics, setLevels } from "./_data"
 
 @Component({
   selector: 'hero-comp',
@@ -26,11 +26,22 @@ export class HeroComponent implements OnInit {
     active: null,
     passive: new Array<number>()
   }
-  
+  available_hero_settings = [
+    { name: 'zzz\'s hero', value: 'mock' },
+    { name: 'min', value: 'min' },
+    { name: 'tr9', value: 'tr9' },
+    { name: 'tr10', value: 'tr10' },
+    { name: 'max', value: 'max' },
+  ];
+
   selectedELem: HeroRelic = null;
   readonly FULL_HERO_COINS: number = 48929100;
 
 
+  recalculateHeroLevels(setting_value: string) {
+  setLevels(setting_value)
+
+  }
 
   onChangeLevel(value: number) {
     if (this.selectedELem) {
@@ -85,7 +96,7 @@ export class HeroComponent implements OnInit {
         hero_data.power = this.calculateEqupedPOwer() + power;
       })
     });
-    console.log(hero_data)
+    // console.log(hero_data)
     return hero_data;
   }
 
@@ -117,7 +128,6 @@ export class HeroComponent implements OnInit {
       if (this.equipedRelics.passive.includes(relicIndex)) {
         div_elem.classList.remove('selected')
         this.equipedRelics.passive.splice(this.equipedRelics.passive.indexOf(relicIndex), 1);
-        // console.log(this.equipedRelics.passive);
         return
       }
 
@@ -126,10 +136,7 @@ export class HeroComponent implements OnInit {
         div_elem.classList.add('selected')
         this.equipedRelics.passive.push(relicIndex)
       }
-      // console.log(this.equipedRelics.passive)
-
     }
-    // console.log(this.equipedRelics)
   }
 
   calculateEqupedPOwer() {

@@ -17,7 +17,8 @@
   flex-direction: column;
   &:after {
     content: "";
-    background: center / contain no-repeat url("../../../assets/img/fighter/off.png");
+    background: center / contain no-repeat
+      url("../../../../assets/img/fighter/off.png");
     width: 100%;
     height: 100%;
     position: absolute;
@@ -31,7 +32,8 @@
   flex-direction: column;
   &:after {
     content: "";
-    background: center / contain no-repeat url("../../../assets/img/fighter/def.png");
+    background: center / contain no-repeat
+      url("../../../../assets/img/fighter/def.png");
     width: 100%;
     height: 100%;
     position: absolute;
