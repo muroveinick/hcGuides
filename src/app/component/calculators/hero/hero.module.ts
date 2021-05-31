@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -20,8 +19,6 @@ import { RelicDialog } from '../../comlex-comps/relic-dialog/relic-dialog.compon
 
 
 
-const appRoutes: Routes = [{ path: 'hero', component: HeroComponent },]
-
 @NgModule({
   imports: [
     CommonModule,
@@ -34,7 +31,6 @@ const appRoutes: Routes = [{ path: 'hero', component: HeroComponent },]
     TranslateModule,
     MatDialogModule,
     MatSelectModule,
-    RouterModule.forRoot(appRoutes),
   ],
   exports: [HeroBranchComponent, HeroRelic, RelicDialog],
   declarations: [HeroComponent, HeroBranchComponent, HeroRelic, RelicDialog]

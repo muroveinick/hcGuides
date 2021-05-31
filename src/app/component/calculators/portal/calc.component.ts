@@ -13,7 +13,7 @@ export class CalcComponent implements OnInit {
   res: any = [];
 
   default = {
-    isStartedSouls: false,
+    isStartedSouls: true,
   };
 
   form = new FormGroup({
@@ -27,7 +27,7 @@ export class CalcComponent implements OnInit {
 
   ngOnInit(): void {
     this.form.valueChanges.subscribe((r) => this.showResult())
-    this.showResult()
+    this.showResult();
   }
 
   showResult() {

@@ -17,7 +17,6 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
-import { HeroModule } from './component/calculators/hero/hero.module';
 import { ListComponent } from './component/list/list.component';
 
 
@@ -39,7 +38,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [AppComponent, ListComponent],
   imports: [
-    HeroModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
