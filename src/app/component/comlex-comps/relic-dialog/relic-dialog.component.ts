@@ -3,6 +3,7 @@ import { Component, Inject } from '@angular/core';
 import { relicView } from "../../../data/_var_hero"
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { relics } from '../../calculators/hero/_data';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'relic-dialog',
@@ -14,9 +15,18 @@ export class RelicDialog {
   constructor(
     public dialogRef: MatDialogRef<RelicDialog>,
     @Inject(MAT_DIALOG_DATA) public RelicData: relicView,
+    public translate: TranslateService
   ) { }
 
-  title = this.RelicData.description
+  title = this.translate.instant('description.' + this.RelicData.description)
+
+
+  ngOnInit() {
+    this.translate.instant('description.' + this.RelicData.description).match(/{}/g).forEach((element, index) => {
+      this.title.replace(element, this.RelicData.variables[index][this.RelicData.curr_level])
+    });
+    console.log(this.title)
+  }
 
   onNoClick(): void {
     this.dialogRef.close();

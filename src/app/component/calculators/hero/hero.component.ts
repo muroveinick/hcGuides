@@ -43,14 +43,14 @@ export class HeroComponent implements OnInit {
 
   }
 
-  onChangeLevel(value: number) {
-    if (this.selectedELem) {
-      value < 0 ? value = 0 : value > this.selectedELem.RelicData.type.levels ? value = this.selectedELem.RelicData.type.levels : null
-      this.selectedELem.RelicData.curr_level = value;
-      relics[this.selectedELem.RelicData.logo.match(/warrior/) ? 0 : this.selectedELem.RelicData.logo.match(/mage/) ? 1 : 2].data[this.selectedELem.RelicData.id].curr_level = value
-    }
-    // console.log(this.selectedELem)
-  }
+  // onChangeLevel(value: number) {
+  //   if (this.selectedELem) {
+  //     value < 0 ? value = 0 : value > this.selectedELem.RelicData.type.levels ? value = this.selectedELem.RelicData.type.levels : null
+  //     this.selectedELem.RelicData.curr_level = value;
+  //     relics[this.selectedELem.RelicData.logo.match(/warrior/) ? 0 : this.selectedELem.RelicData.logo.match(/mage/) ? 1 : 2].data[this.selectedELem.RelicData.id].curr_level = value
+  //   }
+  //   // console.log(this.selectedELem)
+  // }
 
 
   setSelected(relic: HeroRelic) {

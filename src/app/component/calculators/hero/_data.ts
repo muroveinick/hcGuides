@@ -4,6 +4,7 @@ let relics_warrior: relicView[] = [
   {
     curr_level: 3,
     id: 0,
+    variables: [[75, 125, 200, 275, 400, 650, 800, 1000, 1300, 1600]],
     logo: 'hero/warrior/berserk.png',
     description: 'warrior.berserk',
     type: {
@@ -15,6 +16,7 @@ let relics_warrior: relicView[] = [
     curr_level: 5,
     id: 1,
     logo: 'hero/warrior/acid_jar.png',
+    variables: [[2, 2.7, 3.4, 4.1, 4.7, 6.1, 7.5, 9, 11, 13.6, 16.2]],
     description: 'warrior.acid_jar',
     type: {
       r: 40,
@@ -24,6 +26,7 @@ let relics_warrior: relicView[] = [
   {
     curr_level: 4,
     id: 2,
+    variables: [[15, 30, 45, 60, 90, 120, 180, 250, 350, 450]],
     logo: 'hero/warrior/fortitude.png',
     description: 'warrior.fortitude',
     type: {
@@ -36,6 +39,7 @@ let relics_warrior: relicView[] = [
     curr_level: 4,
     id: 3,
     logo: 'hero/warrior/health.png',
+    variables: [[1500, 3000, 5200, 7500, 10250, 13500, 16750, 20500, 24500, 32000, 40250, 50000, 63000, 76000]],
     description: 'warrior.health',
     type: {
       r: 30,
@@ -46,6 +50,7 @@ let relics_warrior: relicView[] = [
     curr_level: 11,
     id: 4,
     logo: 'hero/warrior/arena_flag.png',
+    variables: [['3%', '4%', '5%', '6%', '7%', '8%', '9%', '10%', '12%', '15%', '18%']],
     description: 'warrior.arena_flag',
     type: {
       r: 35,
@@ -57,6 +62,7 @@ let relics_warrior: relicView[] = [
     curr_level: 3,
     id: 5,
     logo: 'hero/warrior/crit.png',
+    variables: [[225, 450, 800, 1200, 1600, 2100, 2600, 3200, 4000, 5000, 6000, 7500, 9500, 11500]],
     description: 'warrior.crit',
     type: {
       r: 30,
@@ -67,6 +73,7 @@ let relics_warrior: relicView[] = [
     curr_level: 5,
     id: 6,
     logo: 'hero/warrior/ankh.png',
+    variables: [['3', '3', '3', '3', '4', '4', '4', '4', '4', '4', '4',], ['3%', '4%', '5%', '6%', '7%', '8%', '9%', '10%', '12%', '15%', '18%']],
     description: 'warrior.ankh',
     type: {
       r: 40,
@@ -77,6 +84,7 @@ let relics_warrior: relicView[] = [
     curr_level: 4,
     id: 7,
     logo: 'hero/warrior/ph_armor.png',
+    variables: [[150, 300, 550, 800, 1100, 1400, 1800, 2200, 2600, 3250, 4000, 5000, 6300, 7600]],
     description: 'warrior.ph_armor',
     type: {
       r: 30,
@@ -87,6 +95,7 @@ let relics_warrior: relicView[] = [
   {
     curr_level: 3,
     id: 8,
+    variables: [['5%', '7.5%', '10%', '15%', '20%', '25%', '30%', '40%', '53%', '66%']],
     logo: 'hero/warrior/vampirism.png',
     description: 'warrior.vampirism',
     type: {
@@ -98,6 +107,7 @@ let relics_warrior: relicView[] = [
     curr_level: 5,
     id: 9,
     logo: 'hero/warrior/arena_banner.png',
+    variables: [['5%', '7%', '9%', '11%', '13%', '15%', '20%', '25%', '30%', '37%', '44%']],
     description: 'warrior.arena_banner',
     type: {
       r: 35,
@@ -108,6 +118,7 @@ let relics_warrior: relicView[] = [
     curr_level: 5,
     id: 10,
     logo: 'hero/warrior/shackles.png',
+    variables: [['5%', '7%', '9%', '11%', '13%', '15%', '18%', '21%', '25%', '30%', '35%']],
     description: 'warrior.shackles',
     type: {
       r: 35,
@@ -118,6 +129,7 @@ let relics_warrior: relicView[] = [
     curr_level: 4,
     id: 11,
     logo: 'hero/warrior/reflect.png',
+    variables: [[200, 225, 250, 275, 300, 350, 400, 500, 630, 760]],
     description: 'warrior.reflect',
     type: {
       r: 30,
@@ -132,6 +144,7 @@ let relics_warrior: relicView[] = [
     curr_level: 3,
     id: 12,
     logo: 'hero/warrior/dmg.png',
+    variables: [[150, 300, 550, 800, 1100, 1400, 1800, 2200, 2600, 3400, 4200, 5300, 6800, 8300]],
     description: 'warrior.dmg',
     type: {
       r: 30,
@@ -142,6 +155,7 @@ let relics_warrior: relicView[] = [
     curr_level: 5,
     id: 13,
     logo: 'hero/warrior/helmet.png',
+    variables: [['15%', '18%', '21%', '24%', '27%', '30%', '34%', '38%', '45%', '54%', '63%'], ['15%', '18%', '21%', '24%', '27%', '30%', '34%', '38%', '45%', '54%', '63%'], ['15%', '18%', '21%', '24%', '27%', '30%', '34%', '38%', '45%', '54%', '63%'], ['15%', '18%', '21%', '24%', '27%', '30%', '34%', '38%', '45%', '54%', '63%']],
     description: 'warrior.helmet',
     type: {
       r: 40,
@@ -152,6 +166,7 @@ let relics_warrior: relicView[] = [
     curr_level: 4,
     id: 14,
     logo: 'hero/warrior/m_armor.png',
+    variables: [[150, 300, 550, 800, 1100, 1400, 1800, 2200, 2600, 3250, 4000, 5000, 6300, 7600]],
     description: 'warrior.m_armor',
     type: {
       r: 30,
@@ -165,6 +180,7 @@ let relics_warrior: relicView[] = [
     curr_level: 3,
     id: 15,
     logo: 'hero/warrior/heal.png',
+    variables: [['4%', '18%', '8%', '10%', '12%', '14%', '16%', '18%', '21%', '24%']],
     description: 'warrior.heal',
     type: {
       r: 30,
@@ -175,6 +191,7 @@ let relics_warrior: relicView[] = [
     curr_level: 5,
     id: 16,
     logo: 'hero/warrior/hamster.png',
+    variables: [['40%', '40%', '40%', '40%', '40%', '40%', '40%', '40%', '40%', '40%', '40%'], ['8%', '10%', '12%', '14%', '16%', '19%', '22%', '25%', '30%', '37%', '44%'], ['40%', '40%', '40%', '40%', '40%', '40%', '40%', '40%', '40%', '40%', '40%']],
     description: 'warrior.hamster',
     type: {
       r: 35,
@@ -185,6 +202,7 @@ let relics_warrior: relicView[] = [
     curr_level: 5,
     id: 17,
     logo: 'hero/warrior/belt.png',
+    variables: [[1500, 2625, 5125, 6750, 10250, 12250, 16000, 20125, 25000, 31500, 38000]],
     description: 'warrior.belt',
     type: {
       r: 35,
@@ -195,6 +213,7 @@ let relics_warrior: relicView[] = [
     curr_level: 4,
     id: 18,
     logo: 'hero/warrior/astral.png',
+    variables: [[0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.6, 1.9, 2.2]],
     description: 'warrior.astral',
     type: {
       r: 30,
@@ -209,6 +228,7 @@ let relics_warrior: relicView[] = [
     id: 19,
     logo: 'hero/warrior/totem.png',
     description: 'warrior.totem',
+    variables: [[98600, 107640, 116680, 125760, 134840, 143920, 153000, 162080, 178160, 199160, 220160], [2400, 2650, 3000, 3300, 3600, 3950, 4300, 4700, 5250, 6000, 6750]],
     type: {
       r: 40,
       levels: 11,
@@ -219,6 +239,7 @@ let relics_warrior: relicView[] = [
     curr_level: 4,
     id: 20,
     logo: 'hero/warrior/w_totem.png',
+    variables: [['10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '100%', '126%', '152%'], ['15%', '16%', '17%', '18%', '19%', '20%', '21%', '23%', '25%', '28%', '31%'], ['10%', '11%', '12%', '13%', '14%', '15%', '16%', '18%', '20%', '23%', '26%']],
     description: 'warrior.w_totem',
     type: {
       r: 35,
@@ -230,6 +251,7 @@ let relics_warrior: relicView[] = [
     curr_level: 4,
     id: 21,
     logo: 'hero/warrior/regeneration.png',
+    variables: [[10900, 11500, 12200, 12800, 13400, 14100, 14700, 16000, 17700, 19100]],
     description: 'warrior.regeneration',
     type: {
       r: 30,
@@ -242,6 +264,7 @@ let relics_warrior: relicView[] = [
     curr_level: 4,
     id: 22,
     logo: 'hero/warrior/w_glove.png',
+    variables: [[12000, 14000, 16000, 20000, 22000, 26000, 32000, 40000, 50000, 60000]],
     description: 'warrior.w_glove',
     type: {
       r: 35,
@@ -256,6 +279,7 @@ let relics_warrior: relicView[] = [
     id: 23,
     logo: 'hero/warrior/heart.png',
     description: 'warrior.heart',
+    variables: [["3", "3", "3", "3", "3", "3", "3", "4", "4", "4", "4"], [" 2", " 2", " 2", " 2", " 3", " 3", " 3", " 4", " 4", "4.5", " 5"], ['8%', '10%', '12%', '15%', '18%', '21%', '24%', '28%', '32%', '36%', '40%']],
     type: {
       r: 40,
       levels: 11,
@@ -267,6 +291,7 @@ let relics_warrior: relicView[] = [
     curr_level: 4,
     id: 24,
     logo: 'hero/warrior/bay_flag.png',
+    variables: [['3%', '4%', '5%', '6%', '7%', '8%', '9%', '10%', '12%', '15%', '18%']],
     description: 'warrior.bay_flag',
     type: {
       r: 35,
@@ -279,10 +304,11 @@ let relics_warrior: relicView[] = [
     curr_level: 4,
     id: 25,
     logo: 'hero/warrior/counterattack.png',
+    variables: [['30%', '32%', '34%', '36%', '38%', '41%', '43%', '45%', '47%', '50%'], ['50%', '52%', '56%', '60%', '65%', '70%', '76%', '83%', '91%', '100%']],
     description: 'warrior.counterattack',
     type: {
       r: 30,
-      levels: 10,
+      levels: 10
     },
   },
 
@@ -292,6 +318,7 @@ let relics_warrior: relicView[] = [
     id: 26,
     logo: 'hero/warrior/shields.png',
     description: 'warrior.shields',
+    variables: [['20%', '22%', '24%', '27%', '30%', '33%', '36%', '39%', '42%', '46%', '50%']],
     type: {
       r: 35,
       levels: 11,
@@ -302,6 +329,7 @@ let relics_warrior: relicView[] = [
     id: 27,
     logo: 'hero/warrior/star.png',
     description: 'warrior.star',
+    variables: [[500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000, 10500, 11000, 11500, 12000, 12500, 13000, 13500, 14000, 14500, 15000, 15500, 16000, 16500, 17000, 17500, 18000, 18500, 19000, 19500, 20000, 20500, 21000, 21500, 22000, 22500, 23000, 23500, 24000, 24500, 25000, 25500, 26000, 26500, 27000, 27500, 28000, 28500, 29000, 29500, 30000, 30500, 31000, 31500, 32000, 32500, 33000, 33500, 34000, 34500, 35000, 35500, 36000, 36500, 37000, 37500, 38000, 38500, 39000, 39500, 40000, 40500, 41000, 41500, 42000, 42500, 43000, 43500, 44000, 44500, 45000, 45500, 46000, 46500, 47000, 47500, 48000, 48500, 49000, 49500, 50000]],
     type: {
       r: 50,
       levels: 100,
@@ -317,6 +345,7 @@ let relics_archer: relicView[] = [{
   curr_level: 3,
   id: 0,
   logo: 'hero/archer/precise.png',
+  variables: [[250, 275, 300, 325, 350, 400, 450, 600, 800, 1000]],
   description: 'archer.precise',
   type: {
     r: 30,
@@ -327,6 +356,7 @@ let relics_archer: relicView[] = [{
   curr_level: 5,
   id: 1,
   logo: 'hero/archer/sunbeam.png',
+  variables: [[1.8, 2.2, 2.6, 3, 3.4, 4.1, 4.8, 6.1, 7.8, 10, 12.2]],
   description: 'archer.sunbeam',
   type: {
     r: 40,
@@ -337,6 +367,7 @@ let relics_archer: relicView[] = [{
   curr_level: 4,
   id: 2,
   logo: 'hero/archer/trickster.png',
+  variables: [[500, 550, 600, 700, 800, 900, 1000, 1200, 1500, 1800]],
   description: 'archer.trickster',
   type: {
     r: 30,
@@ -348,6 +379,7 @@ let relics_archer: relicView[] = [{
   curr_level: 4,
   id: 3,
   logo: 'hero/archer/sniper.png',
+  variables: [[125, 275, 475, 675, 900, 1200, 1550, 1900, 2250, 3000, 3750, 4500, 5500, 6500]],
   description: 'archer.sniper',
   type: {
     r: 30,
@@ -358,6 +390,7 @@ let relics_archer: relicView[] = [{
   curr_level: 11,
   id: 4,
   logo: 'hero/archer/cw_flag.png',
+  variables: [['3%', '4%', '5%', '6%', '7%', '8%', '9%', '10%', '12%', '15%', '18%']],
   description: 'archer.cw_flag',
   type: {
     r: 35,
@@ -369,6 +402,7 @@ let relics_archer: relicView[] = [{
   curr_level: 3,
   id: 5,
   logo: 'hero/archer/crit.png',
+  variables: [[225, 450, 800, 1200, 1600, 2100, 2600, 3200, 4000, 5000, 6000, 7500, 9500, 11500]],
   description: 'archer.crit',
   type: {
     r: 30,
