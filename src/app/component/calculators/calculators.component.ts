@@ -13,11 +13,11 @@ export class CalculatorsComponent implements OnInit {
   }
 
   calcs_data = [{
-    name: 'Калькулятор героя', disr: 'Рассчитайте мощь героя, затраты эфира и монеток', route: ' calculators/hero', img: 'hero.png'
+    name: 'Калькулятор героя', disr: 'Рассчитайте мощь героя, затраты эфира и монеток', route: 'hero', img: 'hero.png'
   }, {
-    name: 'Калькулятор портала', disr: 'Затраты яблок для фарма душ', route: 'calculators/portal', img: 'portal.png'
+    name: 'Калькулятор портала', disr: 'Затраты яблок для фарма душ', route: 'portal', img: 'portal.png'
   }, {
-    name: 'Калькулятор статов', disr: 'Крит, уворот, броня в процентом виде', route: 'calculators/fighter', img: 'fighter.png'
+    name: 'Калькулятор статов', disr: 'Крит, уворот, броня в процентом виде', route: 'fighter', img: 'fighter.png'
   }]
 
 

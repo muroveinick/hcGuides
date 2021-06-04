@@ -24,7 +24,7 @@ interface relicView {
   logo: string,
   curr_level: number,
   description: string,
-  variables: number[][] | string[][],
+  variables?: number[][] | string[][],
   type: A | P | T10 | T14 | Star
 }
 
