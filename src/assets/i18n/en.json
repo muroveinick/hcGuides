@@ -34,7 +34,7 @@
   },
   "Stats": {
     "Title": "Dwellers attributes calculator",
-    "Description": "Here you can calculate, how attributes affect on damage reduction and chances of dealing critical attack or dodging an attack",
+    "Description": "Here you can calculate, how attributes affect on damage reduction and chances of dealing critical attack or dodging an attack. It's depends on fighter class level difference significantly, so there are actual value even when minimal diff presents",
     "AttackerLevel": "Attacker's level",
     "LevelError": "Enter number in 1..100 range",
     "AttackerCrit": "Attacker's crit",
@@ -105,7 +105,7 @@
       "m_glove": "Has a {} chance of dealing {} pure damage to an enemy mage that has used their weapon’s ability.",
       "head": "Curses {} random enemy targets, causing each to take magic damage equal to {} of its max health every {} sec. The curse lasts for {} sec. Each time the curse deals damage, the target has a {} chance of getting fear-struck. Units affected by fear move erratically around the battlefield for {} sec.",
       "dungeon_flag": "Increases the health, armor, and damage of all allied units by {} if the battle is being fought in a Dungeon.",
-      "expl_magic": "Splash damage done by allied mages’ basic attack is enhanced to {} instead of the usual 40%.",
+      "expl_magic": "Splash damage done by allied mages’ basic attack is enhanced to {} instead of the usual {}",
       "shirt": "Allied mages have a {} chance of cursing the target they are attacking, disarming it for {} sec and enhancing magic damage it takes by {} over {} sec.",
       "star": "Increases the spell power of all allied mages by {} (next level: by {})."
     },

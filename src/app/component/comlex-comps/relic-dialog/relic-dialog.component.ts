@@ -31,7 +31,7 @@ export class RelicDialog {
 
 
   onChangeLevel(value: number) {
-    console.log(this.RelicData)
+    // console.log(this.RelicData)
     if (typeof value === "number") {
       value < 0 ? value = 0 : value > this.RelicData.type.levels ? value = this.RelicData.type.levels : null
       this.RelicData.curr_level = value;
@@ -43,13 +43,10 @@ export class RelicDialog {
   changeDesc() {
     let new_title = this.translate.instant('description.' + this.RelicData.description);
     let reg = new_title.match(/{}/g);
-    // console.log(reg)
     reg.forEach((element: string, index: number) => {
-      // console.log(element, index, this.RelicData.curr_level)
-      // console.log(this.RelicData.variables[index][this.RelicData.curr_level - 1].toString())
-    new_title = new_title.replace(element, (this.RelicData.variables ? this.RelicData.variables[index][this.RelicData.curr_level - 1] : '{}') ?? 0)
+      let var_from_template = (this.RelicData.variables ? this.RelicData.variables[index][this.RelicData.curr_level - 1] : '{}') ?? 0;
+      new_title = new_title.replace(element, `<b>${var_from_template}</b>`)
     });
     this.title = new_title;
-    // console.log(this.title);
   }
 }

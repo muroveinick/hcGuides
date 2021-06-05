@@ -39,7 +39,7 @@ export class HeroComponent implements OnInit {
 
 
   recalculateHeroLevels(setting_value: string) {
-  setLevels(setting_value)
+    setLevels(setting_value)
 
   }
 
@@ -63,7 +63,6 @@ export class HeroComponent implements OnInit {
 
   showHeroPower() {
     //TODO переделать вызов
-    // console.log('aaaaaa')
     let power = 0,
       hero_data = {
         0: 0,

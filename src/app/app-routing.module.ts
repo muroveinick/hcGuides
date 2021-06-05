@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ListComponent } from './component/list/list.component';
 
 const routes: Routes = [
-  // { path: 'article', component: ListComponent },
+  { path: 'article', component: ListComponent },
   {
     path: 'calculators',
     loadChildren: () =>

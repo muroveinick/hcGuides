@@ -6,40 +6,23 @@
 </h5>
 <div class="imgs">
   <img [src]="'../../assets/img/' + RelicData.logo" width="100px" />
-  <p class="relic-desription">{{ title }}</p>
+  <p class="relic-desription" [innerHTML]="title"></p>
 </div>
 
 <div class="btns">
-  <button
-    mat-mini-fab
-    color="accent"
-    (click)="onChangeLevel(0)"
-    [disabled]="RelicData.curr_level === 0"
-    matTooltip="Задать 0 лвл"
-  >
+  <button mat-mini-fab color="accent" (click)="onChangeLevel(0)" [disabled]="RelicData.curr_level === 0"
+    matTooltip="Задать 0 лвл">
     <mat-icon>exposure_zero</mat-icon>
   </button>
-  <button
-    mat-mini-fab
-    color="accent"
-    (click)="onChangeLevel(this.RelicData.type.levels)"
-    [disabled]="RelicData.curr_level > RelicData.type.levels - 1"
-    matTooltip="Задать макс. лвл"
-  >
+  <button mat-mini-fab color="accent" (click)="onChangeLevel(this.RelicData.type.levels)"
+    [disabled]="RelicData.curr_level > RelicData.type.levels - 1" matTooltip="Задать макс. лвл">
     <mat-icon>add</mat-icon>
   </button>
 
   <mat-form-field style="width: 120px" class="mx-2">
     <mat-label>Уровень реликвии</mat-label>
-    <input
-      matInput
-      type="number"
-      autocomplete="off"
-      min="0"
-      [max]="RelicData.type.levels"
-      [(value)]="RelicData.curr_level"
-      (keyup)="onChangeLevel(+$event.target.value)"
-    />
+    <input matInput type="number" autocomplete="off" min="0" [max]="RelicData.type.levels"
+      [(value)]="RelicData.curr_level" (keyup)="onChangeLevel(+$event.target.value)" />
     <mat-hint>Укажите число</mat-hint>
   </mat-form-field>
 </div>

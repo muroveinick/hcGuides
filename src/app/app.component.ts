@@ -23,5 +23,5 @@ export class AppComponent {
     { route: '/calculators', name: 'Calculators', icon: "calculate" },
   ];
 
-  languages = [{ name: 'ru', path: 'ru.svg' }, { name: 'en', path: 'eng.svg' }]
+  languages = ['ru', 'en']
 }

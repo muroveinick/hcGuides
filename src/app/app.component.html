@@ -7,53 +7,34 @@
 
   <span>HC App</span>
   <div class="spacer"></div>
-  <mat-form-field appearance="legacy" style="width: 80px;">
-    <mat-select #select (selectionChange)="translate.use(select.value)">
-      <mat-option *ngFor="let flag of languages" [value]="flag.name">
-        <mat-icon> <img [src]="'../assets/img/flags/' + flag.path" /></mat-icon>
-        {{ flag.name.toUpperCase() }}
+  <mat-form-field appearance="standard" style="width: 60px;">
+    <mat-select #select (selectionChange)="translate.use(select.value)" [value]='languages[0]'>
+      <mat-select-trigger *ngIf="true">
+        <img [src]="'../assets/img/flags/' + select.value + '.svg'" width="24" height="24" />
+      </mat-select-trigger>
+
+      <mat-option *ngFor="let flag of languages" [value]="flag">
+        <img [src]="'../assets/img/flags/' + flag + '.svg'" width="24" height="24" />
+        <span class="ml-2">{{flag.toUpperCase()}}</span>
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <a
-    aria-label="hc com"
-    target="_blank"
-    rel="noopener"
-    href="https://vk.com/hc_guides"
-    title="HCGuides"
-  >
-    <img
-      height="40"
-      src="../../assets/img/logo.png"
-      style="border-radius: 50%"
-    />
+  <a aria-label="hc com" target="_blank" rel="noopener" href="https://vk.com/hc_guides" title="HCGuides">
+    <img height="40" src="../../assets/img/logo.png" style="border-radius: 50%" />
   </a>
 </div>
 
 <mat-drawer-container autosize class="col-12 p-0 mat-drawer-transition">
-  <mat-drawer
-    mode="side"
-    opened="true"
-    #drawer
-    [ngClass]="{ 'sidebar-close1': sidevarOpened }"
-  >
-    <button
-      mat-stroked-button
-      (click)="this.sidevarOpened = !this.sidevarOpened"
-      class="px-1 navitem"
-    >
+  <mat-drawer mode="side" opened="true" #drawer [ngClass]="{ 'sidebar-close1': sidevarOpened }">
+    <button mat-stroked-button (click)="this.sidevarOpened = !this.sidevarOpened" class="px-1 navitem">
       <mat-icon>{{
         this.sidevarOpened ? "keyboard_arrow_left" : "keyboard_arrow_right"
-      }}</mat-icon>
+        }}</mat-icon>
     </button>
 
     <ng-container *ngFor="let i of nav">
-      <button
-        mat-stroked-button
-        [routerLink]="i.route"
-        class="navitem px-1"
-        [ngClass]="{ active: i.route === this.router }"
-      >
+      <button mat-stroked-button [routerLink]="i.route" class="navitem px-1"
+        [ngClass]="{ active: i.route === this.router }">
         <mat-icon mat-list-icon class="mr-0">{{ i.icon }}</mat-icon>
         {{ sidevarOpened ? ("Route." + i.name | translate) : "" }}
       </button>
