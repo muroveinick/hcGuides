@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { HeroRelic } from '../../comlex-comps/hero-relic/hero-relic.component';
 import { T14, T10, A, P, Star } from "../../../data/_var_power"
 import { relics, setLevels } from "./_data"
+import { relicView } from 'src/app/data/_var_hero';
 
 @Component({
   selector: 'hero-comp',
@@ -18,7 +19,8 @@ export class HeroComponent implements OnInit {
   ngAfterViewInit() {
 
     ///set selected relics as arena build -- mask, hamster, hat, flag & banner
-    [14, 6, 21, 1, 3].forEach(i => this.setEquipedRelics(i))
+    this.equipedRelics.active = 14;
+    this.equipedRelics.passive = [6, 21, 1, 3]
   }
 
 
@@ -109,31 +111,21 @@ export class HeroComponent implements OnInit {
     return relics.reduce((sum, curr) => sum.concat(curr.data), []).filter(i => (i.type.r === 35 || i.type.r === 40));
   }
 
-  setEquipedRelics(relicIndex: number) {
+  setEquipedRelics(relicIndex: relicView, index: number) {
 
-    let div_elem: Element = document.querySelector(`.view__item[id='${relicIndex}']`)
-
-    if (div_elem.classList.contains('active')) {
-      if (this.equipedRelics.active === null) {
-        div_elem.classList.add('selected')
-        this.equipedRelics.active = relicIndex
-      } else if (this.equipedRelics.active === relicIndex) {
-        div_elem.classList.remove('selected')
-        this.equipedRelics.active = null
-      }
+    if (relicIndex.type.r === 40) {
+      this.equipedRelics.active = index
     }
 
-    if (div_elem.classList.contains('passive')) {
-      if (this.equipedRelics.passive.includes(relicIndex)) {
-        div_elem.classList.remove('selected')
-        this.equipedRelics.passive.splice(this.equipedRelics.passive.indexOf(relicIndex), 1);
+    if (relicIndex.type.r === 35) {
+      if (this.equipedRelics.passive.includes(index)) {
+        this.equipedRelics.passive.splice(this.equipedRelics.passive.indexOf(index), 1);
         return
       }
 
 
       if (this.equipedRelics.passive.length < 4) {
-        div_elem.classList.add('selected')
-        this.equipedRelics.passive.push(relicIndex)
+        this.equipedRelics.passive.push(index)
       }
     }
   }

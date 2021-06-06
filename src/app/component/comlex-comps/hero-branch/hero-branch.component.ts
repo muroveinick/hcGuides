@@ -8,7 +8,7 @@ import { relicView } from 'src/app/data/_var_hero';
   styleUrls: ['./hero-branch.component.scss']
 })
 export class HeroBranchComponent implements OnInit {
-  static RelicDialog: any[] | Type<any>;
+  // static RelicDialog: any[] | Type<any>;
 
   constructor() { }
 
