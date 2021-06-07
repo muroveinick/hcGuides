@@ -71,9 +71,9 @@
   <mat-tab label="{{'Hero.RelicTab' | translate}}">
     <div class="tab_wrapper">
       <div>
-        <p class="text-center">Выберите релики</p>
+        <p class="text-center">{{'Hero.Tab1Title'|translate}}</p>
         <div class="view mt-4">
-          <ng-container *ngFor="let relic of getRelicsToView() index as index">
+          <ng-container *ngFor="let relic of relic_view, index as index">
             <div *ngIf="relic.type.r === 40" class="m-1 view__item active" id="{{index}}"
               (click)="setEquipedRelics(relic, index)" [ngClass]="{'selected':equipedRelics.active === index}">
               <img [src]="'../../assets/img/'+relic.logo" attr.width="{{relic.type.r*2}}px"
@@ -82,7 +82,7 @@
           </ng-container>
         </div>
         <div class="view mt-4">
-          <ng-container *ngFor="let relic of getRelicsToView() index as index">
+          <ng-container *ngFor="let relic of relic_view, index as index">
             <div *ngIf="relic.type.r === 35" class="m-1 view__item passive" (click)="setEquipedRelics(relic, index)"
               id="{{index}}" [ngClass]="{'selected':equipedRelics.passive.includes(index)}">
               <img [src]="'../../assets/img/'+relic.logo" attr.width="{{relic.type.r*2}}px"
@@ -92,10 +92,11 @@
         </div>
       </div>
       <div class="d-flex flex-column">
-        <p>Настройки героя</p>
+        <p>{{'Hero.Settings'|translate}}</p>
         <mat-form-field appearance="fill">
-          <mat-label>Выберите вкаченность героя</mat-label>
-          <mat-select #select name="hero_levels_select" (selectionChange)="recalculateHeroLevels(select.value)" [value]="available_hero_settings[0].value">
+          <mat-label>{{'Hero.HeroLevel'|translate}}</mat-label>
+          <mat-select #select name="hero_levels_select" (selectionChange)="recalculateHeroLevels(select.value)"
+            [value]="available_hero_settings[0].value">
             <mat-option *ngFor="let set of available_hero_settings" [value]="set.value">
               {{ set.name }}
             </mat-option>

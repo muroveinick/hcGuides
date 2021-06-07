@@ -241,6 +241,18 @@
     "RelicTab": "Selected relics",
     "WarriorsTab": "Warriors",
     "MagesTab": "Mages",
-    "ArchersTab": "Archers"
+    "ArchersTab": "Archers",
+    "Tab1Title": "Pick relics",
+    "Settings": "Hero settings",
+    "HeroLevel": "Grade of hero"
+  },
+  "Calculators": {
+    "Title": "Different calculators",
+    "Hero": "Hero calculator",
+    "Hero_desc": "Hero power, ether and coins cost of upgrade",
+    "Portal": "Portal calculator",
+    "Portal_desc": "How much apples needed to number of souls",
+    "Stat": "Stat calculator",
+    "Stat_desc": "Chance of critical dmg, dodge and resistance in percent"
   }
 }

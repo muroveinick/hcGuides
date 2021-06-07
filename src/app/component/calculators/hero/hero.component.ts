@@ -3,6 +3,7 @@ import { HeroRelic } from '../../comlex-comps/hero-relic/hero-relic.component';
 import { T14, T10, A, P, Star } from "../../../data/_var_power"
 import { relics, setLevels } from "./_data"
 import { relicView } from 'src/app/data/_var_hero';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'hero-comp',
@@ -15,6 +16,7 @@ export class HeroComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.getRelicsToView();
   }
   ngAfterViewInit() {
 
@@ -38,6 +40,7 @@ export class HeroComponent implements OnInit {
 
   selectedELem: HeroRelic = null;
   readonly FULL_HERO_COINS: number = 48929100;
+  relic_view = []
 
 
   recalculateHeroLevels(setting_value: string) {
@@ -108,19 +111,25 @@ export class HeroComponent implements OnInit {
 
   getRelicsToView() {
     /**выбор из всех веток А и P реликов для вывода на вью */
-    return relics.reduce((sum, curr) => sum.concat(curr.data), []).filter(i => (i.type.r === 35 || i.type.r === 40));
+    this.relic_view = relics.reduce((sum, curr) => sum.concat(curr.data), []).filter(i => (i.type.r === 35 || i.type.r === 40));
   }
 
   setEquipedRelics(relicIndex: relicView, index: number) {
 
     if (relicIndex.type.r === 40) {
+      console.log(this.equipedRelics.active, index)
+      if (this.equipedRelics.active === index) {
+        this.equipedRelics.active = null;
+        return;
+      }
       this.equipedRelics.active = index
+
     }
 
     if (relicIndex.type.r === 35) {
       if (this.equipedRelics.passive.includes(index)) {
         this.equipedRelics.passive.splice(this.equipedRelics.passive.indexOf(index), 1);
-        return
+        return;
       }
 
 
@@ -131,11 +140,11 @@ export class HeroComponent implements OnInit {
   }
 
   calculateEqupedPOwer() {
-    let v_arr = this.getRelicsToView();
+    console.log(this.relic_view)
     /*отвратительно, здесь из массива реликов на вью формируется массив выбранных реликов, а затем из reduce считается суммарная мощь */
-    return v_arr
+    return this.relic_view
       .filter((el, index) => this.equipedRelics.passive.includes(index))
-      .concat(this.equipedRelics.active !== null ? v_arr[(this.equipedRelics.active)] : [])
+      .concat(this.equipedRelics.active !== null ? this.relic_view[(this.equipedRelics.active)] : [])
       .reduce((sum, cur) => sum + (+cur.type.r === 35 ? P[cur.curr_level].power : A[cur.curr_level].power), 0)
   }
 
