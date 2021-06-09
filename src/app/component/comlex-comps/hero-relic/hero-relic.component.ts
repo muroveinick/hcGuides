@@ -40,8 +40,8 @@ export class HeroRelic implements OnInit {
       data: this.RelicData
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      this.selected.emit(result);
+    dialogRef.afterClosed().subscribe(_ => {
+      this.selected.emit(this);
     });
   }
 }

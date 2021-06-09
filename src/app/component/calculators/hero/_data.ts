@@ -531,7 +531,7 @@ let relics_archer: relicView[] = [{
   curr_level: 5,
   id: 16,
   logo: 'hero/archer/r_hood.png',
-  variables: [['12%', '14%', '16%', '18%', '21%', '24%', '27%', '30%', '35%', '42%'], ['60%', '60%', '60%', '60%', '60%', '60%', '60%', '60%', '60%', '60%']],
+  variables: [['12%', '14%', '16%', '18%', '21%', '24%', '27%', '30%', '35%', '42%', '49%'], ['60%', '60%', '60%', '60%', '60%', '60%', '60%', '60%', '60%', '60%', '60%']],
   description: 'archer.r_hood',
   type: {
     r: 35,
@@ -1074,3 +1074,11 @@ export const relics = [
   { data: relics_mage, name: "Hero.MagesTab" },
   { data: relics_archer, name: "Hero.ArchersTab" },
 ]
+
+export const available_hero_settings = [
+  { name: 'zzz\'s hero', value: 'mock' },
+  { name: 'min', value: 'min' },
+  { name: 'tr9', value: 'tr9' },
+  { name: 'tr10', value: 'tr10' },
+  { name: 'max', value: 'max' },
+];
