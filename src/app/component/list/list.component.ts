@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { take } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-list',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  url = 'google.com'
 
-  ngOnInit(): void {
+  constructor(private http: HttpClient) {
+  }
+
+
+  ngOnInit() {
+    let headers = new Headers();
+    headers.append('x-forwarded-host', 'foo');
+
+    this.http.get(this.url).pipe(take(1)).subscribe(response => {
+      // this.fetchedHtml = response.json();
+      console.log(response);
+    })
   }
 
 }
