@@ -12,6 +12,18 @@
   line-height: 28.5px;
   color: rgb(34, 34, 34);
 
+  p,
+  ul,
+  ol,
+  pre {
+    margin: 20px 0 0 0;
+  }
+
+  h3,
+  h2 {
+    margin: 40px 0 0 0;
+  }
+
   blockquote {
     padding: 0 30px 0 70px;
     margin: 30px 0;
@@ -27,9 +39,7 @@
   }
 
   figure {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    margin: 30px 0;
   }
   figcaption {
     font-size: 14px;
@@ -44,6 +54,7 @@
   }
 
   > figure[data-mode="1"] {
+    width: 350px;
     float: left;
     margin: 30px 40px 30px 0 !important;
   }

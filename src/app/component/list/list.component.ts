@@ -52,7 +52,8 @@ export class ListComponent implements OnInit {
 
   setImgSizeFromWrrapper(text: string): string {
 
-    text = text.replace(/<div class="article_object_sizer_wrap".+>[\s\S]+?<\/div>/g, (matched_div, p1, offset, string) => {
+    //обычные картинки
+    text = text.replace(/<div class="article_object_sizer_wrap".+>[\s\S]+?<\/div>/g, (matched_div) => {
 
       //парс JSON даты с размерами картинок
       let data_sizes = JSON.parse(matched_div.match(/(?<=data-sizes=").+?(?=")/)[0].replace(/&quot;/g, '"'));
@@ -60,10 +61,22 @@ export class ListComponent implements OnInit {
       let best_resolution = data_sizes[0].w ? data_sizes[0].w : data_sizes[0].z ? data_sizes[0].z : data_sizes[0].y ? data_sizes[0].y : data_sizes[0].x
 
       matched_div = matched_div.replace(/(?<=src=").+?(?=")/, best_resolution[0]);
-      console.log(matched_div)
 
       return matched_div
-    })
+    });
+
+    //карусели
+    text = text.replace(/<div class="article_photo_carousel".+>[\s\S]+?<\/div>/g, (matched_div) => {
+
+      //парс JSON даты с размерами картинок
+      let data_sizes = JSON.parse(matched_div.match(/(?<=data-sizes=").+?(?=")/)[0].replace(/&quot;/g, '"'));
+
+      let best_resolution = data_sizes[0].w ? data_sizes[0].w : data_sizes[0].z ? data_sizes[0].z : data_sizes[0].y ? data_sizes[0].y : data_sizes[0].x
+
+      matched_div = matched_div.replace(/(?<=src=").+?(?=")/, best_resolution[0]);
+
+      return matched_div
+    });
 
     return text;
   }
