@@ -1,28 +1,31 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { take } from 'rxjs/operators';
 
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
 
-  url = 'google.com'
+  url = 'https://vk.com/@hc_guides-gaid-po-osvezhevaniu-kabana';
+  inner;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer) {
   }
 
 
   ngOnInit() {
-    let headers = new Headers();
-    headers.append('x-forwarded-host', 'foo');
+    this.http.get(this.url, { responseType: 'text' }).pipe(take(1)).subscribe(response => {
+      // let reg = new RegExp(/(?<=<div class="article_layer).+?(?=</div>)/);
+      let json1 = response.match(/(?<=<div class="article_layer).+?(?=<\/div>)/g);
 
-    this.http.get(this.url).pipe(take(1)).subscribe(response => {
-      // this.fetchedHtml = response.json();
-      console.log(response);
+      this.inner = this.sanitizer.bypassSecurityTrustHtml(json1 as any);
+      // this.inner = (json);
+      console.log(json1);
     })
   }
 

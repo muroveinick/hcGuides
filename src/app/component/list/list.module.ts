@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Pipe, PipeTransform } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { Routes, RouterModule } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { MatIconModule } from '@angular/material/icon';
@@ -37,15 +38,23 @@ const routes: Routes = [
   },
 ];
 
+@Pipe({ name: "safe" })
+export class SafePipe implements PipeTransform {
+  constructor(private sanitizer: DomSanitizer) { }
+  transform(url) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+}
+
 @NgModule({
   imports: [
     RouterModule.forChild(routes),
     MAT_UI_MODULES,
     TranslateModule,
     CommonModule,
-    HttpClient
+    HttpClientModule,
   ],
-  exports: [RouterModule ],
+  exports: [RouterModule],
   declarations: [ListComponent],
 })
 export class ListModule { }
