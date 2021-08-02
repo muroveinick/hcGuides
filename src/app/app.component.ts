@@ -21,6 +21,7 @@ export class AppComponent {
   router: string
   nav = [
     { route: '/calculators', name: 'Calculators', icon: "calculate" },
+    { route: '/guides', name: 'Guides', icon: "article" },
   ];
 
   languages = ['ru', 'en']

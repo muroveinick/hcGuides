@@ -2,15 +2,19 @@
   --gray_500: #828282;
 }
 
-:host {
+app-list {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .article {
   font-size: 19px;
+  width: 800px;
   line-height: 28.5px;
   color: rgb(34, 34, 34);
+  line-height: 1.5em;
 
   p,
   ul,
@@ -51,6 +55,7 @@
   .article_figure_sizer_content {
     width: 100%;
     height: 100%;
+    position: relative;
   }
 
   > figure[data-mode="1"] {
@@ -59,11 +64,72 @@
     margin: 30px 40px 30px 0 !important;
   }
 
-  .article_photo_carousel__counter {
-    display: none;
+  figure[data-type="101"] {
+    .article_photo_carousel_inner {
+      height: 100%;
+      transition: transform 300ms ease-in-out;
+    }
+    .article_carousel_img_wrap {
+      display: inline-flex;
+      white-space: nowrap;
+      width: 100%;
+      height: 100%;
+      max-height: 300px;
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        position: relative;
+        object-fit: contain;
+        display: block;
+      }
+    }
+    .article_photo_carousel {
+      height: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      background-color: #f3f3f3;
+      border-radius: 2px;
+    }
+
+    .article_photo_carousel__counter {
+      display: none;
+    }
+    .article_photo_carousel__controls {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      .article_photo_carousel__left,
+      .article_photo_carousel__right {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 150px;
+        opacity: 0;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-position: 30px center;
+        background-image: url("../../../assets/img/article/arrow_left.svg");
+        transition: opacity 300ms linear;
+        &:hover:not(.blocked) {
+          opacity: 1;
+        }
+        &.blocked {
+          pointer-events: none;
+        }
+      }
+      .article_photo_carousel__right {
+        right: 0;
+        background-image: url("../../../assets/img/article/arrow_right.svg");
+        background-position: 90px center;
+      }
+    }
   }
   img {
     max-width: 100%;
+    margin: 0 auto;
   }
 
   h2 {

@@ -1,5 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+@import "~@fontsource/montserrat/500.css";
+@import "~@fontsource/montserrat/400.css";
+@import "~@fontsource/montserrat/300.css";
+
 html,
 body {
   height: 100%;
@@ -9,12 +15,13 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   height: calc(100% - 60px);
 }
-*{
-  font-family: Montserrat
+* {
+  font-family: Montserrat;
+  a {
+    // color: rgba(0, 0, 0, 0.87);
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
-
-/* Importing Bootstrap SCSS file. */
-@import "~bootstrap/scss/bootstrap";
-@import "~@fontsource/montserrat/500.css";
-@import "~@fontsource/montserrat/400.css";
-@import "~@fontsource/montserrat/300.css";
