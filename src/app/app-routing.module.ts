@@ -13,7 +13,7 @@ const routes: Routes = [
   {
     path: 'article',
     loadChildren: () =>
-      import('./component/list/list.module').then(
+      import('./component/comlex-comps/list/list.module').then(
         (m) => m.ListModule
       ),
   },

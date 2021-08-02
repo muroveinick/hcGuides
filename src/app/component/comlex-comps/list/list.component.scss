@@ -111,7 +111,7 @@ app-list {
         cursor: pointer;
         background-repeat: no-repeat;
         background-position: 30px center;
-        background-image: url("../../../assets/img/article/arrow_left.svg");
+        background-image: url("../../../../assets/img/article/arrow_left.svg");
         transition: opacity 300ms linear;
         &:hover:not(.blocked) {
           opacity: 1;
@@ -122,7 +122,7 @@ app-list {
       }
       .article_photo_carousel__right {
         right: 0;
-        background-image: url("../../../assets/img/article/arrow_right.svg");
+        background-image: url("../../../../assets/img/article/arrow_right.svg");
         background-position: 90px center;
       }
     }

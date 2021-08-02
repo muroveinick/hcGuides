@@ -1,6 +1,7 @@
 {
   "Route": {
-    "Calculators": "Calculators"
+    "Calculators": "Calculators",
+    "Guides": "Text guides"
   },
 
   "Portal": {
