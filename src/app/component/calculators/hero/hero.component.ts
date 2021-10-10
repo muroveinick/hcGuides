@@ -23,7 +23,7 @@ export class HeroComponent implements OnInit {
 
     ///set selected relics as arena build -- mask, hamster, hat, flag & banner
     this.equipedRelics.active = 14;
-    this.equipedRelics.passive = [6, 21, 1, 3];
+    this.equipedRelics.passive = [6, 13, 1, 32];
     this.caclulateTalentPower();
     this.calculateEqupedPOwer();
   }
@@ -36,7 +36,7 @@ export class HeroComponent implements OnInit {
 
 
   selectedELem: HeroRelic = null;
-  readonly FULL_HERO_COINS: number = 48929100;
+  readonly FULL_HERO_COINS: number = 213860100 //15860100 + 6*11М + 6*22М;
   readonly available_hero_settings = available_hero_settings;
   relic_view = [];
 
@@ -73,6 +73,7 @@ export class HeroComponent implements OnInit {
   caclulateTalentPower() {
 
     this.hero_data.power_talant = 0;
+    this.hero_data.all= 0;
 
     relics.forEach((branch, index) => {
       let branch_cost = 0;
@@ -90,13 +91,9 @@ export class HeroComponent implements OnInit {
           this.hero_data.all += curr[i.curr_level].total_coins
           branch_cost += curr[i.curr_level].total_coins
         }
-
-
-
         this.hero_data[index] = branch_cost;
       })
     });
-    // console.log(this.hero_data);
   }
 
 
@@ -148,14 +145,15 @@ export class HeroComponent implements OnInit {
 
 
   formatToSepString(number: number) {
-    return number
-      .toString()
-      .split('')
-      .reverse()
-      .join('')
-      .match(/\d{1,3}/g)
-      .reverse()
-      .map((i) => i.split('').reverse().join(''))
-      .join('.');
+    if (!isNaN(number))
+      return number
+        .toString()
+        .split('')
+        .reverse()
+        .join('')
+        .match(/\d{1,3}/g)
+        .reverse()
+        .map((i) => i.split('').reverse().join(''))
+        .join('.');
   }
 }

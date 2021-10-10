@@ -61,11 +61,16 @@ const A = [
   { power: 600000, coins: 80000, total_coins: 245150, },
 ];
 
-const Star = function (level: number) {
-  return {
+const Star = (level: number) => {
+
+  return level < 100 ? {
     power: 800 * level,
-    coins: (level ? (23000 + 11000) : 0) + 2000 * (level - 1),
-    total_coins: (level ? 23000 : 0) + (2 * 11000 + 2000 * (level - 1)) / 2 * level
+    coins: (level ? 11000 : 0) + 2000 * (level - 1),
+    total_coins: (2 * 11000 + 2000 * (level - 1)) / 2 * level
+  } : {
+    power: 80000 + (level - 100) * 1200,
+    coins: 220000,
+    total_coins: 11000000 + 220000 * (level - 100)
   }
 }
 

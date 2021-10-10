@@ -78,7 +78,8 @@
       "bay_flag": "Increases the health, armor, and damage of all allied units by {} if the battle is being fought in the Gem Bay.",
       "counterattack": "Allied warriors have a {} chance of counterattacking their target in close quarters, immediately striking a retaliatory blow that deals {} damage out of turn.",
       "shields": "{} of the damage done to an allied warrior is evenly distributed among the other warriors in the squad. Not applicable to damage done by an instant kill.",
-      "star": "Increases the health of all allied warriors by {} (next level: by {})."
+      "star": "Increases the health of all allied warriors by {} (next level: by {}).",
+      "star2": "Enhances the physical damage done by all allied warriors by {} (next level: by {})."
     },
     "mage": {
       "archimage": "Every attack by allied Mages increases their Spell Power by {}.",
@@ -108,7 +109,8 @@
       "dungeon_flag": "Increases the health, armor, and damage of all allied units by {} if the battle is being fought in a Dungeon.",
       "expl_magic": "Splash damage done by allied mages’ basic attack is enhanced to {} instead of the usual {}",
       "shirt": "Allied mages have a {} chance of cursing the target they are attacking, disarming it for {} sec and enhancing magic damage it takes by {} over {} sec.",
-      "star": "Increases the spell power of all allied mages by {} (next level: by {})."
+      "star": "Increases the spell power of all allied mages by {} (next level: by {}).",
+      "star2": "Increases the health of all allied mages by {} (next level: by {})."
     },
     "archer": {
       "precise": "Every shot made by allied Archers increases their Crit by {}.",
@@ -138,7 +140,8 @@
       "bay_banner": "Increases the number of Kraken Tokens earned in the Gem Bay by {}.",
       "piercing": "Allied archers have a {} chance of ignoring {} of the target’s physical armor while attacking.",
       "slingshot": "Allied archers have a {} chance of injuring their current target for {} sec, reducing the healing it receives by {} and its armor by {}.",
-      "star": "Enhances the physical damage done by all allied archers by {} (next level: by {})."
+      "star": "Enhances the physical damage done by all allied archers by {} (next level: by {}).",
+      "star2": "Increases the health of all allied archers by {} (next level: by {})."
     }
   },
   "relic_names": {
@@ -170,7 +173,8 @@
       "bay_flag": "Gem Bay Flag",
       "counterattack": "Counterattack",
       "shields": "Wall of Shields",
-      "star": "Warrior Star"
+      "star": "Warrior's Health Star",
+      "star2": "Warrior's Damage Star"
     },
     "mage": {
       "archimage": "Archimage",
@@ -200,7 +204,8 @@
       "dungeon_flag": "Dungeon Flag",
       "expl_magic": "Explosive Magic",
       "shirt": "Shirt of Pacification",
-      "star": "Mage Star"
+      "star": "Mage's Spell Power Star",
+      "star2": "Mage's Health Star"
     },
     "archer": {
       "precise": "Precise Fire",
@@ -230,7 +235,8 @@
       "bay_banner": "Banner of Kraken",
       "piercing": "Piercing Shot",
       "slingshot": "Deadly Slingshot",
-      "star": "Archer Star"
+      "star": "Archer's Damage Star",
+      "star2": "Archer's Health Star"
     }
   },
   "Hero": {

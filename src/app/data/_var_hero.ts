@@ -16,7 +16,7 @@ interface T14 {
 }
 interface Star {
   r: 50,
-  levels: 100,
+  levels: 200,
 }
 
 interface relicView {

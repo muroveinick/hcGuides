@@ -9,6 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "ez": "ng serve --disableHostCheck --host 0.0.0.0 --port 4433 -o",
+    "i18n:init": "ngx-translate-extract -i ./src -o src/assets/i18n/*.json --sort --format namespaced-json",
     "heroku-postbuild": "ng build -c=production"
   },
   "private": true,
@@ -24,6 +25,7 @@
     "@angular/platform-browser": "~12.1.4",
     "@angular/platform-browser-dynamic": "~12.1.4",
     "@angular/router": "~12.1.4",
+    "@fontsource/montserrat": "4.5.0",
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
@@ -32,14 +34,14 @@
     "path": "^0.12.7",
     "rxjs": "~7.3.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4",
-    "@fontsource/montserrat": "4.5.0"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^12.1.4",
     "@angular/cli": "^12.1.4",
     "@angular/compiler-cli": "~12.1.4",
     "@angular/language-service": "~12.1.4",
+    "@biesbjerg/ngx-translate-extract": "^7.0.4",
     "@types/jasmine": "~3.8.2",
     "@types/jasminewd2": "^2.0.10",
     "@types/node": "^16.4.7",

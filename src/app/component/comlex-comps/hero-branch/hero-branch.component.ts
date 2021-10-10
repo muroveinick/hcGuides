@@ -34,7 +34,7 @@ export class HeroBranchComponent implements OnInit {
     { cont_type: "cont4", ids: [15, 16, 17, 18] },
     { cont_type: "cont5", ids: [19, 20, 21, 22] },
     { cont_type: "cont5", ids: [23, 24, 25, 26] },
-    { cont_type: "", ids: [27] },
+    { cont_type: "", ids: [27, 28] },
   ]
 
 
