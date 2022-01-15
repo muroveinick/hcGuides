@@ -1,7 +1,8 @@
 {
   "Route": {
     "Calculators": "Calculators",
-    "Guides": "Text guides"
+    "Guides": "Text guides",
+    "Events": "Events roadmap"
   },
 
   "Portal": {

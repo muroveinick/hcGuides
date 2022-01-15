@@ -1,0 +1,14 @@
+:host{
+  width: 100%;
+}
+
+.year {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+}
+
+.month {
+  border: 1px solid;
+  padding: 2px;
+}

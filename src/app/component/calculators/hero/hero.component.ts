@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { HeroRelic } from '../../comlex-comps/hero-relic/hero-relic.component';
-import { T14, T10, A, P, Star } from "../../../data/_var_power"
-import { relics, setLevels, available_hero_settings } from "./_data"
-import { relicView } from 'src/app/data/_var_hero';
+import { T14, T10, A, P, Star } from "../../../data/_hero_power"
+import { relics, setLevels, available_hero_settings } from "../../../data/_hero_data"
+import { relicView } from 'src/app/data/_hero_interfaces';
 
 
 

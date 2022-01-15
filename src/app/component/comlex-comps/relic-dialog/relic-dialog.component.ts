@@ -1,6 +1,6 @@
 
 import { Component, Inject } from '@angular/core';
-import { relicView } from "../../../data/_var_hero"
+import { relicView } from "../../../data/_hero_interfaces"
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 

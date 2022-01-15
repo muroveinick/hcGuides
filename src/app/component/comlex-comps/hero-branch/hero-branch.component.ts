@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, Type } from '@angular/core';
 import { HeroRelic } from '../hero-relic/hero-relic.component';
-import { relicView } from 'src/app/data/_var_hero';
+import { relicView } from 'src/app/data/_hero_interfaces';
 
 @Component({
   selector: 'hero-branch',

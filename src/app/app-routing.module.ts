@@ -24,6 +24,13 @@ const routes: Routes = [
         (m) => m.GuidesModule
       ),
   },
+  {
+    path: 'events',
+    loadChildren: () =>
+      import('./component/event-roadmap/event-roadmap.module').then(
+        (m) => m.EventRoadmapModule
+      ),
+  },
 ];
 
 @NgModule({

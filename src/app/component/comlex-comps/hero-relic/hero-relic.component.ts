@@ -1,6 +1,6 @@
 
 import { Component, OnInit, Input, ElementRef, Output, EventEmitter, HostListener } from '@angular/core';
-import { relicView } from "../../../data/_var_hero"
+import { relicView } from "../../../data/_hero_interfaces"
 import { MatDialog, } from '@angular/material/dialog';
 import { RelicDialog } from '../relic-dialog/relic-dialog.component';
 

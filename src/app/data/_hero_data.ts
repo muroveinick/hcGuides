@@ -1,4 +1,4 @@
-import { relicView } from '../../../data/_var_hero';
+import { relicView } from './_hero_interfaces';
 
 let relics_warrior: relicView[] = [
   {

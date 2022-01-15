@@ -22,6 +22,7 @@ export class AppComponent {
   nav = [
     { route: '/calculators', name: 'Calculators', icon: "calculate" },
     { route: '/guides', name: 'Guides', icon: "article" },
+    { route: '/events', name: 'Events', icon: "dashboard" },
   ];
 
   languages = ['ru', 'en']
